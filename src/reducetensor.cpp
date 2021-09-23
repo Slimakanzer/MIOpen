@@ -477,6 +477,36 @@ static std::string get_kernel_file_name(const bool isFirstCall,
     return (outs.str());
 };
 
+static int merge_packed_dimensions(int* dimLengths, int* dimStrides, int numDims)
+{
+    assert(numDims >= 1);
+
+    int resNumDims = numDims;
+    int pos        = numDims - 1;
+
+    while(pos > 0)
+    {
+        // packed dimensions
+        if(dimStrides[pos - 1] == dimLengths[pos] * dimStrides[pos])
+        {
+            dimLengths[pos] = dimLengths[pos] * dimLengths[pos - 1];
+
+            // shift the lower lengths/strides to left by 1
+            for(int i = pos; i < resNumDims; i++)
+            {
+                dimLengths[i - 1] = dimLengths[i];
+                dimStrides[i - 1] = dimStrides[i];
+            };
+            resNumDims--;
+            pos--;
+        }
+        else
+            pos--;
+    };
+
+    return (resNumDims);
+};
+
 }; // end of namespace detailD
 
 ReduceTensorDescriptor::ReduceTensorDescriptor(miopenReduceTensorOp_t reduceTensorOp,
@@ -919,6 +949,28 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
             p_outStrides[0] = 1;
         };
 
+        int mergedInvariantDims =
+            reduceAllDims
+                ? 0
+                : detailD::merge_packed_dimensions(p_inLengths, p_inStrides, invariantDims.size());
+        int mergedOutDims = reduceAllDims ? 1
+                                          : detailD::merge_packed_dimensions(
+                                                p_outLengths, p_outStrides, invariantDims.size());
+
+        int tmpPos             = invariantDims.size();
+        int mergedToReduceDims = detailD::merge_packed_dimensions(
+            &p_inLengths[tmpPos], &p_inStrides[tmpPos], toReduceDims.size());
+
+        // pack p_inLengths[] and p_inStrides[]
+        if(invariantDims.size() > 0 && invariantDims.size() > mergedInvariantDims)
+        {
+            for(int i = 0; i < mergedToReduceDims; i++)
+            {
+                p_inLengths[mergedInvariantDims + i] = p_inLengths[tmpPos + i];
+                p_inStrides[mergedInvariantDims + i] = p_inStrides[tmpPos + i];
+            };
+        };
+
         const std::vector<size_t> vld  = {static_cast<size_t>(tunable->BlockSize), 1, 1};
         const std::vector<size_t> vgd1 = {static_cast<size_t>(tunable->BlockSize), 1, 1};
         const std::vector<size_t> vgd2 = {static_cast<size_t>(gridSize) * tunable->BlockSize, 1, 1};
@@ -935,16 +987,16 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
             " " + detailD::get_definition_string_from_tunable(tunable);
 
         if(!reduceAllDims)
-            param += " -DCK_PARAM_NUM_TOREDUCE_DIMS=" + std::to_string(toReduceDims.size());
+            param += " -DCK_PARAM_NUM_TOREDUCE_DIMS=" + std::to_string(mergedToReduceDims);
 
         param += " -DCK_PARAM_REDUCE_OP=" +
                  std::to_string(static_cast<int>(detailD::mapReduceOpId(reduceOp)));
 
         param += detailD::get_definition_string_from_options(nanPropaOpt, reduceIndicesOpt);
 
-        param += " -DCK_PARAM_IN_DIMS=" + std::to_string(inDescLengths.size());
+        param += " -DCK_PARAM_IN_DIMS=" + std::to_string(mergedInvariantDims + mergedToReduceDims);
         param += " -DCK_PARAM_OUT_DIMS=";
-        param += reduceAllDims ? "1" : std::to_string(invariantDims.size());
+        param += reduceAllDims ? "1" : std::to_string(mergedOutDims);
 
         float time_reduce = 0.0f;
 
@@ -1000,6 +1052,12 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
                 p_inStrides[3],
                 p_inStrides[4],
                 p_inStrides[5],
+                p_outLengths[0],
+                p_outLengths[1],
+                p_outLengths[2],
+                p_outLengths[3],
+                p_outLengths[4],
+                p_outLengths[5],
                 p_outStrides[0],
                 p_outStrides[1],
                 p_outStrides[2],

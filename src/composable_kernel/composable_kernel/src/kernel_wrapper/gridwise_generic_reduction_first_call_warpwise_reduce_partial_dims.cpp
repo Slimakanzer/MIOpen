@@ -106,6 +106,12 @@ extern "C" __global__ void gridwise_generic_reduce_1_prepare(int GridSize,
                                                              int inStride3,
                                                              int inStride4,
                                                              int inStride5,
+                                                             int outLength0,
+                                                             int outLength1,
+                                                             int outLength2,
+                                                             int outLength3,
+                                                             int outLength4,
+                                                             int outLength5,
                                                              int outStride0,
                                                              int outStride1,
                                                              int outStride2,
@@ -121,12 +127,14 @@ extern "C" __global__ void gridwise_generic_reduce_1_prepare(int GridSize,
 
     const int srcLengths[6] = {inLength0, inLength1, inLength2, inLength3, inLength4, inLength5};
     const int srcStrides[6] = {inStride0, inStride1, inStride2, inStride3, inStride4, inStride5};
+    const int dstLengths[6] = {
+        outLength0, outLength1, outLength2, outLength3, outLength4, outLength5};
     const int dstStrides[6] = {
         outStride0, outStride1, outStride2, outStride3, outStride4, outStride5};
 
     const auto tupleSrcLengths = make_tuple_from_array(srcLengths, Number<srcDims>{});
     const auto tupleSrcStrides = make_tuple_from_array(srcStrides, Number<srcDims>{});
-    const auto tupleDstLengths = make_tuple_from_array(srcLengths, Number<dstDims>{});
+    const auto tupleDstLengths = make_tuple_from_array(dstLengths, Number<dstDims>{});
     const auto tupleDstStrides = make_tuple_from_array(dstStrides, Number<dstDims>{});
 
     const auto srcDesc = make_naive_tensor_descriptor(tupleSrcLengths, tupleSrcStrides);
