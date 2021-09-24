@@ -44,8 +44,8 @@
 #include <sstream>
 
 // headers from composable kernel, to get consistent ID mapping
-#include "../composable_kernel/composable_kernel/include/utility/data_type_enum.hpp"
-#include "../composable_kernel/composable_kernel/include/utility/reduction_enums.hpp"
+#include <../composable_kernel/composable_kernel/include/utility/data_type_enum.hpp>
+#include <../composable_kernel/composable_kernel/include/utility/reduction_enums.hpp>
 
 MIOPEN_DECLARE_ENV_VAR(MIOPEN_DEBUG_DYNAMIC_REDUCTION);
 
@@ -219,7 +219,7 @@ inline int GetDataTypeSize(miopenDataType_t t)
 
 }; // end of namespace detail
 
-namespace detailS {
+namespace detailStatic {
 
 struct get_tunable_reduction_kernel_constants
 {
@@ -290,9 +290,9 @@ inline int GetReduceTensorOpId(miopenReduceTensorOp_t t)
     };
 };
 
-}; // end of namespace detailS
+}; // end of namespace detailStatic
 
-namespace detailD {
+namespace detailDynamic {
 
 static ck::DataTypeEnum_t mapDataTypeId(miopenDataType_t t)
 {
@@ -524,7 +524,7 @@ static int get_dim_vector_io_size(miopenDataType_t dataType, int dimLength, int 
     return (1);
 };
 
-}; // end of namespace detailD
+}; // end of namespace detailDynamic
 
 ReduceTensorDescriptor::ReduceTensorDescriptor(miopenReduceTensorOp_t reduceTensorOp,
                                                miopenDataType_t reduceTensorCompType,
@@ -749,7 +749,7 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
             }
         };
 
-        detailS::get_tunable_reduction_kernel_constants get_constants(reduceImpl);
+        detailStatic::get_tunable_reduction_kernel_constants get_constants(reduceImpl);
 
         int GredThreadBufferLength       = get_constants.GredThreadBufferLength;
         int GredAccessesPerThreadInBlock = get_constants.GredAccessesPerThreadInBlock;
@@ -760,9 +760,12 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
         param = std::string(" -std=c++14 ");
         param += " -DCK_PARAM_BLOCKSIZE=" + std::to_string(blockSize);
         param += " -DCK_PARAM_BLKGROUPSIZE=" + std::to_string(blkGroupSize);
-        param += " -DCK_PARAM_SRC_DATATYPE=" + std::to_string(detailS::GetDataTypeId(srcDataType));
-        param += " -DCK_PARAM_DST_DATATYPE=" + std::to_string(detailS::GetDataTypeId(dstDataType));
-        param += " -DCK_PARAM_REDUCE_COMPTYPE=" + std::to_string(detailS::GetDataTypeId(compType));
+        param +=
+            " -DCK_PARAM_SRC_DATATYPE=" + std::to_string(detailStatic::GetDataTypeId(srcDataType));
+        param +=
+            " -DCK_PARAM_DST_DATATYPE=" + std::to_string(detailStatic::GetDataTypeId(dstDataType));
+        param +=
+            " -DCK_PARAM_REDUCE_COMPTYPE=" + std::to_string(detailStatic::GetDataTypeId(compType));
 
         param += " -DCK_PARAM_SRC_DESC_LENGTHS=";
         for(int i = 0; i < inDescLengths.size(); i++)
@@ -825,7 +828,8 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
         else
             param += " -DCK_PARAM_INVARIANT_DIMS= ";
 
-        param += " -DCK_PARAM_REDUCE_OP=" + std::to_string(detailS::GetReduceTensorOpId(reduceOp));
+        param +=
+            " -DCK_PARAM_REDUCE_OP=" + std::to_string(detailStatic::GetReduceTensorOpId(reduceOp));
         param += " -DCK_PARAM_NAN_PROPAGATE=" +
                  std::to_string(nanPropaOpt == MIOPEN_PROPAGATE_NAN ? 1 : 0);
         param += " -DCK_PARAM_REDUCE_INDICES=" +
@@ -966,16 +970,16 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
             p_outStrides[0] = 1;
         };
 
-        int mergedInvariantDims =
-            reduceAllDims
-                ? 0
-                : detailD::merge_packed_dimensions(p_inLengths, p_inStrides, invariantDims.size());
+        int mergedInvariantDims = reduceAllDims
+                                      ? 0
+                                      : detailDynamic::merge_packed_dimensions(
+                                            p_inLengths, p_inStrides, invariantDims.size());
         int mergedOutDims = reduceAllDims ? 1
-                                          : detailD::merge_packed_dimensions(
+                                          : detailDynamic::merge_packed_dimensions(
                                                 p_outLengths, p_outStrides, invariantDims.size());
 
         int tmpPos             = invariantDims.size();
-        int mergedToReduceDims = detailD::merge_packed_dimensions(
+        int mergedToReduceDims = detailDynamic::merge_packed_dimensions(
             &p_inLengths[tmpPos], &p_inStrides[tmpPos], toReduceDims.size());
 
         // pack p_inLengths[] and p_inStrides[]
@@ -999,17 +1003,17 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
 
         param = solver::ck_utility::get_ck_common_compiler_flag(handle);
 
-        param +=
-            detailD::get_definition_string_from_type_enums(srcDataType, compType, dstDataType) +
-            " " + detailD::get_definition_string_from_tunable(tunable);
+        param += detailDynamic::get_definition_string_from_type_enums(
+                     srcDataType, compType, dstDataType) +
+                 " " + detailDynamic::get_definition_string_from_tunable(tunable);
 
         if(!reduceAllDims)
             param += " -DCK_PARAM_NUM_TOREDUCE_DIMS=" + std::to_string(mergedToReduceDims);
 
         param += " -DCK_PARAM_REDUCE_OP=" +
-                 std::to_string(static_cast<int>(detailD::mapReduceOpId(reduceOp)));
+                 std::to_string(static_cast<int>(detailDynamic::mapReduceOpId(reduceOp)));
 
-        param += detailD::get_definition_string_from_options(nanPropaOpt, reduceIndicesOpt);
+        param += detailDynamic::get_definition_string_from_options(nanPropaOpt, reduceIndicesOpt);
 
         param += " -DCK_PARAM_IN_DIMS=" + std::to_string(mergedInvariantDims + mergedToReduceDims);
         param += " -DCK_PARAM_OUT_DIMS=";
@@ -1017,13 +1021,14 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
 
         float time_reduce = 0.0f;
 
-        network_config =
-            detailD::get_network_config_string_from_type_enums(srcDataType, compType, dstDataType) +
-            "_" + detailD::get_network_config_string_from_tunable(tunable) + "_";
+        network_config = detailDynamic::get_network_config_string_from_type_enums(
+                             srcDataType, compType, dstDataType) +
+                         "_" + detailDynamic::get_network_config_string_from_tunable(tunable) + "_";
 
-        network_config += std::to_string(static_cast<int>(detailD::mapReduceOpId(reduceOp))) + "_";
         network_config +=
-            detailD::get_network_config_string_from_options(nanPropaOpt, reduceIndicesOpt);
+            std::to_string(static_cast<int>(detailDynamic::mapReduceOpId(reduceOp))) + "_";
+        network_config +=
+            detailDynamic::get_network_config_string_from_options(nanPropaOpt, reduceIndicesOpt);
 
         network_config += "I" + std::to_string(inDescLengths.size()) + "_";
 
@@ -1031,14 +1036,14 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
         network_config += std::to_string(toReduceDims.size()) + "_";
         network_config += "BSIZE_" + std::to_string(tunable->BlockSize);
 
-        auto use_padding = detailD::get_padding_need(reduceImpl,
-                                                     invariantLength,
-                                                     toReduceLength,
-                                                     gridSize,
-                                                     tunable->BlockSize,
-                                                     handle.GetWavefrontWidth(),
-                                                     blkGroupSize,
-                                                     tunable);
+        auto use_padding = detailDynamic::get_padding_need(reduceImpl,
+                                                           invariantLength,
+                                                           toReduceLength,
+                                                           gridSize,
+                                                           tunable->BlockSize,
+                                                           handle.GetWavefrontWidth(),
+                                                           blkGroupSize,
+                                                           tunable);
 
         std::string param1 =
             param +
@@ -1046,13 +1051,13 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
             " -DCK_PARAM_DST1D_PADDING=" + std::to_string(static_cast<int>(use_padding.second));
 
         param1 += " -DCK_PARAM_IN_VECTOR_IO_SIZE=" +
-                  std::to_string(detailD::get_dim_vector_io_size(
+                  std::to_string(detailDynamic::get_dim_vector_io_size(
                       srcDataType,
                       p_inLengths[mergedInvariantDims + mergedToReduceDims - 1],
                       p_inStrides[mergedInvariantDims + mergedToReduceDims - 1]));
 
         const std::string program_name1 =
-            detailD::get_kernel_file_name(true, reduceImpl, reduceAllDims);
+            detailDynamic::get_kernel_file_name(true, reduceImpl, reduceAllDims);
         std::string kernel_name1     = "gridwise_generic_reduce_1_prepare";
         std::string network_config_1 = network_config + "_1_P" + std::to_string(reduceImpl) +
                                        std::to_string(static_cast<int>(use_padding.first)) +
@@ -1138,14 +1143,14 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
             const std::vector<size_t> vgd2_2 = {
                 static_cast<size_t>(gridSize_2) * tunable->BlockSize, size_t{1}, size_t{1}};
             const auto reduceImpl2  = configurator.GetReductionMethod_2(toReduceLength_2);
-            const auto use_padding2 = detailD::get_padding_need(reduceImpl2,
-                                                                invariantLength,
-                                                                toReduceLength_2,
-                                                                gridSize_2,
-                                                                tunable->BlockSize,
-                                                                handle.GetWavefrontWidth(),
-                                                                1,
-                                                                tunable);
+            const auto use_padding2 = detailDynamic::get_padding_need(reduceImpl2,
+                                                                      invariantLength,
+                                                                      toReduceLength_2,
+                                                                      gridSize_2,
+                                                                      tunable->BlockSize,
+                                                                      handle.GetWavefrontWidth(),
+                                                                      1,
+                                                                      tunable);
 
             std::string param2 = param + " -DCK_PARAM_SRC2D_PADDING=" +
                                  std::to_string(static_cast<int>(use_padding2.first)) +
@@ -1154,7 +1159,7 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
             param2 += " -DCK_PARAM_IN_VECTOR_IO_SIZE=1";
 
             std::string program_name2 =
-                detailD::get_kernel_file_name(false, reduceImpl2, reduceAllDims);
+                detailDynamic::get_kernel_file_name(false, reduceImpl2, reduceAllDims);
             std::string kernel_name2     = "gridwise_generic_reduce_2_prepare";
             std::string network_config_2 = network_config + "_2_P" + std::to_string(reduceImpl2) +
                                            std::to_string(static_cast<int>(use_padding2.first)) +
