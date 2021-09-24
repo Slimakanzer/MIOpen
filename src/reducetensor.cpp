@@ -507,6 +507,23 @@ static int merge_packed_dimensions(int* dimLengths, int* dimStrides, int numDims
     return (resNumDims);
 };
 
+static int get_dim_vector_io_size(miopenDataType_t dataType, int dimLength, int dimStride)
+{
+    if(dimStride != 1)
+        return (1);
+
+    if(dataType != miopenDouble && dimLength % 8 == 0)
+        return (8);
+
+    if(dimLength % 4 == 0)
+        return (4);
+
+    if(dimLength % 2 == 0)
+        return (2);
+
+    return (1);
+};
+
 }; // end of namespace detailD
 
 ReduceTensorDescriptor::ReduceTensorDescriptor(miopenReduceTensorOp_t reduceTensorOp,
@@ -1028,6 +1045,12 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
             " -DCK_PARAM_SRC2D_PADDING=" + std::to_string(static_cast<int>(use_padding.first)) +
             " -DCK_PARAM_DST1D_PADDING=" + std::to_string(static_cast<int>(use_padding.second));
 
+        param1 += " -DCK_PARAM_IN_VECTOR_IO_SIZE=" +
+                  std::to_string(detailD::get_dim_vector_io_size(
+                      srcDataType,
+                      p_inLengths[mergedInvariantDims + mergedToReduceDims - 1],
+                      p_inStrides[mergedInvariantDims + mergedToReduceDims - 1]));
+
         const std::string program_name1 =
             detailD::get_kernel_file_name(true, reduceImpl, reduceAllDims);
         std::string kernel_name1     = "gridwise_generic_reduce_1_prepare";
@@ -1128,6 +1151,7 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
                                  std::to_string(static_cast<int>(use_padding2.first)) +
                                  " -DCK_PARAM_DST1D_PADDING=" +
                                  std::to_string(static_cast<int>(use_padding2.second));
+            param2 += " -DCK_PARAM_IN_VECTOR_IO_SIZE=1";
 
             std::string program_name2 =
                 detailD::get_kernel_file_name(false, reduceImpl2, reduceAllDims);

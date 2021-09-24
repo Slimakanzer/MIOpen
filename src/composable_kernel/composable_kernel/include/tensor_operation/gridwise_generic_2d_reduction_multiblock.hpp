@@ -46,6 +46,9 @@ template <index_t BlockSize,
           index_t GredAccessesPerThreadInBlock>
 struct GridwiseReduction_xy_to_x_multiblock
 {
+    static constexpr index_t inVectorSize =
+        math::gcd(GredAccessesPerThreadInBlock, CK_PARAM_IN_VECTOR_IO_SIZE);
+
     using opReduce       = typename reduce_binary_operator<compType, op>::opType;
     using preUnaryOpType = typename reduce_unary_operator<compType, op, true, false>::preUnaryOp;
     using posUnaryOpType = typename reduce_unary_operator<compType, op, true, false>::posUnaryOp;
@@ -137,8 +140,8 @@ struct GridwiseReduction_xy_to_x_multiblock
                                                                   Sequence<0, 1>,
                                                                   1,
                                                                   1,
-                                                                  1,
-                                                                  1,
+                                                                  inVectorSize,
+                                                                  inVectorSize,
                                                                   1,
                                                                   1,
                                                                   false,
@@ -274,8 +277,8 @@ struct GridwiseReduction_xy_to_x_multiblock
                                                                   Sequence<0, 1>,
                                                                   1,
                                                                   1,
-                                                                  1,
-                                                                  1,
+                                                                  inVectorSize,
+                                                                  inVectorSize,
                                                                   1,
                                                                   1,
                                                                   false,

@@ -49,6 +49,9 @@ template <index_t BlockSize,
           index_t GredAccessesPerThreadInWarp>
 struct GridwiseReduction_xy_to_x_direct_warpwise
 {
+    static constexpr index_t inVectorSize =
+        math::gcd(GredAccessesPerThreadInWarp, CK_PARAM_IN_VECTOR_IO_SIZE);
+
     using opReduce = typename reduce_binary_operator<compType, op>::opType;
     using preUnaryOpType =
         typename reduce_unary_operator<compType, op, isFirstCall, isLastCall>::preUnaryOp;
@@ -120,7 +123,7 @@ struct GridwiseReduction_xy_to_x_direct_warpwise
                                                                     ThreadBufferLengths,
                                                                     Sequence<0, 1>,
                                                                     1,
-                                                                    1,
+                                                                    inVectorSize,
                                                                     1,
                                                                     false>(
             src2dDesc,
@@ -256,7 +259,7 @@ struct GridwiseReduction_xy_to_x_direct_warpwise
                                                                     ThreadBufferLengths,
                                                                     Sequence<0, 1>,
                                                                     1,
-                                                                    1,
+                                                                    inVectorSize,
                                                                     1,
                                                                     false>(
             src2dDesc,
