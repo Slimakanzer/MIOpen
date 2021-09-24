@@ -394,7 +394,7 @@ struct GridwiseReduction_xy_to_x_direct_threadwise
                                                                         ThreadBufferLengths,
                                                                         Sequence<0, 1>,
                                                                         1,
-                                                                        1,
+                                                                        inVectorSize,
                                                                         1,
                                                                         false>(
             src2dDesc, make_multi_index(thread_global_1d_id, 0));
@@ -406,7 +406,7 @@ struct GridwiseReduction_xy_to_x_direct_threadwise
                                                                         ThreadBufferLengths,
                                                                         Sequence<0, 1>,
                                                                         1,
-                                                                        1,
+                                                                        inVectorSize,
                                                                         1,
                                                                         false>(
             src2dDesc, make_multi_index(thread_global_1d_id, 0));

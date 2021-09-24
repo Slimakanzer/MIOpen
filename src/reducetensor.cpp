@@ -1156,7 +1156,9 @@ void ReduceTensorDescriptor::ReduceTensor(const Handle& handle,
                                  std::to_string(static_cast<int>(use_padding2.first)) +
                                  " -DCK_PARAM_DST1D_PADDING=" +
                                  std::to_string(static_cast<int>(use_padding2.second));
-            param2 += " -DCK_PARAM_IN_VECTOR_IO_SIZE=1";
+            param2 += " -DCK_PARAM_IN_VECTOR_IO_SIZE=" +
+                      std::to_string(
+                          detailDynamic::get_dim_vector_io_size(srcDataType, toReduceLength_2, 1));
 
             std::string program_name2 =
                 detailDynamic::get_kernel_file_name(false, reduceImpl2, reduceAllDims);

@@ -423,7 +423,7 @@ struct GridwiseReduction_xy_to_x_direct_warpwise
                                                                         ThreadBufferLengths,
                                                                         Sequence<0, 1>,
                                                                         1,
-                                                                        1,
+                                                                        inVectorSize,
                                                                         1,
                                                                         false>(
             src2dDesc,
@@ -436,7 +436,7 @@ struct GridwiseReduction_xy_to_x_direct_warpwise
                                                                         ThreadBufferLengths,
                                                                         Sequence<0, 1>,
                                                                         1,
-                                                                        1,
+                                                                        inVectorSize,
                                                                         1,
                                                                         false>(
             src2dDesc,
