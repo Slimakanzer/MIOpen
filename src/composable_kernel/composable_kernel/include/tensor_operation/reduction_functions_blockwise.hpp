@@ -34,20 +34,20 @@
 
 namespace ck {
 
-template <typename buffer2dDescType,
-          bool blockIsOneRow,
+template <typename buffer1dDescType,
+          index_t BlockSize,
           typename opReduce,
           NanPropagation_t nanPropaOpt>
-struct BlockwiseReduction_2d_block_buffer
+struct BlockwiseReduction_1d_block_buffer
 {
     using compType = typename opReduce::dataType;
 
-    static constexpr auto buffer2dDesc = buffer2dDescType{};
+    static constexpr auto buffer1dDesc = buffer1dDescType{};
 
-    static constexpr index_t BlockSize =
-        blockIsOneRow ? buffer2dDesc.GetLength(Number<1>{}) : buffer2dDesc.GetLength(Number<0>{});
-    static constexpr index_t NumBlocks =
-        blockIsOneRow ? buffer2dDesc.GetLength(Number<0>{}) : buffer2dDesc.GetLength(Number<1>{});
+    static_assert(buffer1dDesc.GetElementSize() % BlockSize == 0,
+                  "The buffer size should be a multiple of the BlockSize!");
+
+    static constexpr index_t NumBlocks = buffer1dDesc.GetLength(Number<0>{}) / BlockSize;
     using binop = detail::binop_with_nan_check<nanPropaOpt, opReduce, compType>;
 
     // This interface does not accumulate on indices
@@ -58,18 +58,16 @@ struct BlockwiseReduction_2d_block_buffer
         compType lAccuData            = opReduce::GetReductionZeroVal();
 
         index_t offset;
-        for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
+        for(index_t blockId = 0; blockId < NumBlocks; blockId++)
         {
-            offset = blockIsOneRow
-                         ? buffer2dDesc.CalculateOffset(make_tuple(otherDimInd, thread_local_id))
-                         : buffer2dDesc.CalculateOffset(make_tuple(thread_local_id, otherDimInd));
+            offset =
+                buffer1dDesc.CalculateOffset(make_tuple(blockId * BlockSize + thread_local_id));
             compType opData = type_convert<compType>{}(block_buffer[offset]);
 
             binop::calculate(lAccuData, opData);
         }
 
-        offset = blockIsOneRow ? buffer2dDesc.CalculateOffset(make_tuple(0, thread_local_id))
-                               : buffer2dDesc.CalculateOffset(make_tuple(thread_local_id, 0));
+        offset = buffer1dDesc.CalculateOffset(make_tuple(thread_local_id));
 
         block_buffer(offset) = lAccuData;
 
@@ -79,14 +77,9 @@ struct BlockwiseReduction_2d_block_buffer
         {
             if(thread_local_id < indOffset)
             {
-                index_t offset1 =
-                    blockIsOneRow ? buffer2dDesc.CalculateOffset(make_tuple(0, thread_local_id))
-                                  : buffer2dDesc.CalculateOffset(make_tuple(thread_local_id, 0));
-
+                index_t offset1 = buffer1dDesc.CalculateOffset(make_tuple(thread_local_id));
                 index_t offset2 =
-                    blockIsOneRow
-                        ? buffer2dDesc.CalculateOffset(make_tuple(0, thread_local_id + indOffset))
-                        : buffer2dDesc.CalculateOffset(make_tuple(thread_local_id + indOffset, 0));
+                    buffer1dDesc.CalculateOffset(make_tuple(thread_local_id + indOffset));
 
                 compType opData1 = type_convert<compType>{}(block_buffer[offset1]);
                 compType opData2 = type_convert<compType>{}(block_buffer[offset2]);
@@ -116,18 +109,20 @@ struct BlockwiseReduction_2d_block_buffer
         compType lAccuData            = opReduce::GetReductionZeroVal();
         int lAccuIndex                = 0;
 
-        if constexpr(blockIsOneRow)
+        constexpr bool use_method_1 = false;
+
+        if constexpr(use_method_1)
         {
-            for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
+            for(index_t blockId = 0; blockId < NumBlocks; blockId++)
             {
                 for(index_t indOffset = 1; indOffset < BlockSize; indOffset *= 2)
                 {
                     if(thread_local_id % (indOffset * 2) == 0)
                     {
-                        index_t offset1 =
-                            buffer2dDesc.CalculateOffset(make_tuple(otherDimInd, thread_local_id));
-                        index_t offset2 = buffer2dDesc.CalculateOffset(
-                            make_tuple(otherDimInd, thread_local_id + indOffset));
+                        index_t offset1 = buffer1dDesc.CalculateOffset(
+                            make_tuple(blockId * BlockSize + thread_local_id));
+                        index_t offset2 = buffer1dDesc.CalculateOffset(
+                            make_tuple(blockId * BlockSize + thread_local_id + indOffset));
 
                         compType currVal1 = type_convert<compType>{}(block_buffer[offset1]);
                         compType currVal2 = type_convert<compType>{}(block_buffer[offset2]);
@@ -144,9 +139,9 @@ struct BlockwiseReduction_2d_block_buffer
 
             if(thread_local_id == 0)
             {
-                for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
+                for(index_t blockId = 0; blockId < NumBlocks; blockId++)
                 {
-                    index_t offset = buffer2dDesc.CalculateOffset(make_tuple(otherDimInd, 0));
+                    index_t offset = buffer1dDesc.CalculateOffset(make_tuple(blockId * BlockSize));
 
                     compType tmpVal = type_convert<compType>{}(block_buffer[offset]);
                     int tmpIndex    = block_indices_buffer[offset];
@@ -161,16 +156,18 @@ struct BlockwiseReduction_2d_block_buffer
         {
             index_t offset;
 
-            for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
+            // obvious bank conflicts here when NumBlocks > 1
+            for(index_t blockId = 0; blockId < NumBlocks; blockId++)
             {
-                offset = buffer2dDesc.CalculateOffset(make_tuple(thread_local_id, otherDimInd));
+                offset =
+                    buffer1dDesc.CalculateOffset(make_tuple(thread_local_id * NumBlocks + blockId));
                 compType currVal = type_convert<compType>{}(block_buffer[offset]);
                 int currIndex    = block_indices_buffer[offset];
 
                 binop::calculate(lAccuData, currVal, lAccuIndex, currIndex);
             }
 
-            offset = buffer2dDesc.CalculateOffset(make_tuple(thread_local_id, 0));
+            offset = buffer1dDesc.CalculateOffset(make_tuple(thread_local_id * NumBlocks));
 
             block_buffer(offset)         = lAccuData;
             block_indices_buffer(offset) = lAccuIndex;
@@ -181,9 +178,10 @@ struct BlockwiseReduction_2d_block_buffer
             {
                 if(thread_local_id % (indOffset * 2) == 0)
                 {
-                    index_t offset1 = buffer2dDesc.CalculateOffset(make_tuple(thread_local_id, 0));
-                    index_t offset2 =
-                        buffer2dDesc.CalculateOffset(make_tuple(thread_local_id + indOffset, 0));
+                    index_t offset1 =
+                        buffer1dDesc.CalculateOffset(make_tuple(thread_local_id * NumBlocks));
+                    index_t offset2 = buffer1dDesc.CalculateOffset(
+                        make_tuple((thread_local_id + indOffset) * NumBlocks));
 
                     compType currVal1 = type_convert<compType>{}(block_buffer[offset1]);
                     compType currVal2 = type_convert<compType>{}(block_buffer[offset2]);
@@ -213,11 +211,10 @@ struct BlockwiseReduction_2d_block_buffer
     {
         index_t thread_id = get_thread_local_1d_id();
 
-        for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
+        for(index_t blockId = 0; blockId < NumBlocks; blockId++)
         {
-            index_t offset = blockIsOneRow
-                                 ? buffer2dDesc.CalculateOffset(make_tuple(otherDimInd, thread_id))
-                                 : buffer2dDesc.CalculateOffset(make_tuple(thread_id, otherDimInd));
+            index_t offset =
+                buffer1dDesc.CalculateOffset(make_tuple(blockId * BlockSize + thread_id));
 
             block_buffer(offset) = value;
 
@@ -233,11 +230,10 @@ struct BlockwiseReduction_2d_block_buffer
     {
         index_t thread_id = get_thread_local_1d_id();
 
-        for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
+        for(index_t blockId = 0; blockId < NumBlocks; blockId++)
         {
-            index_t offset = blockIsOneRow
-                                 ? buffer2dDesc.CalculateOffset(make_tuple(otherDimInd, thread_id))
-                                 : buffer2dDesc.CalculateOffset(make_tuple(thread_id, otherDimInd));
+            index_t offset =
+                buffer1dDesc.CalculateOffset(make_tuple(blockId * BlockSize + thread_id));
 
             block_indices_buffer(offset) = offset + indexStart;
 
@@ -251,11 +247,10 @@ struct BlockwiseReduction_2d_block_buffer
     {
         index_t thread_id = get_thread_local_1d_id();
 
-        for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
+        for(index_t blockId = 0; blockId < NumBlocks; blockId++)
         {
-            index_t offset = blockIsOneRow
-                                 ? buffer2dDesc.CalculateOffset(make_tuple(otherDimInd, thread_id))
-                                 : buffer2dDesc.CalculateOffset(make_tuple(thread_id, otherDimInd));
+            index_t offset =
+                buffer1dDesc.CalculateOffset(make_tuple(blockId * BlockSize + thread_id));
 
             block_buffer(offset) = unary_op(block_buffer[offset]);
 
