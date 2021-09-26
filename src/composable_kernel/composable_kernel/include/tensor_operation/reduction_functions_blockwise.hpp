@@ -52,14 +52,13 @@ struct BlockwiseReduction_2d_block_buffer
 
     // This interface does not accumulate on indices
     template <typename BufferType>
-    __device__ static void
-    Reduce(BufferType& block_buffer, index_t toReduceBlocks, compType& accuData)
+    __device__ static void Reduce(BufferType& block_buffer, compType& accuData)
     {
         const index_t thread_local_id = get_thread_local_1d_id();
         compType lAccuData            = opReduce::GetReductionZeroVal();
 
         index_t offset;
-        for(index_t otherDimInd = 0; otherDimInd < toReduceBlocks; otherDimInd++)
+        for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
         {
             offset = blockIsOneRow
                          ? buffer2dDesc.CalculateOffset(make_tuple(otherDimInd, thread_local_id))
@@ -110,7 +109,6 @@ struct BlockwiseReduction_2d_block_buffer
     template <typename BufferType, typename IdxBufferType>
     __device__ static void Reduce2(BufferType& block_buffer,
                                    IdxBufferType& block_indices_buffer,
-                                   index_t toReduceBlocks,
                                    compType& accuData,
                                    int& accuIndex)
     {
@@ -120,7 +118,7 @@ struct BlockwiseReduction_2d_block_buffer
 
         if constexpr(blockIsOneRow)
         {
-            for(index_t otherDimInd = 0; otherDimInd < toReduceBlocks; otherDimInd++)
+            for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
             {
                 for(index_t indOffset = 1; indOffset < BlockSize; indOffset *= 2)
                 {
@@ -146,7 +144,7 @@ struct BlockwiseReduction_2d_block_buffer
 
             if(thread_local_id == 0)
             {
-                for(index_t otherDimInd = 0; otherDimInd < toReduceBlocks; otherDimInd++)
+                for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
                 {
                     index_t offset = buffer2dDesc.CalculateOffset(make_tuple(otherDimInd, 0));
 
@@ -163,7 +161,7 @@ struct BlockwiseReduction_2d_block_buffer
         {
             index_t offset;
 
-            for(index_t otherDimInd = 0; otherDimInd < toReduceBlocks; otherDimInd++)
+            for(index_t otherDimInd = 0; otherDimInd < NumBlocks; otherDimInd++)
             {
                 offset = buffer2dDesc.CalculateOffset(make_tuple(thread_local_id, otherDimInd));
                 compType currVal = type_convert<compType>{}(block_buffer[offset]);
