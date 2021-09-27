@@ -57,12 +57,6 @@ constexpr ReduceTensorIndices_t reduceIndicesOpt = CK_PARAM_REDUCE_INDICES == 0
 constexpr bool src2d_need_padding = static_cast<bool>(CK_PARAM_SRC2D_PADDING);
 constexpr bool dst1d_need_padding = static_cast<bool>(CK_PARAM_DST1D_PADDING);
 
-constexpr index_t num_toReduceDims  = CK_PARAM_NUM_TOREDUCE_DIMS;
-constexpr index_t num_invariantDims = srcDims - num_toReduceDims;
-
-using invariantDims = typename arithmetic_sequence_gen<0, num_invariantDims, 1>::type;
-using toReduceDims  = typename arithmetic_sequence_gen<num_invariantDims, srcDims, 1>::type;
-
 constexpr bool indexable    = reduce_binary_operator<compType, op>::indexable;
 constexpr bool need_indices = indexable && (reduceIndicesOpt != ReduceTensorIndices_t::NO_INDICES);
 
