@@ -37,6 +37,8 @@
 #include <string>
 #include <half.hpp>
 
+#define WORKAROUND_ISSUE_2281337 1 // https://github.com/AMDComputeLibraries/MLOpen/issues/2176
+
 namespace miopen {
 
 FusionPlanDescriptor::FusionPlanDescriptor(const miopenFusionDirection_t dir,
@@ -333,6 +335,9 @@ miopenStatus_t ActivFwdFusionOpDescriptor::SetArgs(OperatorArgs& args,
                      OpKernelArg(static_cast<half_float::half>(
                          activGamma))); // NOLINT (cppcoreguidelines-narrowing-conversions)
     }
+#if WORKAROUND_ISSUE_2281337
+    args.ins_arg("activAlphaFp32" + id, OpKernelArg(static_cast<float>(activAlpha)));
+#endif
     return miopenStatusSuccess;
 }
 
