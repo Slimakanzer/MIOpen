@@ -28,7 +28,6 @@
 
 #include <miopen/conv/data_invoke_params.hpp>
 #include <miopen/conv/compiled_in_parameters.hpp>
-#include <miopen/conv/wrw_invoke_params.hpp>
 #include <miopen/env.hpp>
 #include <miopen/generic_search.hpp>
 #include <miopen/invoke_params.hpp>
@@ -644,17 +643,21 @@ ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& params,
 
     solution.construction_params.push_back(kernel);
 
-    const bool is_forward     = params.direction.IsForward();
-    constexpr int F_REVERSE_R = 1 << 0;
-    constexpr int F_REVERSE_S = 1 << 1;
-    constexpr int F_FLIP_K_C  = 1 << 2;
+    const auto is_forward     = params.direction.IsForward();
+    constexpr unsigned F_REVERSE_R = 1 << 0;
+    constexpr unsigned F_REVERSE_S = 1 << 1;
+    constexpr unsigned F_FLIP_K_C  = 1 << 2;
+    // These are not used yet. Nevertheless let's keep as a shader documentation.
+    // constexpr int F_ADDR_INDERECT  = 1 << 6;
+    // constexpr int F_SIGMOID        = 1 << 8;
+    // constexpr int F_TENSOR_OFFSET  = 1 << 13;
 
-    int flags = 0 ? is_forward : F_REVERSE_R + F_REVERSE_S + F_FLIP_K_C;
+    const auto flags = is_forward ? 0 : F_REVERSE_R + F_REVERSE_S + F_FLIP_K_C;
 
     int ignore               = 0;
-    int reserved             = 0;
     uint64_t reserved_offset = 0;
     int* reserved_ptr        = nullptr;
+    float relu_alpha         = 1.0;
 
     const auto group_cnt = params.group_counts;
     int N, C, H, W, K, out_H, out_W, R, S, pad_H, pad_W;
@@ -769,10 +772,10 @@ ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& params,
               o_step_2_pitch,
               tensors.in,
               tensors.out,
-              workspace, // Control buffer
+              workspace,    // Control buffer
               tensors.w,
               reserved_ptr, // Unused bias_addr.
-              reserved,     // Unused relu_alpha.
+              relu_alpha,
               flags,
               R,
               S,

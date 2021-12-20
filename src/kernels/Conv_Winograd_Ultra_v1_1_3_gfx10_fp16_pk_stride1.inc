@@ -1,7703 +1,6481 @@
-/*******************************************************************************
- *
- * MIT License
- *
- * Copyright (c) 2021 Advanced Micro Devices, Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- *
- *******************************************************************************/
-
-s_version 0x2004
-s_inst_prefetch 0x3
-s_mov_b32 s0, 0
-v_readfirstlane_b32 s4, v0
-s_lshr_b32 s4, s4, 6
-s_mov_b32 s64, s64
-s_mov_b32 s5, 0x3c00bc00
-s_inst_prefetch 0x3
-v_lshlrev_b32_e32 v125, 7, v0
-s_getpc_b64 s[68:69]
-s_mov_b32 s70, 0x9dfc
-s_mov_b32 s71, 0x31014000
-buffer_load_dword v4, v125, s[68:71], 0 offen
-s_getreg_b32 s10, hwreg(23, 0, 10)
-s_lshr_b32 s11, s10, 7
-s_and_b32 s65, 1, s10
-s_xor_b32 s9, s11, s65
-s_mulk_i32 s9, 0x4
-s_addk_i32 s9, 0x3c
-s_add_u32 s66, s68, s9
-s_addc_u32 s67, s69, 0
-s_setpc_b64 s[66:67]
-s_branch 78
-s_branch 3451
-s_branch 3878
-s_branch 4265
-s_branch 4606
-s_branch 5015
-s_branch 5382
-s_branch 5685
-s_getpc_b64 s[68:69]
-s_mov_b32 s70, -1
-s_mov_b32 s71, 0x31014000
-s_load_dwordx16 s[12:27], s[6:7], 0x0
-s_load_dwordx2 s[28:29], s[6:7], 0x40
-s_load_dwordx4 s[72:75], s[6:7], 0x48
-s_load_dwordx2 s[30:31], s[6:7], 0x58
-s_load_dwordx2 s[10:11], s[6:7], 0x60
-s_mov_b32 s9, 0xa274
-v_and_b32_e32 v1, 3, v0
-v_mad_u32_u24 v1, v1, 4, s9
-s_mov_b32 s9, 0xa26c
-v_and_b32_e32 v2, 1, v0
-v_mad_u32_u24 v2, v2, 4, s9
-s_mov_b32 s9, 0xa264
-v_and_b32_e32 v3, 1, v0
-v_mad_u32_u24 v3, v3, 4, s9
-s_mov_b32 s9, 0xa134
-v_and_b32_e32 v132, 63, v0
-v_mad_u32_u24 v132, v132, 4, s9
-s_mov_b32 s9, 0xa034
-v_and_b32_e32 v140, 63, v0
-v_mad_u32_u24 v140, v140, 4, s9
-s_mov_b32 s9, 0x9f34
-v_and_b32_e32 v144, 63, v0
-v_mad_u32_u24 v144, v144, 4, s9
-s_mov_b32 s9, 0x9e34
-v_and_b32_e32 v136, 63, v0
-v_mad_u32_u24 v136, v136, 4, s9
-s_mov_b32 s9, 0x9df4
-v_and_b32_e32 v148, 15, v0
-v_mad_u32_u24 v148, v148, 4, s9
-buffer_load_dword v1, v1, s[68:71], 0 offen
-buffer_load_dword v2, v2, s[68:71], 0 offen
-buffer_load_dword v3, v3, s[68:71], 0 offen
-buffer_load_dword v132, v132, s[68:71], 0 offen
-buffer_load_dword v140, v140, s[68:71], 0 offen
-buffer_load_dword v144, v144, s[68:71], 0 offen
-buffer_load_dword v136, v136, s[68:71], 0 offen
-buffer_load_dword v148, v148, s[68:71], 0 offen
-s_mov_b32 null, 0xbf820bff
-s_waitcnt lgkmcnt(0)
-s_and_b32 s25, s25, 0xffff
-s_and_b32 s27, s27, 0xffff
-s_and_b32 s29, s29, 0xffff
-s_and_b32 s73, s73, 0xffff
-s_and_b32 s75, s75, 0xffff
-s_bitcmp1_b32 s31, 6
-s_cbranch_scc0 12
-s_load_dwordx2 s[24:25], s[24:25], 0x0
-s_load_dwordx2 s[26:27], s[26:27], 0x0
-s_load_dwordx2 s[28:29], s[28:29], 0x0
-s_load_dwordx2 s[72:73], s[72:73], 0x0
-s_cmp_eq_u64 0, s[74:75]
-s_cbranch_scc1 2
-s_load_dwordx2 s[74:75], s[74:75], 0x0
-s_waitcnt lgkmcnt(0)
-s_bitcmp1_b32 s31, 13
-s_cbranch_scc0 15
-s_load_dwordx8 s[76:83], s[6:7], 0x68
-s_load_dwordx2 s[84:85], s[6:7], 0x88
-s_waitcnt lgkmcnt(0)
-s_add_u32 s24, s24, s76
-s_addc_u32 s25, s25, s77
-s_add_u32 s26, s26, s78
-s_addc_u32 s27, s27, s79
-s_add_u32 s72, s72, s82
-s_addc_u32 s73, s73, s83
-s_cmp_eq_u64 0, s[74:75]
-s_cselect_b64 s[84:85], 0, s[84:85]
-s_add_u32 s74, s74, s84
-s_addc_u32 s75, s75, s85
-s_and_b32 s25, s25, 0xffff
-s_and_b32 s27, s27, 0xffff
-s_and_b32 s29, s29, 0xffff
-s_and_b32 s73, s73, 0xffff
-s_and_b32 s75, s75, 0xffff
-v_cvt_f16_f32_e32 v125, s30
-v_readfirstlane_b32 s30, v125
-s_pack_ll_b32_b16 s30, s30, s30
-s_getpc_b64 s[76:77]
-s_mov_b32 s78, -1
-s_mov_b32 s79, 0x31014000
-s_mov_b32 s66, 0xa084
-v_and_b32_e32 v126, 63, v0
-v_mad_u32_u24 v126, v126, 4, s66
-s_mov_b32 s66, 0xa054
-v_and_b32_e32 v149, 3, v0
-v_mad_u32_u24 v149, v149, 4, s66
-s_mov_b32 s66, 0xa044
-v_and_b32_e32 v150, 3, v0
-v_mad_u32_u24 v150, v150, 4, s66
-s_mov_b32 s66, 0xa034
-v_and_b32_e32 v151, 3, v0
-v_mad_u32_u24 v151, v151, 4, s66
-buffer_load_dword v126, v126, s[76:79], 0 offen
-buffer_load_dword v149, v149, s[76:79], 0 offen
-buffer_load_dword v150, v150, s[76:79], 0 offen
-buffer_load_dword v151, v151, s[76:79], 0 offen
-s_mul_i32 s65, s10, s11
-s_lshl_b32 s65, s65, 1
-s_bitcmp1_b32 s31, 2
-s_cselect_b32 s66, s13, s12
-s_mul_i32 s9, s65, s66
-s_cselect_b32 s66, s65, s9
-s_cselect_b32 s65, s9, s65
-s_mov_b32 s9, s66
-s_mov_b64 s[80:81], s[74:75]
-s_mov_b32 s82, 0x80000000
-s_mov_b32 s83, 0x31014000
-s_cmp_eq_u64 s[74:75], 0
-s_cselect_b32 s83, 0, s83
-v_and_b32_e32 v129, 7, v0
-v_mad_u32_u24 v129, 4, v129, s4
-v_cmp_lt_u32_e64 vcc, v129, s13
-v_cndmask_b32_e32 v129, -1, v129, vcc
-v_lshlrev_b32_e32 v129, 1, v129
-buffer_load_short_d16 v127, v129, s[80:83], 0 offen
-buffer_load_short_d16_hi v127, v129, s[80:83], 0 offen
-v_bfe_u32 v129, v0, 2, 4
-s_mul_i32 s67, s9, 4
-v_xor_b32_dpp v131, v0, v0 quad_perm:[0,0,3,1] row_mask:0xf bank_mask:0xf
-s_sub_u32 s81, s11, 1
-s_bitcmp1_b32 s31, 1
-s_cselect_b32 s81, s81, 0
-s_cselect_b32 s80, -1, 1
-s_sub_u32 s83, s10, 1
-s_mul_i32 s83, s83, s11
-s_bitcmp1_b32 s31, 0
-s_cselect_b32 s83, s83, 0
-s_cselect_b32 s82, -2, 2
-s_add_u32 s81, s81, s83
-v_mad_i32_i16 v130, v131, s80, s81
-v_lshlrev_b32_e32 v133, 1, v130
-v_mad_u32_u16 v133, v129, s65, v133
-v_mad_u32_u16 v133, s9, s4, v133
-v_cmp_lt_u32_e64 vcc, v131, s11
-v_cndmask_b32_e32 v133, -2.0, v133, vcc
-v_mad_i32_i24 v135, s11, s82, v133
-v_cmp_lt_u32_e64 vcc, 1, s10
-v_cndmask_b32_e32 v135, -2.0, v135, vcc
-v_mad_i32_i24 v134, s11, s82, v135
-v_cmp_lt_u32_e64 vcc, 2, s10
-v_cndmask_b32_e32 v134, -2.0, v134, vcc
-s_add_u32 s80, s12, 15
-s_lshr_b32 s80, s80, 4
-s_lshl_b32 s81, s80, 4
-v_add_co_u32_e64 v129, vcc, v129, s81
-s_getpc_b64 s[82:83]
-s_sub_u32 s81, s80, 1
-s_mul_i32 s81, s81, 4
-s_add_u32 s81, s81, 32
-s_add_u32 s82, s82, s81
-s_addc_u32 s83, s83, 0
-s_setpc_b64 s[82:83]
-s_branch 1036
-s_branch 962
-s_branch 888
-s_branch 814
-s_branch 740
-s_branch 666
-s_branch 592
-s_branch 518
-s_branch 444
-s_branch 370
-s_branch 296
-s_branch 222
-s_branch 148
-s_branch 74
-s_branch 0
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v117, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v117, v138, s[84:87], 0 offen
-buffer_load_short_d16 v118, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v118, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v119, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v119, v138, s[84:87], 0 offen
-buffer_load_short_d16 v120, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v120, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v121, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v121, v138, s[84:87], 0 offen
-buffer_load_short_d16 v122, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v122, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v123, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v123, v138, s[84:87], 0 offen
-buffer_load_short_d16 v124, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v124, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v109, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v109, v138, s[84:87], 0 offen
-buffer_load_short_d16 v110, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v110, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v111, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v111, v138, s[84:87], 0 offen
-buffer_load_short_d16 v112, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v112, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v113, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v113, v138, s[84:87], 0 offen
-buffer_load_short_d16 v114, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v114, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v115, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v115, v138, s[84:87], 0 offen
-buffer_load_short_d16 v116, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v116, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v101, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v101, v138, s[84:87], 0 offen
-buffer_load_short_d16 v102, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v102, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v103, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v103, v138, s[84:87], 0 offen
-buffer_load_short_d16 v104, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v104, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v105, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v105, v138, s[84:87], 0 offen
-buffer_load_short_d16 v106, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v106, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v107, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v107, v138, s[84:87], 0 offen
-buffer_load_short_d16 v108, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v108, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v93, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v93, v138, s[84:87], 0 offen
-buffer_load_short_d16 v94, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v94, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v95, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v95, v138, s[84:87], 0 offen
-buffer_load_short_d16 v96, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v96, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v97, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v97, v138, s[84:87], 0 offen
-buffer_load_short_d16 v98, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v98, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v99, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v99, v138, s[84:87], 0 offen
-buffer_load_short_d16 v100, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v100, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v85, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v85, v138, s[84:87], 0 offen
-buffer_load_short_d16 v86, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v86, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v87, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v87, v138, s[84:87], 0 offen
-buffer_load_short_d16 v88, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v88, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v89, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v89, v138, s[84:87], 0 offen
-buffer_load_short_d16 v90, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v90, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v91, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v91, v138, s[84:87], 0 offen
-buffer_load_short_d16 v92, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v92, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v77, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v77, v138, s[84:87], 0 offen
-buffer_load_short_d16 v78, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v78, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v79, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v79, v138, s[84:87], 0 offen
-buffer_load_short_d16 v80, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v80, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v81, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v81, v138, s[84:87], 0 offen
-buffer_load_short_d16 v82, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v82, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v83, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v83, v138, s[84:87], 0 offen
-buffer_load_short_d16 v84, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v84, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v69, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v69, v138, s[84:87], 0 offen
-buffer_load_short_d16 v70, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v70, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v71, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v71, v138, s[84:87], 0 offen
-buffer_load_short_d16 v72, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v72, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v73, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v73, v138, s[84:87], 0 offen
-buffer_load_short_d16 v74, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v74, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v75, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v75, v138, s[84:87], 0 offen
-buffer_load_short_d16 v76, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v76, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v61, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v61, v138, s[84:87], 0 offen
-buffer_load_short_d16 v62, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v62, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v63, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v63, v138, s[84:87], 0 offen
-buffer_load_short_d16 v64, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v64, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v65, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v65, v138, s[84:87], 0 offen
-buffer_load_short_d16 v66, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v66, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v67, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v67, v138, s[84:87], 0 offen
-buffer_load_short_d16 v68, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v68, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v53, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v53, v138, s[84:87], 0 offen
-buffer_load_short_d16 v54, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v54, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v55, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v55, v138, s[84:87], 0 offen
-buffer_load_short_d16 v56, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v56, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v57, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v57, v138, s[84:87], 0 offen
-buffer_load_short_d16 v58, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v58, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v59, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v59, v138, s[84:87], 0 offen
-buffer_load_short_d16 v60, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v60, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v45, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v45, v138, s[84:87], 0 offen
-buffer_load_short_d16 v46, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v46, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v47, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v47, v138, s[84:87], 0 offen
-buffer_load_short_d16 v48, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v48, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v49, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v49, v138, s[84:87], 0 offen
-buffer_load_short_d16 v50, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v50, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v51, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v51, v138, s[84:87], 0 offen
-buffer_load_short_d16 v52, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v52, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v37, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v37, v138, s[84:87], 0 offen
-buffer_load_short_d16 v38, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v38, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v39, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v39, v138, s[84:87], 0 offen
-buffer_load_short_d16 v40, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v40, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v41, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v41, v138, s[84:87], 0 offen
-buffer_load_short_d16 v42, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v42, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v43, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v43, v138, s[84:87], 0 offen
-buffer_load_short_d16 v44, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v44, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v29, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v29, v138, s[84:87], 0 offen
-buffer_load_short_d16 v30, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v30, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v31, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v31, v138, s[84:87], 0 offen
-buffer_load_short_d16 v32, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v32, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v33, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v33, v138, s[84:87], 0 offen
-buffer_load_short_d16 v34, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v34, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v35, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v35, v138, s[84:87], 0 offen
-buffer_load_short_d16 v36, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v36, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v21, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v21, v138, s[84:87], 0 offen
-buffer_load_short_d16 v22, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v22, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v23, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v23, v138, s[84:87], 0 offen
-buffer_load_short_d16 v24, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v24, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v25, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v25, v138, s[84:87], 0 offen
-buffer_load_short_d16 v26, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v26, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v27, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v27, v138, s[84:87], 0 offen
-buffer_load_short_d16 v28, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v28, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v13, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v13, v138, s[84:87], 0 offen
-buffer_load_short_d16 v14, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v14, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v15, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v15, v138, s[84:87], 0 offen
-buffer_load_short_d16 v16, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v16, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v17, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v17, v138, s[84:87], 0 offen
-buffer_load_short_d16 v18, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v18, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v19, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v19, v138, s[84:87], 0 offen
-buffer_load_short_d16 v20, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v20, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-v_sub_co_u32_e64 v129, vcc, v129, 16
-v_cmp_ge_u32_e64 vcc, v129, s12
-v_cndmask_b32_e64 v137, v133, -1, vcc
-v_cndmask_b32_e64 v138, v134, -1, vcc
-v_cndmask_b32_e64 v139, v135, -1, vcc
-v_readfirstlane_b32 s84, v129
-s_mul_hi_u32 s85, s84, s65
-s_mul_i32 s84, s84, s65
-s_add_u32 s84, s84, s72
-s_addc_u32 s85, s85, s73
-s_mov_b32 s86, 0x80000000
-s_sub_u32 s88, s13, 1
-s_sub_u32 s88, s88, s4
-s_cselect_b32 s87, 0, 0x31014000
-buffer_load_short_d16 v5, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v5, v138, s[84:87], 0 offen
-buffer_load_short_d16 v6, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v6, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v7, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v7, v138, s[84:87], 0 offen
-buffer_load_short_d16 v8, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v8, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v9, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v9, v138, s[84:87], 0 offen
-buffer_load_short_d16 v10, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v10, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-buffer_load_short_d16 v11, v137, s[84:87], 0 offen
-buffer_load_short_d16_hi v11, v138, s[84:87], 0 offen
-buffer_load_short_d16 v12, v139, s[84:87], 0 offen
-buffer_load_short_d16_hi v12, v139, s[84:87], 0 offen
-v_nop
-s_add_u32 s84, s84, s67
-s_addc_u32 s85, s85, 0
-s_sub_u32 s88, s88, 4
-s_cselect_b32 s87, 0, s87
-s_getpc_b64 s[82:83]
-s_sub_u32 s81, s80, 1
-s_mul_i32 s81, s81, 4
-s_add_u32 s81, s81, 32
-s_add_u32 s82, s82, s81
-s_addc_u32 s83, s83, 0
-s_setpc_b64 s[82:83]
-s_branch 1260
-s_branch 1170
-s_branch 1080
-s_branch 990
-s_branch 900
-s_branch 810
-s_branch 720
-s_branch 630
-s_branch 540
-s_branch 450
-s_branch 360
-s_branch 270
-s_branch 180
-s_branch 90
-s_branch 0
-s_waitcnt 0xff7f
-v_pk_fma_f16 v118, v118, s5, v117 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v120, v120, s5, v119 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v122, v122, s5, v121 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v124, v124, s5, v123 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v118, v118, v117 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v120, v120, v119 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v122, v122, v121 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v124, v124, v123 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x78eb2afa
-.long 0xff00b175
-.long 0x78ef2afa
-.long 0xff00b177
-.long 0x78f32afa
-.long 0xff00b179
-.long 0x78f72afa
-.long 0xff00b17b
-.long 0x78ed2afa
-.long 0xff00b176
-.long 0x78f12afa
-.long 0xff00b178
-.long 0x78f52afa
-.long 0xff00b17a
-.long 0x78f92afa
-.long 0xff00b17c
-.long 0x78eb2afa
-.long 0xff004e75
-.long 0x78ef2afa
-.long 0xff004e77
-.long 0x78f32afa
-.long 0xff004e79
-.long 0x78f72afa
-.long 0xff004e7b
-.long 0x78ed2afa
-.long 0xff004e76
-.long 0x78f12afa
-.long 0xff004e78
-.long 0x78f52afa
-.long 0xff004e7a
-.long 0x78f92afa
-.long 0xff004e7c
-v_pk_mul_f16 v117, v117, v150
-v_pk_mul_f16 v119, v119, v150
-v_pk_mul_f16 v121, v121, v150
-v_pk_mul_f16 v123, v123, v150
-v_pk_mul_f16 v118, v118, v151
-v_pk_mul_f16 v120, v120, v151
-v_pk_mul_f16 v122, v122, v151
-v_pk_mul_f16 v124, v124, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[117:120]
-ds_write_b128 v156, v[121:124] offset:4160
-ds_read_b32 v117, v160
-ds_read_b32 v118, v160 offset:128
-ds_read_b32 v119, v160 offset:256
-ds_read_b32 v120, v160 offset:384
-ds_read_b32 v121, v160 offset:512
-ds_read_b32 v122, v160 offset:640
-ds_read_b32 v123, v160 offset:768
-ds_read_b32 v124, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v110, v110, s5, v109 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v112, v112, s5, v111 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v114, v114, s5, v113 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v116, v116, s5, v115 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v110, v110, v109 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v112, v112, v111 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v114, v114, v113 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v116, v116, v115 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x78db2afa
-.long 0xff00b16d
-.long 0x78df2afa
-.long 0xff00b16f
-.long 0x78e32afa
-.long 0xff00b171
-.long 0x78e72afa
-.long 0xff00b173
-.long 0x78dd2afa
-.long 0xff00b16e
-.long 0x78e12afa
-.long 0xff00b170
-.long 0x78e52afa
-.long 0xff00b172
-.long 0x78e92afa
-.long 0xff00b174
-.long 0x78db2afa
-.long 0xff004e6d
-.long 0x78df2afa
-.long 0xff004e6f
-.long 0x78e32afa
-.long 0xff004e71
-.long 0x78e72afa
-.long 0xff004e73
-.long 0x78dd2afa
-.long 0xff004e6e
-.long 0x78e12afa
-.long 0xff004e70
-.long 0x78e52afa
-.long 0xff004e72
-.long 0x78e92afa
-.long 0xff004e74
-v_pk_mul_f16 v109, v109, v150
-v_pk_mul_f16 v111, v111, v150
-v_pk_mul_f16 v113, v113, v150
-v_pk_mul_f16 v115, v115, v150
-v_pk_mul_f16 v110, v110, v151
-v_pk_mul_f16 v112, v112, v151
-v_pk_mul_f16 v114, v114, v151
-v_pk_mul_f16 v116, v116, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[109:112]
-ds_write_b128 v156, v[113:116] offset:4160
-ds_read_b32 v109, v160
-ds_read_b32 v110, v160 offset:128
-ds_read_b32 v111, v160 offset:256
-ds_read_b32 v112, v160 offset:384
-ds_read_b32 v113, v160 offset:512
-ds_read_b32 v114, v160 offset:640
-ds_read_b32 v115, v160 offset:768
-ds_read_b32 v116, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v102, v102, s5, v101 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v104, v104, s5, v103 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v106, v106, s5, v105 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v108, v108, s5, v107 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v102, v102, v101 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v104, v104, v103 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v106, v106, v105 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v108, v108, v107 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x78cb2afa
-.long 0xff00b165
-.long 0x78cf2afa
-.long 0xff00b167
-.long 0x78d32afa
-.long 0xff00b169
-.long 0x78d72afa
-.long 0xff00b16b
-.long 0x78cd2afa
-.long 0xff00b166
-.long 0x78d12afa
-.long 0xff00b168
-.long 0x78d52afa
-.long 0xff00b16a
-.long 0x78d92afa
-.long 0xff00b16c
-.long 0x78cb2afa
-.long 0xff004e65
-.long 0x78cf2afa
-.long 0xff004e67
-.long 0x78d32afa
-.long 0xff004e69
-.long 0x78d72afa
-.long 0xff004e6b
-.long 0x78cd2afa
-.long 0xff004e66
-.long 0x78d12afa
-.long 0xff004e68
-.long 0x78d52afa
-.long 0xff004e6a
-.long 0x78d92afa
-.long 0xff004e6c
-v_pk_mul_f16 v101, v101, v150
-v_pk_mul_f16 v103, v103, v150
-v_pk_mul_f16 v105, v105, v150
-v_pk_mul_f16 v107, v107, v150
-v_pk_mul_f16 v102, v102, v151
-v_pk_mul_f16 v104, v104, v151
-v_pk_mul_f16 v106, v106, v151
-v_pk_mul_f16 v108, v108, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[101:104]
-ds_write_b128 v156, v[105:108] offset:4160
-ds_read_b32 v101, v160
-ds_read_b32 v102, v160 offset:128
-ds_read_b32 v103, v160 offset:256
-ds_read_b32 v104, v160 offset:384
-ds_read_b32 v105, v160 offset:512
-ds_read_b32 v106, v160 offset:640
-ds_read_b32 v107, v160 offset:768
-ds_read_b32 v108, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v94, v94, s5, v93 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v96, v96, s5, v95 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v98, v98, s5, v97 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v100, v100, s5, v99 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v94, v94, v93 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v96, v96, v95 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v98, v98, v97 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v100, v100, v99 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x78bb2afa
-.long 0xff00b15d
-.long 0x78bf2afa
-.long 0xff00b15f
-.long 0x78c32afa
-.long 0xff00b161
-.long 0x78c72afa
-.long 0xff00b163
-.long 0x78bd2afa
-.long 0xff00b15e
-.long 0x78c12afa
-.long 0xff00b160
-.long 0x78c52afa
-.long 0xff00b162
-.long 0x78c92afa
-.long 0xff00b164
-.long 0x78bb2afa
-.long 0xff004e5d
-.long 0x78bf2afa
-.long 0xff004e5f
-.long 0x78c32afa
-.long 0xff004e61
-.long 0x78c72afa
-.long 0xff004e63
-.long 0x78bd2afa
-.long 0xff004e5e
-.long 0x78c12afa
-.long 0xff004e60
-.long 0x78c52afa
-.long 0xff004e62
-.long 0x78c92afa
-.long 0xff004e64
-v_pk_mul_f16 v93, v93, v150
-v_pk_mul_f16 v95, v95, v150
-v_pk_mul_f16 v97, v97, v150
-v_pk_mul_f16 v99, v99, v150
-v_pk_mul_f16 v94, v94, v151
-v_pk_mul_f16 v96, v96, v151
-v_pk_mul_f16 v98, v98, v151
-v_pk_mul_f16 v100, v100, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[93:96]
-ds_write_b128 v156, v[97:100] offset:4160
-ds_read_b32 v93, v160
-ds_read_b32 v94, v160 offset:128
-ds_read_b32 v95, v160 offset:256
-ds_read_b32 v96, v160 offset:384
-ds_read_b32 v97, v160 offset:512
-ds_read_b32 v98, v160 offset:640
-ds_read_b32 v99, v160 offset:768
-ds_read_b32 v100, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v86, v86, s5, v85 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v88, v88, s5, v87 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v90, v90, s5, v89 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v92, v92, s5, v91 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v86, v86, v85 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v88, v88, v87 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v90, v90, v89 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v92, v92, v91 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x78ab2afa
-.long 0xff00b155
-.long 0x78af2afa
-.long 0xff00b157
-.long 0x78b32afa
-.long 0xff00b159
-.long 0x78b72afa
-.long 0xff00b15b
-.long 0x78ad2afa
-.long 0xff00b156
-.long 0x78b12afa
-.long 0xff00b158
-.long 0x78b52afa
-.long 0xff00b15a
-.long 0x78b92afa
-.long 0xff00b15c
-.long 0x78ab2afa
-.long 0xff004e55
-.long 0x78af2afa
-.long 0xff004e57
-.long 0x78b32afa
-.long 0xff004e59
-.long 0x78b72afa
-.long 0xff004e5b
-.long 0x78ad2afa
-.long 0xff004e56
-.long 0x78b12afa
-.long 0xff004e58
-.long 0x78b52afa
-.long 0xff004e5a
-.long 0x78b92afa
-.long 0xff004e5c
-v_pk_mul_f16 v85, v85, v150
-v_pk_mul_f16 v87, v87, v150
-v_pk_mul_f16 v89, v89, v150
-v_pk_mul_f16 v91, v91, v150
-v_pk_mul_f16 v86, v86, v151
-v_pk_mul_f16 v88, v88, v151
-v_pk_mul_f16 v90, v90, v151
-v_pk_mul_f16 v92, v92, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[85:88]
-ds_write_b128 v156, v[89:92] offset:4160
-ds_read_b32 v85, v160
-ds_read_b32 v86, v160 offset:128
-ds_read_b32 v87, v160 offset:256
-ds_read_b32 v88, v160 offset:384
-ds_read_b32 v89, v160 offset:512
-ds_read_b32 v90, v160 offset:640
-ds_read_b32 v91, v160 offset:768
-ds_read_b32 v92, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v78, v78, s5, v77 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v80, v80, s5, v79 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v82, v82, s5, v81 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v84, v84, s5, v83 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v78, v78, v77 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v80, v80, v79 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v82, v82, v81 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v84, v84, v83 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x789b2afa
-.long 0xff00b14d
-.long 0x789f2afa
-.long 0xff00b14f
-.long 0x78a32afa
-.long 0xff00b151
-.long 0x78a72afa
-.long 0xff00b153
-.long 0x789d2afa
-.long 0xff00b14e
-.long 0x78a12afa
-.long 0xff00b150
-.long 0x78a52afa
-.long 0xff00b152
-.long 0x78a92afa
-.long 0xff00b154
-.long 0x789b2afa
-.long 0xff004e4d
-.long 0x789f2afa
-.long 0xff004e4f
-.long 0x78a32afa
-.long 0xff004e51
-.long 0x78a72afa
-.long 0xff004e53
-.long 0x789d2afa
-.long 0xff004e4e
-.long 0x78a12afa
-.long 0xff004e50
-.long 0x78a52afa
-.long 0xff004e52
-.long 0x78a92afa
-.long 0xff004e54
-v_pk_mul_f16 v77, v77, v150
-v_pk_mul_f16 v79, v79, v150
-v_pk_mul_f16 v81, v81, v150
-v_pk_mul_f16 v83, v83, v150
-v_pk_mul_f16 v78, v78, v151
-v_pk_mul_f16 v80, v80, v151
-v_pk_mul_f16 v82, v82, v151
-v_pk_mul_f16 v84, v84, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[77:80]
-ds_write_b128 v156, v[81:84] offset:4160
-ds_read_b32 v77, v160
-ds_read_b32 v78, v160 offset:128
-ds_read_b32 v79, v160 offset:256
-ds_read_b32 v80, v160 offset:384
-ds_read_b32 v81, v160 offset:512
-ds_read_b32 v82, v160 offset:640
-ds_read_b32 v83, v160 offset:768
-ds_read_b32 v84, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v70, v70, s5, v69 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v72, v72, s5, v71 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v74, v74, s5, v73 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v76, v76, s5, v75 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v70, v70, v69 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v72, v72, v71 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v74, v74, v73 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v76, v76, v75 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x788b2afa
-.long 0xff00b145
-.long 0x788f2afa
-.long 0xff00b147
-.long 0x78932afa
-.long 0xff00b149
-.long 0x78972afa
-.long 0xff00b14b
-.long 0x788d2afa
-.long 0xff00b146
-.long 0x78912afa
-.long 0xff00b148
-.long 0x78952afa
-.long 0xff00b14a
-.long 0x78992afa
-.long 0xff00b14c
-.long 0x788b2afa
-.long 0xff004e45
-.long 0x788f2afa
-.long 0xff004e47
-.long 0x78932afa
-.long 0xff004e49
-.long 0x78972afa
-.long 0xff004e4b
-.long 0x788d2afa
-.long 0xff004e46
-.long 0x78912afa
-.long 0xff004e48
-.long 0x78952afa
-.long 0xff004e4a
-.long 0x78992afa
-.long 0xff004e4c
-v_pk_mul_f16 v69, v69, v150
-v_pk_mul_f16 v71, v71, v150
-v_pk_mul_f16 v73, v73, v150
-v_pk_mul_f16 v75, v75, v150
-v_pk_mul_f16 v70, v70, v151
-v_pk_mul_f16 v72, v72, v151
-v_pk_mul_f16 v74, v74, v151
-v_pk_mul_f16 v76, v76, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[69:72]
-ds_write_b128 v156, v[73:76] offset:4160
-ds_read_b32 v69, v160
-ds_read_b32 v70, v160 offset:128
-ds_read_b32 v71, v160 offset:256
-ds_read_b32 v72, v160 offset:384
-ds_read_b32 v73, v160 offset:512
-ds_read_b32 v74, v160 offset:640
-ds_read_b32 v75, v160 offset:768
-ds_read_b32 v76, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v62, v62, s5, v61 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v64, v64, s5, v63 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v66, v66, s5, v65 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v68, v68, s5, v67 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v62, v62, v61 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v64, v64, v63 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v66, v66, v65 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v68, v68, v67 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x787b2afa
-.long 0xff00b13d
-.long 0x787f2afa
-.long 0xff00b13f
-.long 0x78832afa
-.long 0xff00b141
-.long 0x78872afa
-.long 0xff00b143
-.long 0x787d2afa
-.long 0xff00b13e
-.long 0x78812afa
-.long 0xff00b140
-.long 0x78852afa
-.long 0xff00b142
-.long 0x78892afa
-.long 0xff00b144
-.long 0x787b2afa
-.long 0xff004e3d
-.long 0x787f2afa
-.long 0xff004e3f
-.long 0x78832afa
-.long 0xff004e41
-.long 0x78872afa
-.long 0xff004e43
-.long 0x787d2afa
-.long 0xff004e3e
-.long 0x78812afa
-.long 0xff004e40
-.long 0x78852afa
-.long 0xff004e42
-.long 0x78892afa
-.long 0xff004e44
-v_pk_mul_f16 v61, v61, v150
-v_pk_mul_f16 v63, v63, v150
-v_pk_mul_f16 v65, v65, v150
-v_pk_mul_f16 v67, v67, v150
-v_pk_mul_f16 v62, v62, v151
-v_pk_mul_f16 v64, v64, v151
-v_pk_mul_f16 v66, v66, v151
-v_pk_mul_f16 v68, v68, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[61:64]
-ds_write_b128 v156, v[65:68] offset:4160
-ds_read_b32 v61, v160
-ds_read_b32 v62, v160 offset:128
-ds_read_b32 v63, v160 offset:256
-ds_read_b32 v64, v160 offset:384
-ds_read_b32 v65, v160 offset:512
-ds_read_b32 v66, v160 offset:640
-ds_read_b32 v67, v160 offset:768
-ds_read_b32 v68, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v54, v54, s5, v53 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v56, v56, s5, v55 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v58, v58, s5, v57 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v60, v60, s5, v59 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v54, v54, v53 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v56, v56, v55 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v58, v58, v57 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v60, v60, v59 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x786b2afa
-.long 0xff00b135
-.long 0x786f2afa
-.long 0xff00b137
-.long 0x78732afa
-.long 0xff00b139
-.long 0x78772afa
-.long 0xff00b13b
-.long 0x786d2afa
-.long 0xff00b136
-.long 0x78712afa
-.long 0xff00b138
-.long 0x78752afa
-.long 0xff00b13a
-.long 0x78792afa
-.long 0xff00b13c
-.long 0x786b2afa
-.long 0xff004e35
-.long 0x786f2afa
-.long 0xff004e37
-.long 0x78732afa
-.long 0xff004e39
-.long 0x78772afa
-.long 0xff004e3b
-.long 0x786d2afa
-.long 0xff004e36
-.long 0x78712afa
-.long 0xff004e38
-.long 0x78752afa
-.long 0xff004e3a
-.long 0x78792afa
-.long 0xff004e3c
-v_pk_mul_f16 v53, v53, v150
-v_pk_mul_f16 v55, v55, v150
-v_pk_mul_f16 v57, v57, v150
-v_pk_mul_f16 v59, v59, v150
-v_pk_mul_f16 v54, v54, v151
-v_pk_mul_f16 v56, v56, v151
-v_pk_mul_f16 v58, v58, v151
-v_pk_mul_f16 v60, v60, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[53:56]
-ds_write_b128 v156, v[57:60] offset:4160
-ds_read_b32 v53, v160
-ds_read_b32 v54, v160 offset:128
-ds_read_b32 v55, v160 offset:256
-ds_read_b32 v56, v160 offset:384
-ds_read_b32 v57, v160 offset:512
-ds_read_b32 v58, v160 offset:640
-ds_read_b32 v59, v160 offset:768
-ds_read_b32 v60, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v46, v46, s5, v45 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v48, v48, s5, v47 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v50, v50, s5, v49 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v52, v52, s5, v51 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v46, v46, v45 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v48, v48, v47 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v50, v50, v49 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v52, v52, v51 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x785b2afa
-.long 0xff00b12d
-.long 0x785f2afa
-.long 0xff00b12f
-.long 0x78632afa
-.long 0xff00b131
-.long 0x78672afa
-.long 0xff00b133
-.long 0x785d2afa
-.long 0xff00b12e
-.long 0x78612afa
-.long 0xff00b130
-.long 0x78652afa
-.long 0xff00b132
-.long 0x78692afa
-.long 0xff00b134
-.long 0x785b2afa
-.long 0xff004e2d
-.long 0x785f2afa
-.long 0xff004e2f
-.long 0x78632afa
-.long 0xff004e31
-.long 0x78672afa
-.long 0xff004e33
-.long 0x785d2afa
-.long 0xff004e2e
-.long 0x78612afa
-.long 0xff004e30
-.long 0x78652afa
-.long 0xff004e32
-.long 0x78692afa
-.long 0xff004e34
-v_pk_mul_f16 v45, v45, v150
-v_pk_mul_f16 v47, v47, v150
-v_pk_mul_f16 v49, v49, v150
-v_pk_mul_f16 v51, v51, v150
-v_pk_mul_f16 v46, v46, v151
-v_pk_mul_f16 v48, v48, v151
-v_pk_mul_f16 v50, v50, v151
-v_pk_mul_f16 v52, v52, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[45:48]
-ds_write_b128 v156, v[49:52] offset:4160
-ds_read_b32 v45, v160
-ds_read_b32 v46, v160 offset:128
-ds_read_b32 v47, v160 offset:256
-ds_read_b32 v48, v160 offset:384
-ds_read_b32 v49, v160 offset:512
-ds_read_b32 v50, v160 offset:640
-ds_read_b32 v51, v160 offset:768
-ds_read_b32 v52, v160 offset:896
-s_waitcnt 0xff7f
-v_pk_fma_f16 v38, v38, s5, v37 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v40, v40, s5, v39 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v42, v42, s5, v41 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v44, v44, s5, v43 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v38, v38, v37 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v40, v40, v39 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v42, v42, v41 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v44, v44, v43 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x784b2afa
-.long 0xff00b125
-.long 0x784f2afa
-.long 0xff00b127
-.long 0x78532afa
-.long 0xff00b129
-.long 0x78572afa
-.long 0xff00b12b
-.long 0x784d2afa
-.long 0xff00b126
-.long 0x78512afa
-.long 0xff00b128
-.long 0x78552afa
-.long 0xff00b12a
-.long 0x78592afa
-.long 0xff00b12c
-.long 0x784b2afa
-.long 0xff004e25
-.long 0x784f2afa
-.long 0xff004e27
-.long 0x78532afa
-.long 0xff004e29
-.long 0x78572afa
-.long 0xff004e2b
-.long 0x784d2afa
-.long 0xff004e26
-.long 0x78512afa
-.long 0xff004e28
-.long 0x78552afa
-.long 0xff004e2a
-.long 0x78592afa
-.long 0xff004e2c
-v_pk_mul_f16 v37, v37, v150
-v_pk_mul_f16 v39, v39, v150
-v_pk_mul_f16 v41, v41, v150
-v_pk_mul_f16 v43, v43, v150
-v_pk_mul_f16 v38, v38, v151
-v_pk_mul_f16 v40, v40, v151
-v_pk_mul_f16 v42, v42, v151
-v_pk_mul_f16 v44, v44, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[37:40]
-ds_write_b128 v156, v[41:44] offset:4160
-ds_read_b32 v37, v160
-ds_read_b32 v38, v160 offset:128
-ds_read_b32 v39, v160 offset:256
-ds_read_b32 v40, v160 offset:384
-ds_read_b32 v41, v160 offset:512
-ds_read_b32 v42, v160 offset:640
-ds_read_b32 v43, v160 offset:768
-ds_read_b32 v44, v160 offset:896
-s_waitcnt vmcnt(48)
-v_pk_fma_f16 v30, v30, s5, v29 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v32, v32, s5, v31 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v34, v34, s5, v33 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v36, v36, s5, v35 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v30, v30, v29 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v32, v32, v31 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v34, v34, v33 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v36, v36, v35 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x783b2afa
-.long 0xff00b11d
-.long 0x783f2afa
-.long 0xff00b11f
-.long 0x78432afa
-.long 0xff00b121
-.long 0x78472afa
-.long 0xff00b123
-.long 0x783d2afa
-.long 0xff00b11e
-.long 0x78412afa
-.long 0xff00b120
-.long 0x78452afa
-.long 0xff00b122
-.long 0x78492afa
-.long 0xff00b124
-.long 0x783b2afa
-.long 0xff004e1d
-.long 0x783f2afa
-.long 0xff004e1f
-.long 0x78432afa
-.long 0xff004e21
-.long 0x78472afa
-.long 0xff004e23
-.long 0x783d2afa
-.long 0xff004e1e
-.long 0x78412afa
-.long 0xff004e20
-.long 0x78452afa
-.long 0xff004e22
-.long 0x78492afa
-.long 0xff004e24
-v_pk_mul_f16 v29, v29, v150
-v_pk_mul_f16 v31, v31, v150
-v_pk_mul_f16 v33, v33, v150
-v_pk_mul_f16 v35, v35, v150
-v_pk_mul_f16 v30, v30, v151
-v_pk_mul_f16 v32, v32, v151
-v_pk_mul_f16 v34, v34, v151
-v_pk_mul_f16 v36, v36, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[29:32]
-ds_write_b128 v156, v[33:36] offset:4160
-ds_read_b32 v29, v160
-ds_read_b32 v30, v160 offset:128
-ds_read_b32 v31, v160 offset:256
-ds_read_b32 v32, v160 offset:384
-ds_read_b32 v33, v160 offset:512
-ds_read_b32 v34, v160 offset:640
-ds_read_b32 v35, v160 offset:768
-ds_read_b32 v36, v160 offset:896
-s_waitcnt vmcnt(32)
-v_pk_fma_f16 v22, v22, s5, v21 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v24, v24, s5, v23 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v26, v26, s5, v25 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v28, v28, s5, v27 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v22, v22, v21 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v24, v24, v23 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v26, v26, v25 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v28, v28, v27 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x782b2afa
-.long 0xff00b115
-.long 0x782f2afa
-.long 0xff00b117
-.long 0x78332afa
-.long 0xff00b119
-.long 0x78372afa
-.long 0xff00b11b
-.long 0x782d2afa
-.long 0xff00b116
-.long 0x78312afa
-.long 0xff00b118
-.long 0x78352afa
-.long 0xff00b11a
-.long 0x78392afa
-.long 0xff00b11c
-.long 0x782b2afa
-.long 0xff004e15
-.long 0x782f2afa
-.long 0xff004e17
-.long 0x78332afa
-.long 0xff004e19
-.long 0x78372afa
-.long 0xff004e1b
-.long 0x782d2afa
-.long 0xff004e16
-.long 0x78312afa
-.long 0xff004e18
-.long 0x78352afa
-.long 0xff004e1a
-.long 0x78392afa
-.long 0xff004e1c
-v_pk_mul_f16 v21, v21, v150
-v_pk_mul_f16 v23, v23, v150
-v_pk_mul_f16 v25, v25, v150
-v_pk_mul_f16 v27, v27, v150
-v_pk_mul_f16 v22, v22, v151
-v_pk_mul_f16 v24, v24, v151
-v_pk_mul_f16 v26, v26, v151
-v_pk_mul_f16 v28, v28, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[21:24]
-ds_write_b128 v156, v[25:28] offset:4160
-ds_read_b32 v21, v160
-ds_read_b32 v22, v160 offset:128
-ds_read_b32 v23, v160 offset:256
-ds_read_b32 v24, v160 offset:384
-ds_read_b32 v25, v160 offset:512
-ds_read_b32 v26, v160 offset:640
-ds_read_b32 v27, v160 offset:768
-ds_read_b32 v28, v160 offset:896
-s_waitcnt vmcnt(16)
-v_pk_fma_f16 v14, v14, s5, v13 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v16, v16, s5, v15 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v18, v18, s5, v17 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v20, v20, s5, v19 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v14, v14, v13 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v16, v16, v15 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v18, v18, v17 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v20, v20, v19 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x781b2afa
-.long 0xff00b10d
-.long 0x781f2afa
-.long 0xff00b10f
-.long 0x78232afa
-.long 0xff00b111
-.long 0x78272afa
-.long 0xff00b113
-.long 0x781d2afa
-.long 0xff00b10e
-.long 0x78212afa
-.long 0xff00b110
-.long 0x78252afa
-.long 0xff00b112
-.long 0x78292afa
-.long 0xff00b114
-.long 0x781b2afa
-.long 0xff004e0d
-.long 0x781f2afa
-.long 0xff004e0f
-.long 0x78232afa
-.long 0xff004e11
-.long 0x78272afa
-.long 0xff004e13
-.long 0x781d2afa
-.long 0xff004e0e
-.long 0x78212afa
-.long 0xff004e10
-.long 0x78252afa
-.long 0xff004e12
-.long 0x78292afa
-.long 0xff004e14
-v_pk_mul_f16 v13, v13, v150
-v_pk_mul_f16 v15, v15, v150
-v_pk_mul_f16 v17, v17, v150
-v_pk_mul_f16 v19, v19, v150
-v_pk_mul_f16 v14, v14, v151
-v_pk_mul_f16 v16, v16, v151
-v_pk_mul_f16 v18, v18, v151
-v_pk_mul_f16 v20, v20, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[13:16]
-ds_write_b128 v156, v[17:20] offset:4160
-ds_read_b32 v13, v160
-ds_read_b32 v14, v160 offset:128
-ds_read_b32 v15, v160 offset:256
-ds_read_b32 v16, v160 offset:384
-ds_read_b32 v17, v160 offset:512
-ds_read_b32 v18, v160 offset:640
-ds_read_b32 v19, v160 offset:768
-ds_read_b32 v20, v160 offset:896
-s_waitcnt vmcnt(0)
-v_pk_fma_f16 v6, v6, s5, v5 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v8, v8, s5, v7 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v10, v10, s5, v9 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_fma_f16 v12, v12, s5, v11 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_pk_add_f16 v6, v6, v5 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v8, v8, v7 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v10, v10, v9 op_sel:[0,1] op_sel_hi:[1,0]
-v_pk_add_f16 v12, v12, v11 op_sel:[0,1] op_sel_hi:[1,0]
-.long 0x780b2afa
-.long 0xff00b105
-.long 0x780f2afa
-.long 0xff00b107
-.long 0x78132afa
-.long 0xff00b109
-.long 0x78172afa
-.long 0xff00b10b
-.long 0x780d2afa
-.long 0xff00b106
-.long 0x78112afa
-.long 0xff00b108
-.long 0x78152afa
-.long 0xff00b10a
-.long 0x78192afa
-.long 0xff00b10c
-.long 0x780b2afa
-.long 0xff004e05
-.long 0x780f2afa
-.long 0xff004e07
-.long 0x78132afa
-.long 0xff004e09
-.long 0x78172afa
-.long 0xff004e0b
-.long 0x780d2afa
-.long 0xff004e06
-.long 0x78112afa
-.long 0xff004e08
-.long 0x78152afa
-.long 0xff004e0a
-.long 0x78192afa
-.long 0xff004e0c
-v_pk_mul_f16 v5, v5, v150
-v_pk_mul_f16 v7, v7, v150
-v_pk_mul_f16 v9, v9, v150
-v_pk_mul_f16 v11, v11, v150
-v_pk_mul_f16 v6, v6, v151
-v_pk_mul_f16 v8, v8, v151
-v_pk_mul_f16 v10, v10, v151
-v_pk_mul_f16 v12, v12, v151
-v_mul_u32_u24_e32 v156, 16, v0
-v_mad_u32_u24 v160, 0x400, s4, v126
-ds_write_b128 v156, v[5:8]
-ds_write_b128 v156, v[9:12] offset:4160
-ds_read_b32 v5, v160
-ds_read_b32 v6, v160 offset:128
-ds_read_b32 v7, v160 offset:256
-ds_read_b32 v8, v160 offset:384
-ds_read_b32 v9, v160 offset:512
-ds_read_b32 v10, v160 offset:640
-ds_read_b32 v11, v160 offset:768
-ds_read_b32 v12, v160 offset:896
-s_waitcnt vmcnt(0) expcnt(0) lgkmcnt(0)
-v_readlane_b32 s61, v127, 0
-v_readlane_b32 s62, v127, 1
-v_readlane_b32 s63, v127, 2
-v_readlane_b32 s64, v127, 3
-v_mad_u32_u24 v136, s4, 0x100, v136
-v_mad_u32_u24 v148, s4, 0x100, v148
-v_mad_u32_u24 v132, s4, 0x200, v132
-s_mul_i32 s9, s20, s4
-s_add_u32 s26, s26, s9
-s_addc_u32 s27, s27, 0
-v_and_b32_e32 v196, 3, v0
-v_lshrrev_b32_e32 v200, 2, v0
-v_mad_i32_i24 v152, v200, 2, v196
-v_mul_i32_i24_e64 v152, v152, 2
-v_and_b32_e32 v156, 63, v0
-v_mul_i32_i24_e64 v156, v156, 2
-v_mad_i32_i24 v160, 64, 2, v156
-s_min_u32 s9, s24, 2.0
-s_cmp_eq_u32 s25, 0
-s_cselect_b32 s9, s9, 2.0
-s_sub_u32 s24, s24, s9
-s_subb_u32 s25, s25, 0
-v_add_co_u32_e64 v152, vcc, v152, s9
-s_min_u32 s9, s26, 2.0
-s_cmp_eq_u32 s27, 0
-s_cselect_b32 s9, s9, 2.0
-s_sub_u32 s26, s26, s9
-s_subb_u32 s27, s27, 0
-v_add_co_u32_e64 v156, vcc, v156, s9
-v_add_co_u32_e64 v160, vcc, v160, s9
-s_mov_b32 s60, 0
-v_lshlrev_b32_e32 v215, 2, v0
-v_add_co_u32_e64 v215, vcc, 0xc400, v215
-v_cmp_ge_u32_e32 vcc, 12, v0
-s_cbranch_vccz 4
-v_mov_b32_e32 v214, 0
-v_cndmask_b32_e32 v215, -1, v215, vcc
-ds_write_b32 v215, v214
-s_add_u32 s70, s12, 1
-s_and_b32 s70, s70, -2
-s_mul_i32 s68, s16, s70
-s_mul_hi_u32 s69, s16, s70
-s_add_u32 s24, s24, s68
-s_addc_u32 s25, s25, s69
-s_lshl_b32 s16, s16, 1
-s_sub_u32 s68, s14, s8
-s_mul_i32 s68, s68, 0x100
-s_sub_u32 s28, s28, s68
-s_subb_u32 s29, s29, 0
-s_mov_b32 s9, 0x1500
-s_mov_b32 s10, 0x1500
-s_mov_b32 s11, 0x1500
-s_sub_u32 s15, s15, 1
-s_sub_u32 s15, s15, s8
-s_cbranch_scc1 7301
-s_add_u32 s65, s15, s14
-s_add_u32 s66, s15, s14
-s_mov_b64 s[56:57], s[28:29]
-s_mov_b32 s58, -1
-s_mov_b32 s59, 0x31014000
-s_sub_u32 s68, 6, 1
-v_lshlrev_b32_e32 v196, 2, v0
-s_mul_i32 s69, s14, 0x100
-s_add_u32 m0, s11, 0xc438
-s_add_u32 s56, s56, s69
-s_addc_u32 s57, s57, 0
-v_and_b32_e64 v196, v196, 0xff
-buffer_load_dword v196, v196, s[56:59], 0 offen lds
-s_sub_u32 s11, s11, 0x100
-s_cselect_b32 s11, 0x1500, s11
-s_sub_u32 s15, s15, s14
-s_cselect_b32 s59, 0, s59
-s_sub_u32 s68, s68, 1
-s_cbranch_scc0 65516
-s_add_u32 s82, s12, 1
-s_lshr_b32 s82, s82, 1
-s_sub_u32 s81, 8, s82
-s_cbranch_scc1 2
-s_sub_u32 s81, s81, s82
-s_cbranch_scc0 65534
-s_add_u32 s81, s81, s82
-s_sub_u32 s82, s82, 1
-s_getpc_b64 s[72:73]
-s_add_u32 s72, s72, 0x2de8
-s_addc_u32 s73, s73, 0
-s_getpc_b64 s[70:71]
-s_add_u32 s70, s70, 0x2fd8
-s_addc_u32 s71, s71, 0
-s_getpc_b64 s[74:75]
-s_add_u32 s74, s74, 0x7164
-s_addc_u32 s75, s75, 0
-s_mov_b32 s34, 0x80000000
-s_mov_b32 s38, 0x80000000
-s_mov_b32 s35, 0x31014000
-s_mov_b32 s39, 0x31014000
-s_sub_u32 s84, s13, 1
-s_sub_u32 s84, s84, s4
-s_mov_b32 s42, 0x80000000
-s_cselect_b32 s43, 0, 0x31014000
-s_sub_u32 s84, s84, 4
-s_mov_b32 s46, 0x80000000
-s_cselect_b32 s47, 0, 0x31014000
-s_sub_u32 s84, s84, 4
-s_mov_b32 s50, 0x80000000
-s_cselect_b32 s51, 0, 0x31014000
-s_sub_u32 s84, s84, 4
-s_mov_b32 s54, 0x80000000
-s_cselect_b32 s55, 0, 0x31014000
-s_add_u32 s84, s13, 3
-s_and_b32 s84, s84, -4
-s_sub_u32 s84, s13, 1
-s_cbranch_scc1 7221
-s_bitcmp1_b32 s31, 8
-s_cbranch_scc1 28
-v_cmp_gt_f16_e64 vcc, s30, 1.0
-s_cbranch_vccnz 12
-s_mov_b32 s83, 0x280
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x3680, s83
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x2880, s83
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x1680, s83
-s_branch 23
-s_mov_b32 s83, 0x880
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x3a80, s83
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x2c80, s83
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x1c80, s83
-s_branch 11
-s_mov_b32 s83, 0xe80
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x3e80, s83
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x3080, s83
-s_sub_u32 s84, s84, 4
-s_cselect_b32 s83, 0x2280, s83
-s_waitcnt vmcnt(5)
-s_add_u32 m0, s9, 0xc438
-ds_read_addtid_b32 v200
-s_sub_u32 s9, s9, 0x100
-s_cselect_b32 s9, 0x1500, s9
-s_getpc_b64 s[76:77]
-s_add_u32 s76, s76, 0x554
-s_addc_u32 s77, s77, 0
-s_mov_b32 s80, 22
-s_waitcnt vmcnt(0) expcnt(0) lgkmcnt(0)
-s_waitcnt lgkmcnt(0)
-s_barrier
-s_branch 2835
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820036
-v_pk_fma_f16 v174, v175, s5, v174 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v178, v179, s5, v178 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v175, v175, s5, v175 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v179, v179, s5, v179 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x795c02fa
-.long 0xff005aae
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x796402fa
-.long 0xff005ab2
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x795e02fa
-.long 0xff005aaf
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x796602fa
-.long 0xff005ab3
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820016
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v166, v164, s[32:35], 0 offen
-buffer_load_short_d16 v167, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v167, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v166, v176, s[32:35], 0 offen
-buffer_load_short_d16 v170, v164, s[36:39], 0 offen
-buffer_load_short_d16 v171, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v171, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v170, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140 offset:28672
-ds_read_b64 v[130:131], v144 offset:28672
-ds_read_b64 v[134:135], v140 offset:29696
-ds_read_b64 v[138:139], v144 offset:29696
-ds_read_b64 v[142:143], v140 offset:30720
-ds_read_b64 v[146:147], v144 offset:30720
-ds_read_b64 v[150:151], v140 offset:31744
-ds_read_b64 v[154:155], v144 offset:31744
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[174:175]
-ds_write_b64 v132, v[178:179] offset:2048
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820038
-v_pk_fma_f16 v182, v183, s5, v182 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v186, v187, s5, v186 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v183, v183, s5, v183 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v187, v187, s5, v187 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x796c02fa
-.long 0xff005ab6
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x797402fa
-.long 0xff005aba
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x796e02fa
-.long 0xff005ab7
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x797602fa
-.long 0xff005abb
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_add_u32 s60, s60, 0x100
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf821a08
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v174, v164, s[32:35], 0 offen
-buffer_load_short_d16 v175, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v175, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v174, v176, s[32:35], 0 offen
-buffer_load_short_d16 v178, v164, s[36:39], 0 offen
-buffer_load_short_d16 v179, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v179, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v178, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140 offset:32768
-ds_read_b64 v[130:131], v144 offset:32768
-ds_read_b64 v[134:135], v140 offset:33792
-ds_read_b64 v[138:139], v144 offset:33792
-ds_read_b64 v[142:143], v140 offset:34816
-ds_read_b64 v[146:147], v144 offset:34816
-ds_read_b64 v[150:151], v140 offset:35840
-ds_read_b64 v[154:155], v144 offset:35840
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[182:183] offset:4096
-ds_write_b64 v132, v[186:187] offset:6144
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820036
-v_pk_fma_f16 v190, v191, s5, v190 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v194, v195, s5, v194 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v191, v191, s5, v191 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v195, v195, s5, v195 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x797c02fa
-.long 0xff005abe
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x798402fa
-.long 0xff005ac2
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x797e02fa
-.long 0xff005abf
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x798602fa
-.long 0xff005ac3
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820016
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v182, v164, s[32:35], 0 offen
-buffer_load_short_d16 v183, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v183, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v182, v176, s[32:35], 0 offen
-buffer_load_short_d16 v186, v164, s[36:39], 0 offen
-buffer_load_short_d16 v187, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v187, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v186, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820027
-s_clause 0xd
-ds_append v4 offset:50176
-ds_read_b64 v[126:127], v140 offset:36864
-ds_read_b64 v[130:131], v144 offset:36864
-ds_read_b64 v[134:135], v140 offset:37888
-ds_read_b64 v[138:139], v144 offset:37888
-ds_read_b64 v[142:143], v140 offset:38912
-ds_read_b64 v[146:147], v144 offset:38912
-ds_read_b64 v[150:151], v140 offset:39936
-ds_read_b64 v[154:155], v144 offset:39936
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[190:191] offset:8192
-ds_write_b64 v132, v[194:195] offset:10240
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf821881
-v_pk_fma_f16 v198, v199, s5, v198 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v202, v203, s5, v202 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v199, v199, s5, v199 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v203, v203, s5, v203 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x798c02fa
-.long 0xff005ac6
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x799402fa
-.long 0xff005aca
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x798e02fa
-.long 0xff005ac7
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x799602fa
-.long 0xff005acb
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_mov_b32 m0, 0x2c400
-s_nop 0
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-v_cmp_eq_u32_e64 vcc, src_lds_direct, s60
-s_cbranch_vccz 65533
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820013
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v190, v164, s[32:35], 0 offen
-buffer_load_short_d16 v191, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v191, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v190, v176, s[32:35], 0 offen
-buffer_load_short_d16 v194, v164, s[36:39], 0 offen
-buffer_load_short_d16 v195, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v195, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v194, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140 offset:40960
-ds_read_b64 v[130:131], v144 offset:40960
-ds_read_b64 v[134:135], v140 offset:41984
-ds_read_b64 v[138:139], v144 offset:41984
-ds_read_b64 v[142:143], v140 offset:43008
-ds_read_b64 v[146:147], v144 offset:43008
-ds_read_b64 v[150:151], v140 offset:44032
-ds_read_b64 v[154:155], v144 offset:44032
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[198:199] offset:12288
-ds_write_b64 v132, v[202:203] offset:14336
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820036
-v_pk_fma_f16 v206, v207, s5, v206 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v210, v211, s5, v210 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v207, v207, s5, v207 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v211, v211, s5, v211 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x799c02fa
-.long 0xff005ace
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x79a402fa
-.long 0xff005ad2
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x799e02fa
-.long 0xff005acf
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x79a602fa
-.long 0xff005ad3
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820018
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v198, v164, s[32:35], 0 offen
-buffer_load_short_d16 v199, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v199, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v198, v176, s[32:35], 0 offen
-buffer_load_short_d16 v202, v164, s[36:39], 0 offen
-buffer_load_short_d16 v203, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v203, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v202, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140 offset:45056
-ds_read_b64 v[130:131], v144 offset:45056
-ds_read_b64 v[134:135], v140 offset:46080
-ds_read_b64 v[138:139], v144 offset:46080
-ds_read_b64 v[142:143], v140 offset:47104
-ds_read_b64 v[146:147], v144 offset:47104
-ds_read_b64 v[150:151], v140 offset:48128
-ds_read_b64 v[154:155], v144 offset:48128
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[206:207] offset:16384
-ds_write_b64 v132, v[210:211] offset:18432
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf82172b
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820036
-v_pk_fma_f16 v166, v167, s5, v166 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v170, v171, s5, v170 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v167, v167, s5, v167 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v171, v171, s5, v171 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x794c02fa
-.long 0xff005aa6
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x795402fa
-.long 0xff005aaa
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x794e02fa
-.long 0xff005aa7
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x795602fa
-.long 0xff005aab
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820018
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v206, v164, s[32:35], 0 offen
-buffer_load_short_d16 v207, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v207, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v206, v176, s[32:35], 0 offen
-buffer_load_short_d16 v210, v164, s[36:39], 0 offen
-buffer_load_short_d16 v211, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v211, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v210, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140
-ds_read_b64 v[130:131], v144
-ds_read_b64 v[134:135], v140 offset:1024
-ds_read_b64 v[138:139], v144 offset:1024
-ds_read_b64 v[142:143], v140 offset:2048
-ds_read_b64 v[146:147], v144 offset:2048
-ds_read_b64 v[150:151], v140 offset:3072
-ds_read_b64 v[154:155], v144 offset:3072
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[166:167] offset:20480
-ds_write_b64 v132, v[170:171] offset:22528
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820036
-v_pk_fma_f16 v174, v175, s5, v174 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v178, v179, s5, v178 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v175, v175, s5, v175 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v179, v179, s5, v179 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x795c02fa
-.long 0xff005aae
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x796402fa
-.long 0xff005ab2
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x795e02fa
-.long 0xff005aaf
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x796602fa
-.long 0xff005ab3
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820016
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v166, v164, s[32:35], 0 offen
-buffer_load_short_d16 v167, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v167, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v166, v176, s[32:35], 0 offen
-buffer_load_short_d16 v170, v164, s[36:39], 0 offen
-buffer_load_short_d16 v171, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v171, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v170, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf821593
-s_clause 0xd
-ds_append v4 offset:50180
-ds_read_b64 v[126:127], v140 offset:4096
-ds_read_b64 v[130:131], v144 offset:4096
-ds_read_b64 v[134:135], v140 offset:5120
-ds_read_b64 v[138:139], v144 offset:5120
-ds_read_b64 v[142:143], v140 offset:6144
-ds_read_b64 v[146:147], v144 offset:6144
-ds_read_b64 v[150:151], v140 offset:7168
-ds_read_b64 v[154:155], v144 offset:7168
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[174:175] offset:24576
-ds_write_b64 v132, v[178:179] offset:26624
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf82003b
-v_pk_fma_f16 v182, v183, s5, v182 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v186, v187, s5, v186 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v183, v183, s5, v183 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v187, v187, s5, v187 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x796c02fa
-.long 0xff005ab6
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x797402fa
-.long 0xff005aba
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x796e02fa
-.long 0xff005ab7
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x797602fa
-.long 0xff005abb
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_mov_b32 m0, 0x2c404
-s_nop 0
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-v_cmp_eq_u32_e64 vcc, src_lds_direct, s60
-s_cbranch_vccz 65533
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820013
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v174, v164, s[32:35], 0 offen
-buffer_load_short_d16 v175, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v175, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v174, v176, s[32:35], 0 offen
-buffer_load_short_d16 v178, v164, s[36:39], 0 offen
-buffer_load_short_d16 v179, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v179, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v178, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140 offset:8192
-ds_read_b64 v[130:131], v144 offset:8192
-ds_read_b64 v[134:135], v140 offset:9216
-ds_read_b64 v[138:139], v144 offset:9216
-ds_read_b64 v[142:143], v140 offset:10240
-ds_read_b64 v[146:147], v144 offset:10240
-ds_read_b64 v[150:151], v140 offset:11264
-ds_read_b64 v[154:155], v144 offset:11264
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[182:183] offset:28672
-ds_write_b64 v132, v[186:187] offset:30720
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820036
-v_pk_fma_f16 v190, v191, s5, v190 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v194, v195, s5, v194 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v191, v191, s5, v191 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v195, v195, s5, v195 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x797c02fa
-.long 0xff005abe
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x798402fa
-.long 0xff005ac2
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x797e02fa
-.long 0xff005abf
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x798602fa
-.long 0xff005ac3
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf8213ea
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v182, v164, s[32:35], 0 offen
-buffer_load_short_d16 v183, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v183, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v182, v176, s[32:35], 0 offen
-buffer_load_short_d16 v186, v164, s[36:39], 0 offen
-buffer_load_short_d16 v187, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v187, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v186, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140 offset:12288
-ds_read_b64 v[130:131], v144 offset:12288
-ds_read_b64 v[134:135], v140 offset:13312
-ds_read_b64 v[138:139], v144 offset:13312
-ds_read_b64 v[142:143], v140 offset:14336
-ds_read_b64 v[146:147], v144 offset:14336
-ds_read_b64 v[150:151], v140 offset:15360
-ds_read_b64 v[154:155], v144 offset:15360
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[190:191] offset:32768
-ds_write_b64 v132, v[194:195] offset:34816
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820036
-v_pk_fma_f16 v198, v199, s5, v198 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v202, v203, s5, v202 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v199, v199, s5, v199 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v203, v203, s5, v203 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x798c02fa
-.long 0xff005ac6
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x799402fa
-.long 0xff005aca
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x798e02fa
-.long 0xff005ac7
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x799602fa
-.long 0xff005acb
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820018
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v190, v164, s[32:35], 0 offen
-buffer_load_short_d16 v191, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v191, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v190, v176, s[32:35], 0 offen
-buffer_load_short_d16 v194, v164, s[36:39], 0 offen
-buffer_load_short_d16 v195, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v195, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v194, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140 offset:16384
-ds_read_b64 v[130:131], v144 offset:16384
-ds_read_b64 v[134:135], v140 offset:17408
-ds_read_b64 v[138:139], v144 offset:17408
-ds_read_b64 v[142:143], v140 offset:18432
-ds_read_b64 v[146:147], v144 offset:18432
-ds_read_b64 v[150:151], v140 offset:19456
-ds_read_b64 v[154:155], v144 offset:19456
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[198:199] offset:36864
-ds_write_b64 v132, v[202:203] offset:38912
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf8212cb
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf820036
-v_pk_fma_f16 v206, v207, s5, v206 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v210, v211, s5, v210 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v207, v207, s5, v207 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v211, v211, s5, v211 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x799c02fa
-.long 0xff005ace
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x79a402fa
-.long 0xff005ad2
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x799e02fa
-.long 0xff005acf
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x79a602fa
-.long 0xff005ad3
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_nop 2
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf820016
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v198, v164, s[32:35], 0 offen
-buffer_load_short_d16 v199, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v199, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v198, v176, s[32:35], 0 offen
-buffer_load_short_d16 v202, v164, s[36:39], 0 offen
-buffer_load_short_d16 v203, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v203, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v202, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820027
-s_clause 0xd
-ds_append v4 offset:50184
-ds_read_b64 v[126:127], v140 offset:20480
-ds_read_b64 v[130:131], v144 offset:20480
-ds_read_b64 v[134:135], v140 offset:21504
-ds_read_b64 v[138:139], v144 offset:21504
-ds_read_b64 v[142:143], v140 offset:22528
-ds_read_b64 v[146:147], v144 offset:22528
-ds_read_b64 v[150:151], v140 offset:23552
-ds_read_b64 v[154:155], v144 offset:23552
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[206:207] offset:40960
-ds_write_b64 v132, v[210:211] offset:43008
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 5
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820069
-s_mov_b32 null, 0xf0f0f0
-s_waitcnt vmcnt(32) lgkmcnt(3)
-.long 0x78fafce9
-.long 0x0000009e
-.long 0x7902fee9
-v_max_i32_e32 v73, v158, v36
-s_setprio 1
-.long 0x790b04e9
-.long 0x4924929e
-.long 0x791306e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x791afce9
-s_bfm_b32 s73, 30, s36
-.long 0x7922fee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x792b04e9
-.long 0xdb6db69e
-.long 0x793306e9
-.long 0xffffff9e
-.long 0x793afce9
-.long 0x0000009f
-.long 0x7942fee9
-v_max_i32_e32 v73, v159, v36
-.long 0x794b04e9
-.long 0x4924929f
-.long 0x795306e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x795afce9
-s_bfm_b32 s73, 31, s36
-.long 0x7962fee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x796b04e9
-.long 0xdb6db69f
-.long 0x797306e9
-.long 0xffffff9f
-.long 0x797b0ce9
-.long 0x0000009e
-.long 0x79830ee9
-v_max_i32_e32 v73, v158, v36
-.long 0x798b14e9
-.long 0x4924929e
-.long 0x799316e9
-v_fmac_f16_e32 v219, v158, v109
-.long 0x799b0ce9
-s_bfm_b32 s73, 30, s36
-.long 0x79a30ee9
-s_cmpk_lt_u32 s91, 0x6d9e
-.long 0x79ab14e9
-.long 0xdb6db69e
-.long 0x79b316e9
-.long 0xffffff9e
-.long 0x79bb0ce9
-.long 0x0000009f
-.long 0x79c30ee9
-v_max_i32_e32 v73, v159, v36
-.long 0x79cb14e9
-.long 0x4924929f
-.long 0x79d316e9
-v_fmac_f16_e32 v219, v159, v109
-.long 0x79db0ce9
-s_bfm_b32 s73, 31, s36
-.long 0x79e30ee9
-s_cmpk_lt_u32 s91, 0x6d9f
-.long 0x79eb14e9
-.long 0xdb6db69f
-.long 0x79f316e9
-.long 0xffffff9f
-.long 0x78fb1ce9
-.long 0x000000a2
-.long 0x79031ee9
-v_max_i32_e32 v73, v162, v36
-.long 0x790b24e9
-.long 0x492492a2
-.long 0x791326e9
-v_fmac_f16_e32 v219, v162, v109
-.long 0x791b1ce9
-s_bfm_b32 s73, 34, s36
-.long 0x79231ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x792b24e9
-.long 0xdb6db6a2
-.long 0x793326e9
-.long 0xffffffa2
-.long 0x793b1ce9
-.long 0x000000a3
-.long 0x79431ee9
-v_max_i32_e32 v73, v163, v36
-.long 0x794b24e9
-.long 0x492492a3
-.long 0x795326e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x795b1ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79631ee9
-s_cmpk_lt_u32 s91, 0x6da3
-.long 0x796b24e9
-.long 0xdb6db6a3
-.long 0x797326e9
-.long 0xffffffa3
-.long 0x797b2ce9
-.long 0x000000a2
-.long 0x79832ee9
-v_max_i32_e32 v73, v162, v36
-s_mov_b32 null, 0xbf82003b
-v_pk_fma_f16 v166, v167, s5, v166 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x798b34e9
-.long 0x492492a2
-v_pk_fma_f16 v170, v171, s5, v170 op_sel:[1,0,0] op_sel_hi:[0,0,1]
-.long 0x799336e9
-v_fmac_f16_e32 v219, v162, v109
-v_pk_fma_f16 v167, v167, s5, v167 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x799b2ce9
-s_bfm_b32 s73, 34, s36
-v_pk_fma_f16 v171, v171, s5, v171 op_sel:[1,1,0] op_sel_hi:[0,0,1]
-.long 0x79a32ee9
-s_cmpk_lt_u32 s91, 0x6da2
-.long 0x794c02fa
-.long 0xff005aa6
-.long 0x79ab34e9
-.long 0xdb6db6a2
-.long 0x795402fa
-.long 0xff005aaa
-.long 0x79b336e9
-.long 0xffffffa2
-.long 0x794e02fa
-.long 0xff005aa7
-.long 0x79bb2ce9
-.long 0x000000a3
-.long 0x795602fa
-.long 0xff005aab
-.long 0x79c32ee9
-v_max_i32_e32 v73, v163, v36
-v_movrels_b32_e32 v128, v5
-.long 0x79cb34e9
-.long 0x492492a3
-.long 0x79d336e9
-v_fmac_f16_e32 v219, v163, v109
-.long 0x79db2ce9
-s_bfm_b32 s73, 35, s36
-.long 0x79e32ee9
-s_cmpk_lt_u32 s91, 0x6da3
-s_mov_b32 m0, 0x2c408
-s_nop 0
-.long 0x79eb34e9
-.long 0xdb6db6a3
-.long 0x79f336e9
-.long 0xffffffa3
-v_cmp_eq_u32_e64 vcc, src_lds_direct, s60
-s_cbranch_vccz 65533
-s_waitcnt lgkmcnt(0)
-s_setprio 0
-s_sub_u32 s32, s32, s16
-s_subb_u32 s33, s33, 0
-s_sub_u32 s36, s36, s16
-s_subb_u32 s37, s37, 0
-s_mov_b32 s39, s67
-s_mov_b32 null, 0xbf821145
-s_nop 0
-s_clause 0x7
-buffer_load_short_d16 v206, v164, s[32:35], 0 offen
-buffer_load_short_d16 v207, v168, s[32:35], 0 offen
-buffer_load_short_d16_hi v207, v172, s[32:35], 0 offen
-buffer_load_short_d16_hi v206, v176, s[32:35], 0 offen
-buffer_load_short_d16 v210, v164, s[36:39], 0 offen
-buffer_load_short_d16 v211, v168, s[36:39], 0 offen
-buffer_load_short_d16_hi v211, v172, s[36:39], 0 offen
-buffer_load_short_d16_hi v210, v176, s[36:39], 0 offen
-s_mov_b32 null, 0xbf820025
-s_clause 0xc
-ds_read_b64 v[126:127], v140 offset:24576
-ds_read_b64 v[130:131], v144 offset:24576
-ds_read_b64 v[134:135], v140 offset:25600
-ds_read_b64 v[138:139], v144 offset:25600
-ds_read_b64 v[142:143], v140 offset:26624
-ds_read_b64 v[146:147], v144 offset:26624
-ds_read_b64 v[150:151], v140 offset:27648
-ds_read_b64 v[154:155], v144 offset:27648
-ds_read_b64 v[158:159], v148 offset:49152
-ds_read_b64 v[162:163], v148 offset:49280
-ds_write_b64 v132, v[166:167] offset:45056
-ds_write_b64 v132, v[170:171] offset:47104
-ds_write_b32 v136, v128 offset:49152
-s_mov_b32 s67, s35
-s_sub_u32 s81, s81, 1
-s_cselect_b32 s81, s82, s81
-s_mov_b32 m0, s81
-s_sub_u32 s78, s78, 2
-s_cbranch_scc0 62855
-s_swappc_b64 s[76:77], s[68:69]
-s_nop 0
-s_mov_b32 m0, s81
-s_mov_b32 null, 0xbf820021
-s_branch 62849
-s_branch 4359
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_mov_b32 null, 0xbf82007f
-s_and_b32 null, 1, s12
-s_addc_u32 s79, s12, 0
-s_sub_u32 s65, s65, s14
-s_cselect_b32 s35, 0, s35
-s_cselect_b32 s39, 0, s39
-s_cselect_b32 s79, 0x1000, s79
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_setprio 2
-s_lshl2_add_u32 s88, s4, 4
-v_add_co_u32_e64 v253, s[94:95], v200, v200
-v_lshlrev_b32_e32 v204, 2, v200
-v_lshlrev_b32_e32 v253, s88, v200
-v_add_co_u32_e64 v204, s[90:91], v204, v204
-v_add_co_u32_e64 v204, s[92:93], v204, v204
-s_lshr_b32 s98, s16, 1
-s_add_u32 s32, s24, s94
-s_addc_u32 s33, s25, s95
-s_add_u32 s36, s32, s98
-s_addc_u32 s37, s33, 0
-s_and_b32 null, 1, s12
-s_cselect_b32 s67, 0, s35
-s_lshl_b32 s84, s4, 4
-s_lshl_b32 s86, s4, 4
-s_bcnt1_i32_b64 s85, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-s_lshr_b64 s[90:91], s[90:91], s84
-s_lshr_b64 s[92:93], s[92:93], s86
-s_bcnt1_i32_b64 s84, s[90:91]
-s_bcnt1_i32_b64 s86, s[92:93]
-s_bitreplicate_b64_b32 s[90:91], s90
-s_bitreplicate_b64_b32 s[92:93], s92
-s_sub_u32 s85, s85, s84
-s_sub_u32 s87, s87, s86
-s_bitreplicate_b64_b32 s[90:91], s90
-s_bitreplicate_b64_b32 s[92:93], s92
-s_lshl_b32 s85, s85, 2
-s_lshl_b32 s87, s87, 2
-v_mbcnt_lo_u32_b32_e64 v214, s90, s85
-v_mbcnt_lo_u32_b32_e64 v215, s92, s87
-v_mbcnt_hi_u32_b32_e64 v214, s91, v214
-v_mbcnt_hi_u32_b32_e64 v215, s93, v215
-v_lshrrev_b32_e32 v214, 2, v214
-v_lshrrev_b32_e32 v215, 2, v215
-v_mad_i32_i24 v164, v214, s18, v152
-v_mad_i32_i24 v164, v215, s19, v164
-v_add_co_u32_e64 v168, vcc, v164, s17
-v_add_co_u32_e64 v253, vcc, v253, v253
-v_cndmask_b32_e64 v164, v164, -1, vcc
-v_add_co_u32_e64 v172, vcc, v168, s17
-v_add_co_u32_e64 v253, vcc, v253, v253
-v_cndmask_b32_e64 v168, v168, -1, vcc
-v_add_co_u32_e64 v176, vcc, v172, s17
-v_add_co_u32_e64 v253, vcc, v253, v253
-v_cndmask_b32_e64 v172, v172, -1, vcc
-v_add_co_u32_e64 v253, vcc, v253, v253
-v_cndmask_b32_e64 v176, v176, -1, vcc
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_add_u32 m0, s9, 0xc438
-ds_read_addtid_b32 v200
-s_sub_u32 s9, s9, 0x100
-s_cselect_b32 s9, 0x1500, s9
-v_lshlrev_b32_e32 v204, 2, v0
-s_mul_i32 s86, s14, 0x100
-s_add_u32 m0, s11, 0xc438
-s_add_u32 s56, s56, s86
-s_addc_u32 s57, s57, 0
-v_and_b32_e64 v204, v204, 0xff
-buffer_load_dword v204, v204, s[56:59], 0 offen lds
-s_sub_u32 s11, s11, 0x100
-s_cselect_b32 s11, 0x1500, s11
-s_sub_u32 s15, s15, s14
-s_cselect_b32 s59, 0, s59
-s_setprio 0
-s_setpc_b64 s[76:77]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_mov_b32 null, 0xbf821069
-s_add_u32 s70, s70, s83
-s_addc_u32 s71, s71, 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-v_mov_b32_e32 v125, 0
-v_mov_b32_e32 v129, 0
-v_mov_b32_e32 v133, 0
-v_mov_b32_e32 v137, 0
-v_mov_b32_e32 v141, 0
-v_mov_b32_e32 v145, 0
-v_mov_b32_e32 v149, 0
-v_mov_b32_e32 v153, 0
-v_mov_b32_e32 v157, 0
-v_mov_b32_e32 v161, 0
-v_mov_b32_e32 v165, 0
-v_mov_b32_e32 v169, 0
-v_mov_b32_e32 v173, 0
-v_mov_b32_e32 v177, 0
-v_mov_b32_e32 v181, 0
-v_mov_b32_e32 v185, 0
-v_mov_b32_e32 v189, 0
-v_mov_b32_e32 v193, 0
-v_mov_b32_e32 v197, 0
-v_mov_b32_e32 v201, 0
-v_mov_b32_e32 v205, 0
-v_mov_b32_e32 v209, 0
-v_mov_b32_e32 v213, 0
-v_mov_b32_e32 v217, 0
-v_mov_b32_e32 v221, 0
-v_mov_b32_e32 v225, 0
-v_mov_b32_e32 v229, 0
-v_mov_b32_e32 v233, 0
-v_mov_b32_e32 v237, 0
-v_mov_b32_e32 v241, 0
-v_mov_b32_e32 v245, 0
-v_mov_b32_e32 v249, 0
-s_setprio 2
-v_lshlrev_b32_e32 v204, 1, v196
-v_lshlrev_b32_e32 v208, 20, v196
-v_add_co_u32_e64 v204, s[98:99], v204, v204
-v_add_co_u32_e64 v204, s[94:95], v204, v204
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v204, s[96:97], v204, v204
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v212, s90, 0
-v_mbcnt_lo_u32_b32_e64 v214, s92, 0
-v_mbcnt_lo_u32_b32_e64 v215, s94, s86
-v_mbcnt_lo_u32_b32_e64 v216, s96, s87
-v_mbcnt_hi_u32_b32_e64 v212, s91, v212
-v_mbcnt_hi_u32_b32_e64 v214, s93, v214
-v_mbcnt_hi_u32_b32_e64 v215, s95, v215
-v_mbcnt_hi_u32_b32_e64 v216, s97, v216
-v_lshrrev_b32_e32 v212, 1, v212
-v_lshrrev_b32_e32 v214, 1, v214
-v_lshrrev_b32_e32 v215, 1, v215
-v_lshrrev_b32_e32 v216, 1, v216
-v_mad_i32_i24 v180, v212, s22, v156
-v_mad_i32_i24 v188, v215, s22, v160
-v_mad_i32_i24 v180, v214, s23, v180
-v_mad_i32_i24 v188, v216, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v208, vcc, v208, v208
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v208, vcc, v208, v208
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v208, vcc, v208, v208
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v208, vcc, v208, v208
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v208, v161, s5, v157 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v157, 0
-v_pk_fma_f16 v219, v169, s5, v165 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v165, 0
-v_pk_fma_f16 v222, v177, s5, v173 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v173, 0
-v_pk_fma_f16 v212, v185, s5, v181 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v181, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v230, v225, s5, v221 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v221, 0
-v_pk_fma_f16 v220, v233, s5, v229 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v229, 0
-v_pk_fma_f16 v231, v241, s5, v237 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v237, 0
-v_pk_fma_f16 v234, v249, s5, v245 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v245, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v208, v161, s5, v208 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v161, 0
-v_pk_fma_f16 v219, v169, s5, v219 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v169, 0
-v_pk_fma_f16 v222, v177, s5, v222 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v177, 0
-v_pk_fma_f16 v212, v185, s5, v212 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v185, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-v_pk_fma_f16 v230, v225, s5, v230 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v225, 0
-v_pk_fma_f16 v220, v233, s5, v220 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v233, 0
-v_pk_fma_f16 v231, v241, s5, v231 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v241, 0
-v_pk_fma_f16 v234, v249, s5, v234 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v249, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79a006fa
-.long 0xff00b1db
-.long 0x79bc06fa
-.long 0xff00b1d4
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-.long 0x79cc06fa
-.long 0xff00b1dc
-.long 0x79ce06fa
-.long 0xff00b1ea
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v208, v219, v2
-v_pk_fmac_f16_e32 v222, v212, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_fmac_f16_e32 v230, v220, v2
-v_pk_fmac_f16_e32 v231, v234, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v208, s63, v208
-v_pk_add_f16 v222, s64, v222
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_add_f16 v230, s63, v230
-v_pk_add_f16 v231, s64, v231
-v_pk_mul_f16 v204, s30, v214
-v_pk_mul_f16 v218, s30, v215
-v_pk_mul_f16 v219, s30, v208
-v_pk_mul_f16 v212, s30, v222
-v_pk_mul_f16 v226, s30, v223
-v_pk_mul_f16 v227, s30, v216
-v_pk_mul_f16 v220, s30, v230
-v_pk_mul_f16 v234, s30, v231
-v_pk_max_f16 v214, v214, v204
-v_pk_max_f16 v215, v215, v218
-v_pk_max_f16 v208, v208, v219
-v_pk_max_f16 v222, v222, v212
-v_pk_max_f16 v223, v223, v226
-v_pk_max_f16 v216, v216, v227
-v_pk_max_f16 v230, v230, v220
-v_pk_max_f16 v231, v231, v234
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-buffer_store_short v208, v180, s[48:51], 0 offen
-buffer_store_short_d16_hi v208, v184, s[48:51], 0 offen
-buffer_store_short v230, v188, s[48:51], 0 offen
-buffer_store_short_d16_hi v230, v192, s[48:51], 0 offen
-buffer_store_short v222, v180, s[52:55], 0 offen
-buffer_store_short_d16_hi v222, v184, s[52:55], 0 offen
-buffer_store_short v231, v188, s[52:55], 0 offen
-buffer_store_short_d16_hi v231, v192, s[52:55], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v208, v161, s5, v157 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v157, 0
-v_pk_fma_f16 v219, v169, s5, v165 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v165, 0
-v_pk_fma_f16 v222, v177, s5, v173 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v173, 0
-v_pk_fma_f16 v212, v185, s5, v181 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v181, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v230, v225, s5, v221 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v221, 0
-v_pk_fma_f16 v220, v233, s5, v229 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v229, 0
-v_pk_fma_f16 v231, v241, s5, v237 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v237, 0
-v_pk_fma_f16 v234, v249, s5, v245 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v245, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v208, v161, s5, v208 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v161, 0
-v_pk_fma_f16 v219, v169, s5, v219 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v169, 0
-v_pk_fma_f16 v222, v177, s5, v222 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v177, 0
-v_pk_fma_f16 v212, v185, s5, v212 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v185, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-v_pk_fma_f16 v230, v225, s5, v230 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v225, 0
-v_pk_fma_f16 v220, v233, s5, v220 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v233, 0
-v_pk_fma_f16 v231, v241, s5, v231 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v241, 0
-v_pk_fma_f16 v234, v249, s5, v234 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v249, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79a006fa
-.long 0xff00b1db
-.long 0x79bc06fa
-.long 0xff00b1d4
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-.long 0x79cc06fa
-.long 0xff00b1dc
-.long 0x79ce06fa
-.long 0xff00b1ea
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v208, v219, v2
-v_pk_fmac_f16_e32 v222, v212, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_fmac_f16_e32 v230, v220, v2
-v_pk_fmac_f16_e32 v231, v234, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v208, s63, v208
-v_pk_add_f16 v222, s64, v222
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_add_f16 v230, s63, v230
-v_pk_add_f16 v231, s64, v231
-v_pk_mul_f16 v204, s30, v214
-v_pk_mul_f16 v218, s30, v215
-v_pk_mul_f16 v219, s30, v208
-v_pk_mul_f16 v212, s30, v222
-v_pk_mul_f16 v226, s30, v223
-v_pk_mul_f16 v227, s30, v216
-v_pk_mul_f16 v220, s30, v230
-v_pk_mul_f16 v234, s30, v231
-v_pk_min_f16 v214, v214, v204
-v_pk_min_f16 v215, v215, v218
-v_pk_min_f16 v208, v208, v219
-v_pk_min_f16 v222, v222, v212
-v_pk_min_f16 v223, v223, v226
-v_pk_min_f16 v216, v216, v227
-v_pk_min_f16 v230, v230, v220
-v_pk_min_f16 v231, v231, v234
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-buffer_store_short v208, v180, s[48:51], 0 offen
-buffer_store_short_d16_hi v208, v184, s[48:51], 0 offen
-buffer_store_short v230, v188, s[48:51], 0 offen
-buffer_store_short_d16_hi v230, v192, s[48:51], 0 offen
-buffer_store_short v222, v180, s[52:55], 0 offen
-buffer_store_short_d16_hi v222, v184, s[52:55], 0 offen
-buffer_store_short v231, v188, s[52:55], 0 offen
-buffer_store_short_d16_hi v231, v192, s[52:55], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v208, v161, s5, v157 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v157, 0
-v_pk_fma_f16 v219, v169, s5, v165 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v165, 0
-v_pk_fma_f16 v222, v177, s5, v173 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v173, 0
-v_pk_fma_f16 v212, v185, s5, v181 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v181, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v230, v225, s5, v221 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v221, 0
-v_pk_fma_f16 v220, v233, s5, v229 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v229, 0
-v_pk_fma_f16 v231, v241, s5, v237 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v237, 0
-v_pk_fma_f16 v234, v249, s5, v245 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v245, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v208, v161, s5, v208 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v161, 0
-v_pk_fma_f16 v219, v169, s5, v219 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v169, 0
-v_pk_fma_f16 v222, v177, s5, v222 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v177, 0
-v_pk_fma_f16 v212, v185, s5, v212 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v185, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-v_pk_fma_f16 v230, v225, s5, v230 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v225, 0
-v_pk_fma_f16 v220, v233, s5, v220 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v233, 0
-v_pk_fma_f16 v231, v241, s5, v231 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v241, 0
-v_pk_fma_f16 v234, v249, s5, v234 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v249, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79a006fa
-.long 0xff00b1db
-.long 0x79bc06fa
-.long 0xff00b1d4
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-.long 0x79cc06fa
-.long 0xff00b1dc
-.long 0x79ce06fa
-.long 0xff00b1ea
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v208, v219, v2
-v_pk_fmac_f16_e32 v222, v212, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_fmac_f16_e32 v230, v220, v2
-v_pk_fmac_f16_e32 v231, v234, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v208, s63, v208
-v_pk_add_f16 v222, s64, v222
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_add_f16 v230, s63, v230
-v_pk_add_f16 v231, s64, v231
-v_pk_mul_f16 v214, 0xbdc5bdc5, v214 op_sel_hi:[0,1]
-v_pk_mul_f16 v215, 0xbdc5bdc5, v215 op_sel_hi:[0,1]
-v_pk_mul_f16 v208, 0xbdc5bdc5, v208 op_sel_hi:[0,1]
-v_pk_mul_f16 v222, 0xbdc5bdc5, v222 op_sel_hi:[0,1]
-v_pk_mul_f16 v223, 0xbdc5bdc5, v223 op_sel_hi:[0,1]
-v_pk_mul_f16 v216, 0xbdc5bdc5, v216 op_sel_hi:[0,1]
-v_pk_mul_f16 v230, 0xbdc5bdc5, v230 op_sel_hi:[0,1]
-v_pk_mul_f16 v231, 0xbdc5bdc5, v231 op_sel_hi:[0,1]
-.long 0x7facb0f9
-.long 0x060414d6
-.long 0x7faeb0f9
-.long 0x060414d7
-.long 0x7fa0b0f9
-v_add_f32_e32 v2, -16, v10
-.long 0x7fbcb0f9
-.long 0x060414de
-.long 0x7fbeb0f9
-.long 0x060414df
-.long 0x7fb0b0f9
-.long 0x060414d8
-.long 0x7fccb0f9
-.long 0x060414e6
-.long 0x7fceb0f9
-.long 0x060414e7
-.long 0x7facb0f9
-v_add_f32_e32 v2, v214, v138
-.long 0x7faeb0f9
-v_add_f32_e32 v2, v215, v138
-.long 0x7fa0b0f9
-v_add_f32_e32 v2, v208, v138
-.long 0x7fbcb0f9
-v_add_f32_e32 v2, v222, v138
-.long 0x7fbeb0f9
-v_add_f32_e32 v2, v223, v138
-.long 0x7fb0b0f9
-v_add_f32_e32 v2, v216, v138
-.long 0x7fccb0f9
-v_add_f32_e32 v2, v230, v138
-.long 0x7fceb0f9
-v_add_f32_e32 v2, v231, v138
-v_pk_add_f16 v214, 0x3c003c00, v214 op_sel_hi:[0,1]
-v_pk_add_f16 v215, 0x3c003c00, v215 op_sel_hi:[0,1]
-v_pk_add_f16 v208, 0x3c003c00, v208 op_sel_hi:[0,1]
-v_pk_add_f16 v222, 0x3c003c00, v222 op_sel_hi:[0,1]
-v_pk_add_f16 v223, 0x3c003c00, v223 op_sel_hi:[0,1]
-v_pk_add_f16 v216, 0x3c003c00, v216 op_sel_hi:[0,1]
-v_pk_add_f16 v230, 0x3c003c00, v230 op_sel_hi:[0,1]
-v_pk_add_f16 v231, 0x3c003c00, v231 op_sel_hi:[0,1]
-.long 0x7faca8f9
-.long 0x060414d6
-.long 0x7faea8f9
-.long 0x060414d7
-.long 0x7fa0a8f9
-v_add_f32_e32 v2, -16, v10
-.long 0x7fbca8f9
-.long 0x060414de
-.long 0x7fbea8f9
-.long 0x060414df
-.long 0x7fb0a8f9
-.long 0x060414d8
-.long 0x7fcca8f9
-.long 0x060414e6
-.long 0x7fcea8f9
-.long 0x060414e7
-.long 0x7faca8f9
-v_add_f32_e32 v2, v214, v138
-.long 0x7faea8f9
-v_add_f32_e32 v2, v215, v138
-.long 0x7fa0a8f9
-v_add_f32_e32 v2, v208, v138
-.long 0x7fbca8f9
-v_add_f32_e32 v2, v222, v138
-.long 0x7fbea8f9
-v_add_f32_e32 v2, v223, v138
-.long 0x7fb0a8f9
-v_add_f32_e32 v2, v216, v138
-.long 0x7fcca8f9
-v_add_f32_e32 v2, v230, v138
-.long 0x7fcea8f9
-v_add_f32_e32 v2, v231, v138
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-buffer_store_short v208, v180, s[48:51], 0 offen
-buffer_store_short_d16_hi v208, v184, s[48:51], 0 offen
-buffer_store_short v230, v188, s[48:51], 0 offen
-buffer_store_short_d16_hi v230, v192, s[48:51], 0 offen
-buffer_store_short v222, v180, s[52:55], 0 offen
-buffer_store_short_d16_hi v222, v184, s[52:55], 0 offen
-buffer_store_short v231, v188, s[52:55], 0 offen
-buffer_store_short_d16_hi v231, v192, s[52:55], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v208, v161, s5, v157 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v157, 0
-v_pk_fma_f16 v219, v169, s5, v165 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v165, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v230, v225, s5, v221 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v221, 0
-v_pk_fma_f16 v220, v233, s5, v229 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v229, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v208, v161, s5, v208 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v161, 0
-v_pk_fma_f16 v219, v169, s5, v219 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v169, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-v_pk_fma_f16 v230, v225, s5, v230 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v225, 0
-v_pk_fma_f16 v220, v233, s5, v220 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v233, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79a006fa
-.long 0xff00b1db
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-.long 0x79cc06fa
-.long 0xff00b1dc
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v208, v219, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_fmac_f16_e32 v230, v220, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v208, s63, v208
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_add_f16 v230, s63, v230
-v_pk_mul_f16 v204, s30, v214
-v_pk_mul_f16 v218, s30, v215
-v_pk_mul_f16 v219, s30, v208
-v_pk_mul_f16 v226, s30, v223
-v_pk_mul_f16 v227, s30, v216
-v_pk_mul_f16 v220, s30, v230
-v_pk_max_f16 v214, v214, v204
-v_pk_max_f16 v215, v215, v218
-v_pk_max_f16 v208, v208, v219
-v_pk_max_f16 v223, v223, v226
-v_pk_max_f16 v216, v216, v227
-v_pk_max_f16 v230, v230, v220
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-buffer_store_short v208, v180, s[48:51], 0 offen
-buffer_store_short_d16_hi v208, v184, s[48:51], 0 offen
-buffer_store_short v230, v188, s[48:51], 0 offen
-buffer_store_short_d16_hi v230, v192, s[48:51], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v208, v161, s5, v157 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v157, 0
-v_pk_fma_f16 v219, v169, s5, v165 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v165, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v230, v225, s5, v221 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v221, 0
-v_pk_fma_f16 v220, v233, s5, v229 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v229, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v208, v161, s5, v208 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v161, 0
-v_pk_fma_f16 v219, v169, s5, v219 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v169, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-v_pk_fma_f16 v230, v225, s5, v230 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v225, 0
-v_pk_fma_f16 v220, v233, s5, v220 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v233, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79a006fa
-.long 0xff00b1db
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-.long 0x79cc06fa
-.long 0xff00b1dc
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v208, v219, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_fmac_f16_e32 v230, v220, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v208, s63, v208
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_add_f16 v230, s63, v230
-v_pk_mul_f16 v204, s30, v214
-v_pk_mul_f16 v218, s30, v215
-v_pk_mul_f16 v219, s30, v208
-v_pk_mul_f16 v226, s30, v223
-v_pk_mul_f16 v227, s30, v216
-v_pk_mul_f16 v220, s30, v230
-v_pk_min_f16 v214, v214, v204
-v_pk_min_f16 v215, v215, v218
-v_pk_min_f16 v208, v208, v219
-v_pk_min_f16 v223, v223, v226
-v_pk_min_f16 v216, v216, v227
-v_pk_min_f16 v230, v230, v220
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-buffer_store_short v208, v180, s[48:51], 0 offen
-buffer_store_short_d16_hi v208, v184, s[48:51], 0 offen
-buffer_store_short v230, v188, s[48:51], 0 offen
-buffer_store_short_d16_hi v230, v192, s[48:51], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v208, v161, s5, v157 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v157, 0
-v_pk_fma_f16 v219, v169, s5, v165 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v165, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v230, v225, s5, v221 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v221, 0
-v_pk_fma_f16 v220, v233, s5, v229 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v229, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v208, v161, s5, v208 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v161, 0
-v_pk_fma_f16 v219, v169, s5, v219 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v169, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-v_pk_fma_f16 v230, v225, s5, v230 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v225, 0
-v_pk_fma_f16 v220, v233, s5, v220 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v233, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79a006fa
-.long 0xff00b1db
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-.long 0x79cc06fa
-.long 0xff00b1dc
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v208, v219, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_fmac_f16_e32 v230, v220, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v208, s63, v208
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_add_f16 v230, s63, v230
-v_pk_mul_f16 v214, 0xbdc5bdc5, v214 op_sel_hi:[0,1]
-v_pk_mul_f16 v215, 0xbdc5bdc5, v215 op_sel_hi:[0,1]
-v_pk_mul_f16 v208, 0xbdc5bdc5, v208 op_sel_hi:[0,1]
-v_pk_mul_f16 v223, 0xbdc5bdc5, v223 op_sel_hi:[0,1]
-v_pk_mul_f16 v216, 0xbdc5bdc5, v216 op_sel_hi:[0,1]
-v_pk_mul_f16 v230, 0xbdc5bdc5, v230 op_sel_hi:[0,1]
-.long 0x7facb0f9
-.long 0x060414d6
-.long 0x7faeb0f9
-.long 0x060414d7
-.long 0x7fa0b0f9
-v_add_f32_e32 v2, -16, v10
-.long 0x7fbeb0f9
-.long 0x060414df
-.long 0x7fb0b0f9
-.long 0x060414d8
-.long 0x7fccb0f9
-.long 0x060414e6
-.long 0x7facb0f9
-v_add_f32_e32 v2, v214, v138
-.long 0x7faeb0f9
-v_add_f32_e32 v2, v215, v138
-.long 0x7fa0b0f9
-v_add_f32_e32 v2, v208, v138
-.long 0x7fbeb0f9
-v_add_f32_e32 v2, v223, v138
-.long 0x7fb0b0f9
-v_add_f32_e32 v2, v216, v138
-.long 0x7fccb0f9
-v_add_f32_e32 v2, v230, v138
-v_pk_add_f16 v214, 0x3c003c00, v214 op_sel_hi:[0,1]
-v_pk_add_f16 v215, 0x3c003c00, v215 op_sel_hi:[0,1]
-v_pk_add_f16 v208, 0x3c003c00, v208 op_sel_hi:[0,1]
-v_pk_add_f16 v223, 0x3c003c00, v223 op_sel_hi:[0,1]
-v_pk_add_f16 v216, 0x3c003c00, v216 op_sel_hi:[0,1]
-v_pk_add_f16 v230, 0x3c003c00, v230 op_sel_hi:[0,1]
-.long 0x7faca8f9
-.long 0x060414d6
-.long 0x7faea8f9
-.long 0x060414d7
-.long 0x7fa0a8f9
-v_add_f32_e32 v2, -16, v10
-.long 0x7fbea8f9
-.long 0x060414df
-.long 0x7fb0a8f9
-.long 0x060414d8
-.long 0x7fcca8f9
-.long 0x060414e6
-.long 0x7faca8f9
-v_add_f32_e32 v2, v214, v138
-.long 0x7faea8f9
-v_add_f32_e32 v2, v215, v138
-.long 0x7fa0a8f9
-v_add_f32_e32 v2, v208, v138
-.long 0x7fbea8f9
-v_add_f32_e32 v2, v223, v138
-.long 0x7fb0a8f9
-v_add_f32_e32 v2, v216, v138
-.long 0x7fcca8f9
-v_add_f32_e32 v2, v230, v138
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-buffer_store_short v208, v180, s[48:51], 0 offen
-buffer_store_short_d16_hi v208, v184, s[48:51], 0 offen
-buffer_store_short v230, v188, s[48:51], 0 offen
-buffer_store_short_d16_hi v230, v192, s[48:51], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_mul_f16 v204, s30, v214
-v_pk_mul_f16 v218, s30, v215
-v_pk_mul_f16 v226, s30, v223
-v_pk_mul_f16 v227, s30, v216
-v_pk_max_f16 v214, v214, v204
-v_pk_max_f16 v215, v215, v218
-v_pk_max_f16 v223, v223, v226
-v_pk_max_f16 v216, v216, v227
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_mul_f16 v204, s30, v214
-v_pk_mul_f16 v218, s30, v215
-v_pk_mul_f16 v226, s30, v223
-v_pk_mul_f16 v227, s30, v216
-v_pk_min_f16 v214, v214, v204
-v_pk_min_f16 v215, v215, v218
-v_pk_min_f16 v223, v223, v226
-v_pk_min_f16 v216, v216, v227
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v215, v145, s5, v141 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v141, 0
-v_pk_fma_f16 v218, v153, s5, v149 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v149, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v216, v209, s5, v205 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v205, 0
-v_pk_fma_f16 v227, v217, s5, v213 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v213, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v215, v145, s5, v215 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v145, 0
-v_pk_fma_f16 v218, v153, s5, v218 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v153, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-v_pk_fma_f16 v216, v209, s5, v216 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v209, 0
-v_pk_fma_f16 v227, v217, s5, v227 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v217, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79ae06fa
-.long 0xff00b1da
-.long 0x79be06fa
-.long 0xff00b1e2
-.long 0x79b006fa
-.long 0xff00b1e3
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v215, v218, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_fmac_f16_e32 v216, v227, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v215, s62, v215
-v_pk_add_f16 v223, s61, v223
-v_pk_add_f16 v216, s62, v216
-v_pk_mul_f16 v214, 0xbdc5bdc5, v214 op_sel_hi:[0,1]
-v_pk_mul_f16 v215, 0xbdc5bdc5, v215 op_sel_hi:[0,1]
-v_pk_mul_f16 v223, 0xbdc5bdc5, v223 op_sel_hi:[0,1]
-v_pk_mul_f16 v216, 0xbdc5bdc5, v216 op_sel_hi:[0,1]
-.long 0x7facb0f9
-.long 0x060414d6
-.long 0x7faeb0f9
-.long 0x060414d7
-.long 0x7fbeb0f9
-.long 0x060414df
-.long 0x7fb0b0f9
-.long 0x060414d8
-.long 0x7facb0f9
-v_add_f32_e32 v2, v214, v138
-.long 0x7faeb0f9
-v_add_f32_e32 v2, v215, v138
-.long 0x7fbeb0f9
-v_add_f32_e32 v2, v223, v138
-.long 0x7fb0b0f9
-v_add_f32_e32 v2, v216, v138
-v_pk_add_f16 v214, 0x3c003c00, v214 op_sel_hi:[0,1]
-v_pk_add_f16 v215, 0x3c003c00, v215 op_sel_hi:[0,1]
-v_pk_add_f16 v223, 0x3c003c00, v223 op_sel_hi:[0,1]
-v_pk_add_f16 v216, 0x3c003c00, v216 op_sel_hi:[0,1]
-.long 0x7faca8f9
-.long 0x060414d6
-.long 0x7faea8f9
-.long 0x060414d7
-.long 0x7fbea8f9
-.long 0x060414df
-.long 0x7fb0a8f9
-.long 0x060414d8
-.long 0x7faca8f9
-v_add_f32_e32 v2, v214, v138
-.long 0x7faea8f9
-v_add_f32_e32 v2, v215, v138
-.long 0x7fbea8f9
-v_add_f32_e32 v2, v223, v138
-.long 0x7fb0a8f9
-v_add_f32_e32 v2, v216, v138
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-buffer_store_short v215, v180, s[44:47], 0 offen
-buffer_store_short_d16_hi v215, v184, s[44:47], 0 offen
-buffer_store_short v216, v188, s[44:47], 0 offen
-buffer_store_short_d16_hi v216, v192, s[44:47], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79be06fa
-.long 0xff00b1e2
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v223, s61, v223
-v_pk_mul_f16 v204, s30, v214
-v_pk_mul_f16 v226, s30, v223
-v_pk_max_f16 v214, v214, v204
-v_pk_max_f16 v223, v223, v226
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79be06fa
-.long 0xff00b1e2
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v223, s61, v223
-v_pk_mul_f16 v204, s30, v214
-v_pk_mul_f16 v226, s30, v223
-v_pk_min_f16 v214, v214, v204
-v_pk_min_f16 v223, v223, v226
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_sub_u32 s66, s66, s14
-s_cselect_b64 s[76:77], s[74:75], s[76:77]
-s_and_b32 null, 1, s12
-s_addc_u32 s80, s12, 0
-s_cmp_ge_u32 s79, s80
-s_cselect_b32 s78, s80, s79
-s_cselect_b64 s[68:69], s[70:71], s[72:73]
-s_cmp_eq_u32 s79, 0
-s_cselect_b64 s[84:85], s[72:73], s[76:77]
-s_sub_u32 s79, s79, s78
-s_sub_u32 s80, s80, s78
-s_sub_u32 s78, s78, 1
-s_setprio 3
-v_pk_fma_f16 v214, v129, s5, v125 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v125, 0
-v_pk_fma_f16 v204, v137, s5, v133 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v133, 0
-v_pk_fma_f16 v223, v193, s5, v189 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v189, 0
-v_pk_fma_f16 v226, v201, s5, v197 op_sel:[0,1,0] op_sel_hi:[1,0,1]
-v_mov_b32_e32 v197, 0
-v_pk_fma_f16 v214, v129, s5, v214 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v129, 0
-v_pk_fma_f16 v204, v137, s5, v204 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v137, 0
-v_pk_fma_f16 v223, v193, s5, v223 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v193, 0
-v_pk_fma_f16 v226, v201, s5, v226 op_sel:[1,1,0] op_sel_hi:[0,1,1]
-v_mov_b32_e32 v201, 0
-s_clause 0xf
-ds_swizzle_b32 v214, v214 offset:57360
-ds_swizzle_b32 v204, v204 offset:57360
-ds_swizzle_b32 v215, v215 offset:57360
-ds_swizzle_b32 v218, v218 offset:57360
-ds_swizzle_b32 v208, v208 offset:57360
-ds_swizzle_b32 v219, v219 offset:57360
-ds_swizzle_b32 v222, v222 offset:57360
-ds_swizzle_b32 v212, v212 offset:57360
-ds_swizzle_b32 v223, v223 offset:57360
-ds_swizzle_b32 v226, v226 offset:57360
-ds_swizzle_b32 v216, v216 offset:57360
-ds_swizzle_b32 v227, v227 offset:57360
-ds_swizzle_b32 v230, v230 offset:57360
-ds_swizzle_b32 v220, v220 offset:57360
-ds_swizzle_b32 v231, v231 offset:57360
-ds_swizzle_b32 v234, v234 offset:57360
-v_lshlrev_b32_e32 v224, 1, v196
-v_lshlrev_b32_e32 v228, 20, v196
-v_add_co_u32_e64 v224, s[98:99], v224, v224
-v_add_co_u32_e64 v224, s[94:95], v224, v224
-s_add_u32 s40, s26, s98
-s_addc_u32 s41, s27, s99
-v_add_co_u32_e64 v224, s[96:97], v224, v224
-s_lshl2_add_u32 s44, s20, s40
-s_addc_u32 s45, 0, s41
-s_lshl2_add_u32 s48, s20, s44
-s_addc_u32 s49, 0, s45
-s_lshl2_add_u32 s52, s20, s48
-s_addc_u32 s53, 0, s49
-s_setprio 2
-s_bitreplicate_b64_b32 s[90:91], s94
-s_bitreplicate_b64_b32 s[92:93], s96
-s_bitreplicate_b64_b32 s[94:95], s95
-s_bitreplicate_b64_b32 s[96:97], s97
-s_bcnt1_i32_b64 s86, s[90:91]
-s_bcnt1_i32_b64 s87, s[92:93]
-v_mbcnt_lo_u32_b32_e64 v232, s90, 0
-v_mbcnt_lo_u32_b32_e64 v235, s92, 0
-v_mbcnt_lo_u32_b32_e64 v236, s94, s86
-v_mbcnt_lo_u32_b32_e64 v238, s96, s87
-v_mbcnt_hi_u32_b32_e64 v232, s91, v232
-v_mbcnt_hi_u32_b32_e64 v235, s93, v235
-v_mbcnt_hi_u32_b32_e64 v236, s95, v236
-v_mbcnt_hi_u32_b32_e64 v238, s97, v238
-v_lshrrev_b32_e32 v232, 1, v232
-v_lshrrev_b32_e32 v235, 1, v235
-v_lshrrev_b32_e32 v236, 1, v236
-v_lshrrev_b32_e32 v238, 1, v238
-v_mad_i32_i24 v180, v232, s22, v156
-v_mad_i32_i24 v188, v236, s22, v160
-v_mad_i32_i24 v180, v235, s23, v180
-v_mad_i32_i24 v188, v238, s23, v188
-v_add_co_u32_e64 v184, vcc, v180, s21
-v_add_co_u32_e64 v192, vcc, v188, s21
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v180, v180, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v184, v184, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v188, v188, -1, vcc
-v_add_co_u32_e64 v228, vcc, v228, v228
-v_cndmask_b32_e64 v192, v192, -1, vcc
-s_waitcnt lgkmcnt(0)
-.long 0x79ac06fa
-.long 0xff00b1cc
-.long 0x79be06fa
-.long 0xff00b1e2
-v_pk_fmac_f16_e32 v214, v204, v2
-v_pk_fmac_f16_e32 v223, v226, v2
-v_pk_add_f16 v214, s61, v214
-v_pk_add_f16 v223, s61, v223
-v_pk_mul_f16 v214, 0xbdc5bdc5, v214 op_sel_hi:[0,1]
-v_pk_mul_f16 v223, 0xbdc5bdc5, v223 op_sel_hi:[0,1]
-.long 0x7facb0f9
-.long 0x060414d6
-.long 0x7fbeb0f9
-.long 0x060414df
-.long 0x7facb0f9
-v_add_f32_e32 v2, v214, v138
-.long 0x7fbeb0f9
-v_add_f32_e32 v2, v223, v138
-v_pk_add_f16 v214, 0x3c003c00, v214 op_sel_hi:[0,1]
-v_pk_add_f16 v223, 0x3c003c00, v223 op_sel_hi:[0,1]
-.long 0x7faca8f9
-.long 0x060414d6
-.long 0x7fbea8f9
-.long 0x060414df
-.long 0x7faca8f9
-v_add_f32_e32 v2, v214, v138
-.long 0x7fbea8f9
-v_add_f32_e32 v2, v223, v138
-buffer_store_short v214, v180, s[40:43], 0 offen
-buffer_store_short_d16_hi v214, v184, s[40:43], 0 offen
-buffer_store_short v223, v188, s[40:43], 0 offen
-buffer_store_short_d16_hi v223, v192, s[40:43], 0 offen
-s_add_u32 m0, s10, 0xc438
-ds_read_addtid_b32 v196
-s_sub_u32 s10, s10, 0x100
-s_cselect_b32 s10, 0x1500, s10
-s_setprio 0
-s_nop 0
-s_setpc_b64 s[84:85]
-s_branch 380
-s_branch 1
-s_branch 55448
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
+.long 0xB0802004
+.long 0xBFA00003
+.long 0xBE800380
+.long 0x7E080500
+.long 0x90048604
+.long 0xBEC00340
+.long 0xBE8503FF, 0x3C00BC00
+.long 0xBFA00003
+.long 0x34FA0087
+.long 0xBEC41F00
+.long 0xBEC603FF, 0x00009DFC
+.long 0xBEC703FF, 0x31014000
+.long 0xE0301000, 0x8011047D
+.long 0xB90A4817
+.long 0x900B870A
+.long 0x87410A81
+.long 0x8909410B
+.long 0xB8090004
+.long 0xB789003C
+.long 0x80420944
+.long 0x82438045
+.long 0xBE802042
+.long 0xBF82004E
+.long 0xBF820D7B
+.long 0xBF820F26
+.long 0xBF8210A9
+.long 0xBF8211FE
+.long 0xBF821397
+.long 0xBF821506
+.long 0xBF821635
+.long 0xBEC41F00
+.long 0xBEC603C1
+.long 0xBEC703FF, 0x31014000
+.long 0xF4100303, 0xFA000000
+.long 0xF4040703, 0xFA000040
+.long 0xF4081203, 0xFA000048
+.long 0xF4040783, 0xFA000058
+.long 0xF4040283, 0xFA000060
+.long 0xBE8903FF, 0x0000A274
+.long 0x36020083
+.long 0xD5430001, 0x00250901
+.long 0xBE8903FF, 0x0000A26C
+.long 0x36040081
+.long 0xD5430002, 0x00250902
+.long 0xBE8903FF, 0x0000A264
+.long 0x36060081
+.long 0xD5430003, 0x00250903
+.long 0xBE8903FF, 0x0000A134
+.long 0x370800BF
+.long 0xD5430084, 0x00250984
+.long 0xBE8903FF, 0x0000A034
+.long 0x371800BF
+.long 0xD543008C, 0x0025098C
+.long 0xBE8903FF, 0x00009F34
+.long 0x372000BF
+.long 0xD5430090, 0x00250990
+.long 0xBE8903FF, 0x00009E34
+.long 0x371000BF
+.long 0xD5430088, 0x00250988
+.long 0xBE8903FF, 0x00009DF4
+.long 0x3728008F
+.long 0xD5430094, 0x00250994
+.long 0xE0301000, 0x80110101
+.long 0xE0301000, 0x80110202
+.long 0xE0301000, 0x80110303
+.long 0xE0301000, 0x80118484
+.long 0xE0301000, 0x80118C8C
+.long 0xE0301000, 0x80119090
+.long 0xE0301000, 0x80118888
+.long 0xE0301000, 0x80119494
+.long 0xBEFD03FF, 0xBF820BFF
+.long 0xBF8CC07F
+.long 0x8719FF19, 0x0000FFFF
+.long 0x871BFF1B, 0x0000FFFF
+.long 0x871DFF1D, 0x0000FFFF
+.long 0x8749FF49, 0x0000FFFF
+.long 0x874BFF4B, 0x0000FFFF
+.long 0xBF0D861F
+.long 0xBF84000C
+.long 0xF404060C, 0xFA000000
+.long 0xF404068D, 0xFA000000
+.long 0xF404070E, 0xFA000000
+.long 0xF4041224, 0xFA000000
+.long 0xBF124A80
+.long 0xBF850002
+.long 0xF40412A5, 0xFA000000
+.long 0xBF8CC07F
+.long 0xBF0D8D1F
+.long 0xBF84000F
+.long 0xF40C1303, 0xFA000068
+.long 0xF4041503, 0xFA000088
+.long 0xBF8CC07F
+.long 0x80184C18
+.long 0x82194D19
+.long 0x801A4E1A
+.long 0x821B4F1B
+.long 0x80485248
+.long 0x82495349
+.long 0xBF124A80
+.long 0x85D45480
+.long 0x804A544A
+.long 0x824B554B
+.long 0x8719FF19, 0x0000FFFF
+.long 0x871BFF1B, 0x0000FFFF
+.long 0x871DFF1D, 0x0000FFFF
+.long 0x8749FF49, 0x0000FFFF
+.long 0x874BFF4B, 0x0000FFFF
+.long 0x7EFA141E
+.long 0x7E3C057D
+.long 0x991E1E1E
+.long 0xBECC1F00
+.long 0xBECE03C1
+.long 0xBECF03FF, 0x31014000
+.long 0xBEC203FF, 0x0000A084
+.long 0x36FC00BF
+.long 0xD543007E, 0x0109097E
+.long 0xBEC203FF, 0x0000A054
+.long 0x372A0083
+.long 0xD5430095, 0x01090995
+.long 0xBEC203FF, 0x0000A044
+.long 0x372C0083
+.long 0xD5430096, 0x01090996
+.long 0xBEC203FF, 0x0000A034
+.long 0x372E0083
+.long 0xD5430097, 0x01090997
+.long 0xE0301000, 0x80137E7E
+.long 0xE0301000, 0x80139595
+.long 0xE0301000, 0x80139696
+.long 0xE0301000, 0x80139797
+.long 0x93410B0A
+.long 0x8F418141
+.long 0xBF0D821F
+.long 0x85420C0D
+.long 0x93094241
+.long 0x85420941
+.long 0x85414109
+.long 0xBE890342
+.long 0xBED0044A
+.long 0xBED203FF, 0x80000000
+.long 0xBED303FF, 0x31014000
+.long 0xBF12804A
+.long 0x85535380
+.long 0x37020087
+.long 0xD5430081, 0x00130284
+.long 0xD4C1006A, 0x00001B81
+.long 0x030302C1
+.long 0x35030281
+.long 0xE0901000, 0x80147F81
+.long 0xE0941000, 0x80147F81
+.long 0xD5480081, 0x02110500
+.long 0x93438409
+.long 0x3B0600FA, 0xFF007000
+.long 0x80D1810B
+.long 0xBF0D811F
+.long 0x85518051
+.long 0x855081C1
+.long 0x80D3810A
+.long 0x93530B53
+.long 0xBF0D801F
+.long 0x85538053
+.long 0x855282C2
+.long 0x80515351
+.long 0xD7750082, 0x0144A183
+.long 0x350B0481
+.long 0xD7730085, 0x06148381
+.long 0xD7730085, 0x06140809
+.long 0xD4C1006A, 0x00001783
+.long 0x030B0AF5
+.long 0xD5420087, 0x0614A40B
+.long 0xD4C1006A, 0x00001481
+.long 0x030F0EF5
+.long 0xD5420086, 0x061CA40B
+.long 0xD4C1006A, 0x00001482
+.long 0x030D0CF5
+.long 0x80508F0C
+.long 0x90508450
+.long 0x8F518450
+.long 0xD70F6A81, 0x0000A381
+.long 0xBED21F00
+.long 0x80D18150
+.long 0x9351FF51, 0x00000004
+.long 0x8051FF51, 0x00000020
+.long 0x80525152
+.long 0x82538053
+.long 0xBE802052
+.long 0xBF82040C
+.long 0xBF8203C2
+.long 0xBF820378
+.long 0xBF82032E
+.long 0xBF8202E4
+.long 0xBF82029A
+.long 0xBF820250
+.long 0xBF820206
+.long 0xBF8201BC
+.long 0xBF820172
+.long 0xBF820128
+.long 0xBF8200DE
+.long 0xBF820094
+.long 0xBF82004A
+.long 0xBF820000
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80157589
+.long 0xE0941000, 0x8015758A
+.long 0xE0901000, 0x8015768B
+.long 0xE0941000, 0x8015768B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80157789
+.long 0xE0941000, 0x8015778A
+.long 0xE0901000, 0x8015788B
+.long 0xE0941000, 0x8015788B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80157989
+.long 0xE0941000, 0x8015798A
+.long 0xE0901000, 0x80157A8B
+.long 0xE0941000, 0x80157A8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80157B89
+.long 0xE0941000, 0x80157B8A
+.long 0xE0901000, 0x80157C8B
+.long 0xE0941000, 0x80157C8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80156D89
+.long 0xE0941000, 0x80156D8A
+.long 0xE0901000, 0x80156E8B
+.long 0xE0941000, 0x80156E8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80156F89
+.long 0xE0941000, 0x80156F8A
+.long 0xE0901000, 0x8015708B
+.long 0xE0941000, 0x8015708B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80157189
+.long 0xE0941000, 0x8015718A
+.long 0xE0901000, 0x8015728B
+.long 0xE0941000, 0x8015728B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80157389
+.long 0xE0941000, 0x8015738A
+.long 0xE0901000, 0x8015748B
+.long 0xE0941000, 0x8015748B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80156589
+.long 0xE0941000, 0x8015658A
+.long 0xE0901000, 0x8015668B
+.long 0xE0941000, 0x8015668B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80156789
+.long 0xE0941000, 0x8015678A
+.long 0xE0901000, 0x8015688B
+.long 0xE0941000, 0x8015688B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80156989
+.long 0xE0941000, 0x8015698A
+.long 0xE0901000, 0x80156A8B
+.long 0xE0941000, 0x80156A8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80156B89
+.long 0xE0941000, 0x80156B8A
+.long 0xE0901000, 0x80156C8B
+.long 0xE0941000, 0x80156C8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80155D89
+.long 0xE0941000, 0x80155D8A
+.long 0xE0901000, 0x80155E8B
+.long 0xE0941000, 0x80155E8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80155F89
+.long 0xE0941000, 0x80155F8A
+.long 0xE0901000, 0x8015608B
+.long 0xE0941000, 0x8015608B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80156189
+.long 0xE0941000, 0x8015618A
+.long 0xE0901000, 0x8015628B
+.long 0xE0941000, 0x8015628B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80156389
+.long 0xE0941000, 0x8015638A
+.long 0xE0901000, 0x8015648B
+.long 0xE0941000, 0x8015648B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80155589
+.long 0xE0941000, 0x8015558A
+.long 0xE0901000, 0x8015568B
+.long 0xE0941000, 0x8015568B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80155789
+.long 0xE0941000, 0x8015578A
+.long 0xE0901000, 0x8015588B
+.long 0xE0941000, 0x8015588B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80155989
+.long 0xE0941000, 0x8015598A
+.long 0xE0901000, 0x80155A8B
+.long 0xE0941000, 0x80155A8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80155B89
+.long 0xE0941000, 0x80155B8A
+.long 0xE0901000, 0x80155C8B
+.long 0xE0941000, 0x80155C8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80154D89
+.long 0xE0941000, 0x80154D8A
+.long 0xE0901000, 0x80154E8B
+.long 0xE0941000, 0x80154E8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80154F89
+.long 0xE0941000, 0x80154F8A
+.long 0xE0901000, 0x8015508B
+.long 0xE0941000, 0x8015508B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80155189
+.long 0xE0941000, 0x8015518A
+.long 0xE0901000, 0x8015528B
+.long 0xE0941000, 0x8015528B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80155389
+.long 0xE0941000, 0x8015538A
+.long 0xE0901000, 0x8015548B
+.long 0xE0941000, 0x8015548B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80154589
+.long 0xE0941000, 0x8015458A
+.long 0xE0901000, 0x8015468B
+.long 0xE0941000, 0x8015468B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80154789
+.long 0xE0941000, 0x8015478A
+.long 0xE0901000, 0x8015488B
+.long 0xE0941000, 0x8015488B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80154989
+.long 0xE0941000, 0x8015498A
+.long 0xE0901000, 0x80154A8B
+.long 0xE0941000, 0x80154A8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80154B89
+.long 0xE0941000, 0x80154B8A
+.long 0xE0901000, 0x80154C8B
+.long 0xE0941000, 0x80154C8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80153D89
+.long 0xE0941000, 0x80153D8A
+.long 0xE0901000, 0x80153E8B
+.long 0xE0941000, 0x80153E8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80153F89
+.long 0xE0941000, 0x80153F8A
+.long 0xE0901000, 0x8015408B
+.long 0xE0941000, 0x8015408B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80154189
+.long 0xE0941000, 0x8015418A
+.long 0xE0901000, 0x8015428B
+.long 0xE0941000, 0x8015428B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80154389
+.long 0xE0941000, 0x8015438A
+.long 0xE0901000, 0x8015448B
+.long 0xE0941000, 0x8015448B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80153589
+.long 0xE0941000, 0x8015358A
+.long 0xE0901000, 0x8015368B
+.long 0xE0941000, 0x8015368B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80153789
+.long 0xE0941000, 0x8015378A
+.long 0xE0901000, 0x8015388B
+.long 0xE0941000, 0x8015388B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80153989
+.long 0xE0941000, 0x8015398A
+.long 0xE0901000, 0x80153A8B
+.long 0xE0941000, 0x80153A8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80153B89
+.long 0xE0941000, 0x80153B8A
+.long 0xE0901000, 0x80153C8B
+.long 0xE0941000, 0x80153C8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80152D89
+.long 0xE0941000, 0x80152D8A
+.long 0xE0901000, 0x80152E8B
+.long 0xE0941000, 0x80152E8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80152F89
+.long 0xE0941000, 0x80152F8A
+.long 0xE0901000, 0x8015308B
+.long 0xE0941000, 0x8015308B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80153189
+.long 0xE0941000, 0x8015318A
+.long 0xE0901000, 0x8015328B
+.long 0xE0941000, 0x8015328B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80153389
+.long 0xE0941000, 0x8015338A
+.long 0xE0901000, 0x8015348B
+.long 0xE0941000, 0x8015348B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80152589
+.long 0xE0941000, 0x8015258A
+.long 0xE0901000, 0x8015268B
+.long 0xE0941000, 0x8015268B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80152789
+.long 0xE0941000, 0x8015278A
+.long 0xE0901000, 0x8015288B
+.long 0xE0941000, 0x8015288B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80152989
+.long 0xE0941000, 0x8015298A
+.long 0xE0901000, 0x80152A8B
+.long 0xE0941000, 0x80152A8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80152B89
+.long 0xE0941000, 0x80152B8A
+.long 0xE0901000, 0x80152C8B
+.long 0xE0941000, 0x80152C8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80151D89
+.long 0xE0941000, 0x80151D8A
+.long 0xE0901000, 0x80151E8B
+.long 0xE0941000, 0x80151E8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80151F89
+.long 0xE0941000, 0x80151F8A
+.long 0xE0901000, 0x8015208B
+.long 0xE0941000, 0x8015208B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80152189
+.long 0xE0941000, 0x8015218A
+.long 0xE0901000, 0x8015228B
+.long 0xE0941000, 0x8015228B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80152389
+.long 0xE0941000, 0x8015238A
+.long 0xE0901000, 0x8015248B
+.long 0xE0941000, 0x8015248B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80151589
+.long 0xE0941000, 0x8015158A
+.long 0xE0901000, 0x8015168B
+.long 0xE0941000, 0x8015168B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80151789
+.long 0xE0941000, 0x8015178A
+.long 0xE0901000, 0x8015188B
+.long 0xE0941000, 0x8015188B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80151989
+.long 0xE0941000, 0x8015198A
+.long 0xE0901000, 0x80151A8B
+.long 0xE0941000, 0x80151A8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80151B89
+.long 0xE0941000, 0x80151B8A
+.long 0xE0901000, 0x80151C8B
+.long 0xE0941000, 0x80151C8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80150D89
+.long 0xE0941000, 0x80150D8A
+.long 0xE0901000, 0x80150E8B
+.long 0xE0941000, 0x80150E8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80150F89
+.long 0xE0941000, 0x80150F8A
+.long 0xE0901000, 0x8015108B
+.long 0xE0941000, 0x8015108B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80151189
+.long 0xE0941000, 0x8015118A
+.long 0xE0901000, 0x8015128B
+.long 0xE0941000, 0x8015128B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80151389
+.long 0xE0941000, 0x8015138A
+.long 0xE0901000, 0x8015148B
+.long 0xE0941000, 0x8015148B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xD7106A81, 0x00012181
+.long 0xD4C6006A, 0x00001981
+.long 0xD5010089, 0x01A98385
+.long 0xD501008A, 0x01A98386
+.long 0xD501008B, 0x01A98387
+.long 0x7EA80581
+.long 0x9AD54154
+.long 0x93544154
+.long 0x80544854
+.long 0x82554955
+.long 0xBED603FF, 0x80000000
+.long 0x80D8810D
+.long 0x80D80458
+.long 0x8557FF80, 0x31014000
+.long 0xE0901000, 0x80150589
+.long 0xE0941000, 0x8015058A
+.long 0xE0901000, 0x8015068B
+.long 0xE0941000, 0x8015068B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80150789
+.long 0xE0941000, 0x8015078A
+.long 0xE0901000, 0x8015088B
+.long 0xE0941000, 0x8015088B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80150989
+.long 0xE0941000, 0x8015098A
+.long 0xE0901000, 0x80150A8B
+.long 0xE0941000, 0x80150A8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xE0901000, 0x80150B89
+.long 0xE0941000, 0x80150B8A
+.long 0xE0901000, 0x80150C8B
+.long 0xE0941000, 0x80150C8B
+.long 0x7E000000
+.long 0x80544354
+.long 0x82558055
+.long 0x80D88458
+.long 0x85575780
+.long 0xBED21F00
+.long 0x80D18150
+.long 0x9351FF51, 0x00000004
+.long 0x8051FF51, 0x00000020
+.long 0x80525152
+.long 0x82538053
+.long 0xBE802052
+.long 0xBF8204EC
+.long 0xBF820492
+.long 0xBF820438
+.long 0xBF8203DE
+.long 0xBF820384
+.long 0xBF82032A
+.long 0xBF8202D0
+.long 0xBF820276
+.long 0xBF82021C
+.long 0xBF8201C2
+.long 0xBF820168
+.long 0xBF82010E
+.long 0xBF8200B4
+.long 0xBF82005A
+.long 0xBF820000
+.long 0xBF8CFF7F
+.long 0xCC0E5076, 0x0DD40B76
+.long 0xCC0E5078, 0x0DDC0B78
+.long 0xCC0E507A, 0x0DE40B7A
+.long 0xCC0E507C, 0x0DEC0B7C
+.long 0xCC0F1076, 0x0802EB76
+.long 0xCC0F1078, 0x0802EF78
+.long 0xCC0F107A, 0x0802F37A
+.long 0xCC0F107C, 0x0802F77C
+.long 0x78EB2AFA, 0xFF00B175
+.long 0x78EF2AFA, 0xFF00B177
+.long 0x78F32AFA, 0xFF00B179
+.long 0x78F72AFA, 0xFF00B17B
+.long 0x78ED2AFA, 0xFF00B176
+.long 0x78F12AFA, 0xFF00B178
+.long 0x78F52AFA, 0xFF00B17A
+.long 0x78F92AFA, 0xFF00B17C
+.long 0x78EB2AFA, 0xFF004E75
+.long 0x78EF2AFA, 0xFF004E77
+.long 0x78F32AFA, 0xFF004E79
+.long 0x78F72AFA, 0xFF004E7B
+.long 0x78ED2AFA, 0xFF004E76
+.long 0x78F12AFA, 0xFF004E78
+.long 0x78F52AFA, 0xFF004E7A
+.long 0x78F92AFA, 0xFF004E7C
+.long 0xCC100075, 0x18032D75
+.long 0xCC100077, 0x18032D77
+.long 0xCC100079, 0x18032D79
+.long 0xCC10007B, 0x18032D7B
+.long 0xCC100076, 0x18032F76
+.long 0xCC100078, 0x18032F78
+.long 0xCC10007A, 0x18032F7A
+.long 0xCC10007C, 0x18032F7C
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x0000759C
+.long 0xDB7C1040, 0x0000799C
+.long 0xD8D80000, 0x750000A0
+.long 0xD8D80080, 0x760000A0
+.long 0xD8D80100, 0x770000A0
+.long 0xD8D80180, 0x780000A0
+.long 0xD8D80200, 0x790000A0
+.long 0xD8D80280, 0x7A0000A0
+.long 0xD8D80300, 0x7B0000A0
+.long 0xD8D80380, 0x7C0000A0
+.long 0xBF8CFF7F
+.long 0xCC0E506E, 0x0DB40B6E
+.long 0xCC0E5070, 0x0DBC0B70
+.long 0xCC0E5072, 0x0DC40B72
+.long 0xCC0E5074, 0x0DCC0B74
+.long 0xCC0F106E, 0x0802DB6E
+.long 0xCC0F1070, 0x0802DF70
+.long 0xCC0F1072, 0x0802E372
+.long 0xCC0F1074, 0x0802E774
+.long 0x78DB2AFA, 0xFF00B16D
+.long 0x78DF2AFA, 0xFF00B16F
+.long 0x78E32AFA, 0xFF00B171
+.long 0x78E72AFA, 0xFF00B173
+.long 0x78DD2AFA, 0xFF00B16E
+.long 0x78E12AFA, 0xFF00B170
+.long 0x78E52AFA, 0xFF00B172
+.long 0x78E92AFA, 0xFF00B174
+.long 0x78DB2AFA, 0xFF004E6D
+.long 0x78DF2AFA, 0xFF004E6F
+.long 0x78E32AFA, 0xFF004E71
+.long 0x78E72AFA, 0xFF004E73
+.long 0x78DD2AFA, 0xFF004E6E
+.long 0x78E12AFA, 0xFF004E70
+.long 0x78E52AFA, 0xFF004E72
+.long 0x78E92AFA, 0xFF004E74
+.long 0xCC10006D, 0x18032D6D
+.long 0xCC10006F, 0x18032D6F
+.long 0xCC100071, 0x18032D71
+.long 0xCC100073, 0x18032D73
+.long 0xCC10006E, 0x18032F6E
+.long 0xCC100070, 0x18032F70
+.long 0xCC100072, 0x18032F72
+.long 0xCC100074, 0x18032F74
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x00006D9C
+.long 0xDB7C1040, 0x0000719C
+.long 0xD8D80000, 0x6D0000A0
+.long 0xD8D80080, 0x6E0000A0
+.long 0xD8D80100, 0x6F0000A0
+.long 0xD8D80180, 0x700000A0
+.long 0xD8D80200, 0x710000A0
+.long 0xD8D80280, 0x720000A0
+.long 0xD8D80300, 0x730000A0
+.long 0xD8D80380, 0x740000A0
+.long 0xBF8CFF7F
+.long 0xCC0E5066, 0x0D940B66
+.long 0xCC0E5068, 0x0D9C0B68
+.long 0xCC0E506A, 0x0DA40B6A
+.long 0xCC0E506C, 0x0DAC0B6C
+.long 0xCC0F1066, 0x0802CB66
+.long 0xCC0F1068, 0x0802CF68
+.long 0xCC0F106A, 0x0802D36A
+.long 0xCC0F106C, 0x0802D76C
+.long 0x78CB2AFA, 0xFF00B165
+.long 0x78CF2AFA, 0xFF00B167
+.long 0x78D32AFA, 0xFF00B169
+.long 0x78D72AFA, 0xFF00B16B
+.long 0x78CD2AFA, 0xFF00B166
+.long 0x78D12AFA, 0xFF00B168
+.long 0x78D52AFA, 0xFF00B16A
+.long 0x78D92AFA, 0xFF00B16C
+.long 0x78CB2AFA, 0xFF004E65
+.long 0x78CF2AFA, 0xFF004E67
+.long 0x78D32AFA, 0xFF004E69
+.long 0x78D72AFA, 0xFF004E6B
+.long 0x78CD2AFA, 0xFF004E66
+.long 0x78D12AFA, 0xFF004E68
+.long 0x78D52AFA, 0xFF004E6A
+.long 0x78D92AFA, 0xFF004E6C
+.long 0xCC100065, 0x18032D65
+.long 0xCC100067, 0x18032D67
+.long 0xCC100069, 0x18032D69
+.long 0xCC10006B, 0x18032D6B
+.long 0xCC100066, 0x18032F66
+.long 0xCC100068, 0x18032F68
+.long 0xCC10006A, 0x18032F6A
+.long 0xCC10006C, 0x18032F6C
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x0000659C
+.long 0xDB7C1040, 0x0000699C
+.long 0xD8D80000, 0x650000A0
+.long 0xD8D80080, 0x660000A0
+.long 0xD8D80100, 0x670000A0
+.long 0xD8D80180, 0x680000A0
+.long 0xD8D80200, 0x690000A0
+.long 0xD8D80280, 0x6A0000A0
+.long 0xD8D80300, 0x6B0000A0
+.long 0xD8D80380, 0x6C0000A0
+.long 0xBF8CFF7F
+.long 0xCC0E505E, 0x0D740B5E
+.long 0xCC0E5060, 0x0D7C0B60
+.long 0xCC0E5062, 0x0D840B62
+.long 0xCC0E5064, 0x0D8C0B64
+.long 0xCC0F105E, 0x0802BB5E
+.long 0xCC0F1060, 0x0802BF60
+.long 0xCC0F1062, 0x0802C362
+.long 0xCC0F1064, 0x0802C764
+.long 0x78BB2AFA, 0xFF00B15D
+.long 0x78BF2AFA, 0xFF00B15F
+.long 0x78C32AFA, 0xFF00B161
+.long 0x78C72AFA, 0xFF00B163
+.long 0x78BD2AFA, 0xFF00B15E
+.long 0x78C12AFA, 0xFF00B160
+.long 0x78C52AFA, 0xFF00B162
+.long 0x78C92AFA, 0xFF00B164
+.long 0x78BB2AFA, 0xFF004E5D
+.long 0x78BF2AFA, 0xFF004E5F
+.long 0x78C32AFA, 0xFF004E61
+.long 0x78C72AFA, 0xFF004E63
+.long 0x78BD2AFA, 0xFF004E5E
+.long 0x78C12AFA, 0xFF004E60
+.long 0x78C52AFA, 0xFF004E62
+.long 0x78C92AFA, 0xFF004E64
+.long 0xCC10005D, 0x18032D5D
+.long 0xCC10005F, 0x18032D5F
+.long 0xCC100061, 0x18032D61
+.long 0xCC100063, 0x18032D63
+.long 0xCC10005E, 0x18032F5E
+.long 0xCC100060, 0x18032F60
+.long 0xCC100062, 0x18032F62
+.long 0xCC100064, 0x18032F64
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x00005D9C
+.long 0xDB7C1040, 0x0000619C
+.long 0xD8D80000, 0x5D0000A0
+.long 0xD8D80080, 0x5E0000A0
+.long 0xD8D80100, 0x5F0000A0
+.long 0xD8D80180, 0x600000A0
+.long 0xD8D80200, 0x610000A0
+.long 0xD8D80280, 0x620000A0
+.long 0xD8D80300, 0x630000A0
+.long 0xD8D80380, 0x640000A0
+.long 0xBF8CFF7F
+.long 0xCC0E5056, 0x0D540B56
+.long 0xCC0E5058, 0x0D5C0B58
+.long 0xCC0E505A, 0x0D640B5A
+.long 0xCC0E505C, 0x0D6C0B5C
+.long 0xCC0F1056, 0x0802AB56
+.long 0xCC0F1058, 0x0802AF58
+.long 0xCC0F105A, 0x0802B35A
+.long 0xCC0F105C, 0x0802B75C
+.long 0x78AB2AFA, 0xFF00B155
+.long 0x78AF2AFA, 0xFF00B157
+.long 0x78B32AFA, 0xFF00B159
+.long 0x78B72AFA, 0xFF00B15B
+.long 0x78AD2AFA, 0xFF00B156
+.long 0x78B12AFA, 0xFF00B158
+.long 0x78B52AFA, 0xFF00B15A
+.long 0x78B92AFA, 0xFF00B15C
+.long 0x78AB2AFA, 0xFF004E55
+.long 0x78AF2AFA, 0xFF004E57
+.long 0x78B32AFA, 0xFF004E59
+.long 0x78B72AFA, 0xFF004E5B
+.long 0x78AD2AFA, 0xFF004E56
+.long 0x78B12AFA, 0xFF004E58
+.long 0x78B52AFA, 0xFF004E5A
+.long 0x78B92AFA, 0xFF004E5C
+.long 0xCC100055, 0x18032D55
+.long 0xCC100057, 0x18032D57
+.long 0xCC100059, 0x18032D59
+.long 0xCC10005B, 0x18032D5B
+.long 0xCC100056, 0x18032F56
+.long 0xCC100058, 0x18032F58
+.long 0xCC10005A, 0x18032F5A
+.long 0xCC10005C, 0x18032F5C
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x0000559C
+.long 0xDB7C1040, 0x0000599C
+.long 0xD8D80000, 0x550000A0
+.long 0xD8D80080, 0x560000A0
+.long 0xD8D80100, 0x570000A0
+.long 0xD8D80180, 0x580000A0
+.long 0xD8D80200, 0x590000A0
+.long 0xD8D80280, 0x5A0000A0
+.long 0xD8D80300, 0x5B0000A0
+.long 0xD8D80380, 0x5C0000A0
+.long 0xBF8CFF7F
+.long 0xCC0E504E, 0x0D340B4E
+.long 0xCC0E5050, 0x0D3C0B50
+.long 0xCC0E5052, 0x0D440B52
+.long 0xCC0E5054, 0x0D4C0B54
+.long 0xCC0F104E, 0x08029B4E
+.long 0xCC0F1050, 0x08029F50
+.long 0xCC0F1052, 0x0802A352
+.long 0xCC0F1054, 0x0802A754
+.long 0x789B2AFA, 0xFF00B14D
+.long 0x789F2AFA, 0xFF00B14F
+.long 0x78A32AFA, 0xFF00B151
+.long 0x78A72AFA, 0xFF00B153
+.long 0x789D2AFA, 0xFF00B14E
+.long 0x78A12AFA, 0xFF00B150
+.long 0x78A52AFA, 0xFF00B152
+.long 0x78A92AFA, 0xFF00B154
+.long 0x789B2AFA, 0xFF004E4D
+.long 0x789F2AFA, 0xFF004E4F
+.long 0x78A32AFA, 0xFF004E51
+.long 0x78A72AFA, 0xFF004E53
+.long 0x789D2AFA, 0xFF004E4E
+.long 0x78A12AFA, 0xFF004E50
+.long 0x78A52AFA, 0xFF004E52
+.long 0x78A92AFA, 0xFF004E54
+.long 0xCC10004D, 0x18032D4D
+.long 0xCC10004F, 0x18032D4F
+.long 0xCC100051, 0x18032D51
+.long 0xCC100053, 0x18032D53
+.long 0xCC10004E, 0x18032F4E
+.long 0xCC100050, 0x18032F50
+.long 0xCC100052, 0x18032F52
+.long 0xCC100054, 0x18032F54
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x00004D9C
+.long 0xDB7C1040, 0x0000519C
+.long 0xD8D80000, 0x4D0000A0
+.long 0xD8D80080, 0x4E0000A0
+.long 0xD8D80100, 0x4F0000A0
+.long 0xD8D80180, 0x500000A0
+.long 0xD8D80200, 0x510000A0
+.long 0xD8D80280, 0x520000A0
+.long 0xD8D80300, 0x530000A0
+.long 0xD8D80380, 0x540000A0
+.long 0xBF8CFF7F
+.long 0xCC0E5046, 0x0D140B46
+.long 0xCC0E5048, 0x0D1C0B48
+.long 0xCC0E504A, 0x0D240B4A
+.long 0xCC0E504C, 0x0D2C0B4C
+.long 0xCC0F1046, 0x08028B46
+.long 0xCC0F1048, 0x08028F48
+.long 0xCC0F104A, 0x0802934A
+.long 0xCC0F104C, 0x0802974C
+.long 0x788B2AFA, 0xFF00B145
+.long 0x788F2AFA, 0xFF00B147
+.long 0x78932AFA, 0xFF00B149
+.long 0x78972AFA, 0xFF00B14B
+.long 0x788D2AFA, 0xFF00B146
+.long 0x78912AFA, 0xFF00B148
+.long 0x78952AFA, 0xFF00B14A
+.long 0x78992AFA, 0xFF00B14C
+.long 0x788B2AFA, 0xFF004E45
+.long 0x788F2AFA, 0xFF004E47
+.long 0x78932AFA, 0xFF004E49
+.long 0x78972AFA, 0xFF004E4B
+.long 0x788D2AFA, 0xFF004E46
+.long 0x78912AFA, 0xFF004E48
+.long 0x78952AFA, 0xFF004E4A
+.long 0x78992AFA, 0xFF004E4C
+.long 0xCC100045, 0x18032D45
+.long 0xCC100047, 0x18032D47
+.long 0xCC100049, 0x18032D49
+.long 0xCC10004B, 0x18032D4B
+.long 0xCC100046, 0x18032F46
+.long 0xCC100048, 0x18032F48
+.long 0xCC10004A, 0x18032F4A
+.long 0xCC10004C, 0x18032F4C
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x0000459C
+.long 0xDB7C1040, 0x0000499C
+.long 0xD8D80000, 0x450000A0
+.long 0xD8D80080, 0x460000A0
+.long 0xD8D80100, 0x470000A0
+.long 0xD8D80180, 0x480000A0
+.long 0xD8D80200, 0x490000A0
+.long 0xD8D80280, 0x4A0000A0
+.long 0xD8D80300, 0x4B0000A0
+.long 0xD8D80380, 0x4C0000A0
+.long 0xBF8CFF7F
+.long 0xCC0E503E, 0x0CF40B3E
+.long 0xCC0E5040, 0x0CFC0B40
+.long 0xCC0E5042, 0x0D040B42
+.long 0xCC0E5044, 0x0D0C0B44
+.long 0xCC0F103E, 0x08027B3E
+.long 0xCC0F1040, 0x08027F40
+.long 0xCC0F1042, 0x08028342
+.long 0xCC0F1044, 0x08028744
+.long 0x787B2AFA, 0xFF00B13D
+.long 0x787F2AFA, 0xFF00B13F
+.long 0x78832AFA, 0xFF00B141
+.long 0x78872AFA, 0xFF00B143
+.long 0x787D2AFA, 0xFF00B13E
+.long 0x78812AFA, 0xFF00B140
+.long 0x78852AFA, 0xFF00B142
+.long 0x78892AFA, 0xFF00B144
+.long 0x787B2AFA, 0xFF004E3D
+.long 0x787F2AFA, 0xFF004E3F
+.long 0x78832AFA, 0xFF004E41
+.long 0x78872AFA, 0xFF004E43
+.long 0x787D2AFA, 0xFF004E3E
+.long 0x78812AFA, 0xFF004E40
+.long 0x78852AFA, 0xFF004E42
+.long 0x78892AFA, 0xFF004E44
+.long 0xCC10003D, 0x18032D3D
+.long 0xCC10003F, 0x18032D3F
+.long 0xCC100041, 0x18032D41
+.long 0xCC100043, 0x18032D43
+.long 0xCC10003E, 0x18032F3E
+.long 0xCC100040, 0x18032F40
+.long 0xCC100042, 0x18032F42
+.long 0xCC100044, 0x18032F44
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x00003D9C
+.long 0xDB7C1040, 0x0000419C
+.long 0xD8D80000, 0x3D0000A0
+.long 0xD8D80080, 0x3E0000A0
+.long 0xD8D80100, 0x3F0000A0
+.long 0xD8D80180, 0x400000A0
+.long 0xD8D80200, 0x410000A0
+.long 0xD8D80280, 0x420000A0
+.long 0xD8D80300, 0x430000A0
+.long 0xD8D80380, 0x440000A0
+.long 0xBF8CFF7F
+.long 0xCC0E5036, 0x0CD40B36
+.long 0xCC0E5038, 0x0CDC0B38
+.long 0xCC0E503A, 0x0CE40B3A
+.long 0xCC0E503C, 0x0CEC0B3C
+.long 0xCC0F1036, 0x08026B36
+.long 0xCC0F1038, 0x08026F38
+.long 0xCC0F103A, 0x0802733A
+.long 0xCC0F103C, 0x0802773C
+.long 0x786B2AFA, 0xFF00B135
+.long 0x786F2AFA, 0xFF00B137
+.long 0x78732AFA, 0xFF00B139
+.long 0x78772AFA, 0xFF00B13B
+.long 0x786D2AFA, 0xFF00B136
+.long 0x78712AFA, 0xFF00B138
+.long 0x78752AFA, 0xFF00B13A
+.long 0x78792AFA, 0xFF00B13C
+.long 0x786B2AFA, 0xFF004E35
+.long 0x786F2AFA, 0xFF004E37
+.long 0x78732AFA, 0xFF004E39
+.long 0x78772AFA, 0xFF004E3B
+.long 0x786D2AFA, 0xFF004E36
+.long 0x78712AFA, 0xFF004E38
+.long 0x78752AFA, 0xFF004E3A
+.long 0x78792AFA, 0xFF004E3C
+.long 0xCC100035, 0x18032D35
+.long 0xCC100037, 0x18032D37
+.long 0xCC100039, 0x18032D39
+.long 0xCC10003B, 0x18032D3B
+.long 0xCC100036, 0x18032F36
+.long 0xCC100038, 0x18032F38
+.long 0xCC10003A, 0x18032F3A
+.long 0xCC10003C, 0x18032F3C
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x0000359C
+.long 0xDB7C1040, 0x0000399C
+.long 0xD8D80000, 0x350000A0
+.long 0xD8D80080, 0x360000A0
+.long 0xD8D80100, 0x370000A0
+.long 0xD8D80180, 0x380000A0
+.long 0xD8D80200, 0x390000A0
+.long 0xD8D80280, 0x3A0000A0
+.long 0xD8D80300, 0x3B0000A0
+.long 0xD8D80380, 0x3C0000A0
+.long 0xBF8CFF7F
+.long 0xCC0E502E, 0x0CB40B2E
+.long 0xCC0E5030, 0x0CBC0B30
+.long 0xCC0E5032, 0x0CC40B32
+.long 0xCC0E5034, 0x0CCC0B34
+.long 0xCC0F102E, 0x08025B2E
+.long 0xCC0F1030, 0x08025F30
+.long 0xCC0F1032, 0x08026332
+.long 0xCC0F1034, 0x08026734
+.long 0x785B2AFA, 0xFF00B12D
+.long 0x785F2AFA, 0xFF00B12F
+.long 0x78632AFA, 0xFF00B131
+.long 0x78672AFA, 0xFF00B133
+.long 0x785D2AFA, 0xFF00B12E
+.long 0x78612AFA, 0xFF00B130
+.long 0x78652AFA, 0xFF00B132
+.long 0x78692AFA, 0xFF00B134
+.long 0x785B2AFA, 0xFF004E2D
+.long 0x785F2AFA, 0xFF004E2F
+.long 0x78632AFA, 0xFF004E31
+.long 0x78672AFA, 0xFF004E33
+.long 0x785D2AFA, 0xFF004E2E
+.long 0x78612AFA, 0xFF004E30
+.long 0x78652AFA, 0xFF004E32
+.long 0x78692AFA, 0xFF004E34
+.long 0xCC10002D, 0x18032D2D
+.long 0xCC10002F, 0x18032D2F
+.long 0xCC100031, 0x18032D31
+.long 0xCC100033, 0x18032D33
+.long 0xCC10002E, 0x18032F2E
+.long 0xCC100030, 0x18032F30
+.long 0xCC100032, 0x18032F32
+.long 0xCC100034, 0x18032F34
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x00002D9C
+.long 0xDB7C1040, 0x0000319C
+.long 0xD8D80000, 0x2D0000A0
+.long 0xD8D80080, 0x2E0000A0
+.long 0xD8D80100, 0x2F0000A0
+.long 0xD8D80180, 0x300000A0
+.long 0xD8D80200, 0x310000A0
+.long 0xD8D80280, 0x320000A0
+.long 0xD8D80300, 0x330000A0
+.long 0xD8D80380, 0x340000A0
+.long 0xBF8CFF7F
+.long 0xCC0E5026, 0x0C940B26
+.long 0xCC0E5028, 0x0C9C0B28
+.long 0xCC0E502A, 0x0CA40B2A
+.long 0xCC0E502C, 0x0CAC0B2C
+.long 0xCC0F1026, 0x08024B26
+.long 0xCC0F1028, 0x08024F28
+.long 0xCC0F102A, 0x0802532A
+.long 0xCC0F102C, 0x0802572C
+.long 0x784B2AFA, 0xFF00B125
+.long 0x784F2AFA, 0xFF00B127
+.long 0x78532AFA, 0xFF00B129
+.long 0x78572AFA, 0xFF00B12B
+.long 0x784D2AFA, 0xFF00B126
+.long 0x78512AFA, 0xFF00B128
+.long 0x78552AFA, 0xFF00B12A
+.long 0x78592AFA, 0xFF00B12C
+.long 0x784B2AFA, 0xFF004E25
+.long 0x784F2AFA, 0xFF004E27
+.long 0x78532AFA, 0xFF004E29
+.long 0x78572AFA, 0xFF004E2B
+.long 0x784D2AFA, 0xFF004E26
+.long 0x78512AFA, 0xFF004E28
+.long 0x78552AFA, 0xFF004E2A
+.long 0x78592AFA, 0xFF004E2C
+.long 0xCC100025, 0x18032D25
+.long 0xCC100027, 0x18032D27
+.long 0xCC100029, 0x18032D29
+.long 0xCC10002B, 0x18032D2B
+.long 0xCC100026, 0x18032F26
+.long 0xCC100028, 0x18032F28
+.long 0xCC10002A, 0x18032F2A
+.long 0xCC10002C, 0x18032F2C
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x0000259C
+.long 0xDB7C1040, 0x0000299C
+.long 0xD8D80000, 0x250000A0
+.long 0xD8D80080, 0x260000A0
+.long 0xD8D80100, 0x270000A0
+.long 0xD8D80180, 0x280000A0
+.long 0xD8D80200, 0x290000A0
+.long 0xD8D80280, 0x2A0000A0
+.long 0xD8D80300, 0x2B0000A0
+.long 0xD8D80380, 0x2C0000A0
+.long 0xBF8CFF70
+.long 0xCC0E501E, 0x0C740B1E
+.long 0xCC0E5020, 0x0C7C0B20
+.long 0xCC0E5022, 0x0C840B22
+.long 0xCC0E5024, 0x0C8C0B24
+.long 0xCC0F101E, 0x08023B1E
+.long 0xCC0F1020, 0x08023F20
+.long 0xCC0F1022, 0x08024322
+.long 0xCC0F1024, 0x08024724
+.long 0x783B2AFA, 0xFF00B11D
+.long 0x783F2AFA, 0xFF00B11F
+.long 0x78432AFA, 0xFF00B121
+.long 0x78472AFA, 0xFF00B123
+.long 0x783D2AFA, 0xFF00B11E
+.long 0x78412AFA, 0xFF00B120
+.long 0x78452AFA, 0xFF00B122
+.long 0x78492AFA, 0xFF00B124
+.long 0x783B2AFA, 0xFF004E1D
+.long 0x783F2AFA, 0xFF004E1F
+.long 0x78432AFA, 0xFF004E21
+.long 0x78472AFA, 0xFF004E23
+.long 0x783D2AFA, 0xFF004E1E
+.long 0x78412AFA, 0xFF004E20
+.long 0x78452AFA, 0xFF004E22
+.long 0x78492AFA, 0xFF004E24
+.long 0xCC10001D, 0x18032D1D
+.long 0xCC10001F, 0x18032D1F
+.long 0xCC100021, 0x18032D21
+.long 0xCC100023, 0x18032D23
+.long 0xCC10001E, 0x18032F1E
+.long 0xCC100020, 0x18032F20
+.long 0xCC100022, 0x18032F22
+.long 0xCC100024, 0x18032F24
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x00001D9C
+.long 0xDB7C1040, 0x0000219C
+.long 0xD8D80000, 0x1D0000A0
+.long 0xD8D80080, 0x1E0000A0
+.long 0xD8D80100, 0x1F0000A0
+.long 0xD8D80180, 0x200000A0
+.long 0xD8D80200, 0x210000A0
+.long 0xD8D80280, 0x220000A0
+.long 0xD8D80300, 0x230000A0
+.long 0xD8D80380, 0x240000A0
+.long 0xBF8CBF70
+.long 0xCC0E5016, 0x0C540B16
+.long 0xCC0E5018, 0x0C5C0B18
+.long 0xCC0E501A, 0x0C640B1A
+.long 0xCC0E501C, 0x0C6C0B1C
+.long 0xCC0F1016, 0x08022B16
+.long 0xCC0F1018, 0x08022F18
+.long 0xCC0F101A, 0x0802331A
+.long 0xCC0F101C, 0x0802371C
+.long 0x782B2AFA, 0xFF00B115
+.long 0x782F2AFA, 0xFF00B117
+.long 0x78332AFA, 0xFF00B119
+.long 0x78372AFA, 0xFF00B11B
+.long 0x782D2AFA, 0xFF00B116
+.long 0x78312AFA, 0xFF00B118
+.long 0x78352AFA, 0xFF00B11A
+.long 0x78392AFA, 0xFF00B11C
+.long 0x782B2AFA, 0xFF004E15
+.long 0x782F2AFA, 0xFF004E17
+.long 0x78332AFA, 0xFF004E19
+.long 0x78372AFA, 0xFF004E1B
+.long 0x782D2AFA, 0xFF004E16
+.long 0x78312AFA, 0xFF004E18
+.long 0x78352AFA, 0xFF004E1A
+.long 0x78392AFA, 0xFF004E1C
+.long 0xCC100015, 0x18032D15
+.long 0xCC100017, 0x18032D17
+.long 0xCC100019, 0x18032D19
+.long 0xCC10001B, 0x18032D1B
+.long 0xCC100016, 0x18032F16
+.long 0xCC100018, 0x18032F18
+.long 0xCC10001A, 0x18032F1A
+.long 0xCC10001C, 0x18032F1C
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x0000159C
+.long 0xDB7C1040, 0x0000199C
+.long 0xD8D80000, 0x150000A0
+.long 0xD8D80080, 0x160000A0
+.long 0xD8D80100, 0x170000A0
+.long 0xD8D80180, 0x180000A0
+.long 0xD8D80200, 0x190000A0
+.long 0xD8D80280, 0x1A0000A0
+.long 0xD8D80300, 0x1B0000A0
+.long 0xD8D80380, 0x1C0000A0
+.long 0xBF8C7F70
+.long 0xCC0E500E, 0x0C340B0E
+.long 0xCC0E5010, 0x0C3C0B10
+.long 0xCC0E5012, 0x0C440B12
+.long 0xCC0E5014, 0x0C4C0B14
+.long 0xCC0F100E, 0x08021B0E
+.long 0xCC0F1010, 0x08021F10
+.long 0xCC0F1012, 0x08022312
+.long 0xCC0F1014, 0x08022714
+.long 0x781B2AFA, 0xFF00B10D
+.long 0x781F2AFA, 0xFF00B10F
+.long 0x78232AFA, 0xFF00B111
+.long 0x78272AFA, 0xFF00B113
+.long 0x781D2AFA, 0xFF00B10E
+.long 0x78212AFA, 0xFF00B110
+.long 0x78252AFA, 0xFF00B112
+.long 0x78292AFA, 0xFF00B114
+.long 0x781B2AFA, 0xFF004E0D
+.long 0x781F2AFA, 0xFF004E0F
+.long 0x78232AFA, 0xFF004E11
+.long 0x78272AFA, 0xFF004E13
+.long 0x781D2AFA, 0xFF004E0E
+.long 0x78212AFA, 0xFF004E10
+.long 0x78252AFA, 0xFF004E12
+.long 0x78292AFA, 0xFF004E14
+.long 0xCC10000D, 0x18032D0D
+.long 0xCC10000F, 0x18032D0F
+.long 0xCC100011, 0x18032D11
+.long 0xCC100013, 0x18032D13
+.long 0xCC10000E, 0x18032F0E
+.long 0xCC100010, 0x18032F10
+.long 0xCC100012, 0x18032F12
+.long 0xCC100014, 0x18032F14
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x00000D9C
+.long 0xDB7C1040, 0x0000119C
+.long 0xD8D80000, 0x0D0000A0
+.long 0xD8D80080, 0x0E0000A0
+.long 0xD8D80100, 0x0F0000A0
+.long 0xD8D80180, 0x100000A0
+.long 0xD8D80200, 0x110000A0
+.long 0xD8D80280, 0x120000A0
+.long 0xD8D80300, 0x130000A0
+.long 0xD8D80380, 0x140000A0
+.long 0xBF8C3F70
+.long 0xCC0E5006, 0x0C140B06
+.long 0xCC0E5008, 0x0C1C0B08
+.long 0xCC0E500A, 0x0C240B0A
+.long 0xCC0E500C, 0x0C2C0B0C
+.long 0xCC0F1006, 0x08020B06
+.long 0xCC0F1008, 0x08020F08
+.long 0xCC0F100A, 0x0802130A
+.long 0xCC0F100C, 0x0802170C
+.long 0x780B2AFA, 0xFF00B105
+.long 0x780F2AFA, 0xFF00B107
+.long 0x78132AFA, 0xFF00B109
+.long 0x78172AFA, 0xFF00B10B
+.long 0x780D2AFA, 0xFF00B106
+.long 0x78112AFA, 0xFF00B108
+.long 0x78152AFA, 0xFF00B10A
+.long 0x78192AFA, 0xFF00B10C
+.long 0x780B2AFA, 0xFF004E05
+.long 0x780F2AFA, 0xFF004E07
+.long 0x78132AFA, 0xFF004E09
+.long 0x78172AFA, 0xFF004E0B
+.long 0x780D2AFA, 0xFF004E06
+.long 0x78112AFA, 0xFF004E08
+.long 0x78152AFA, 0xFF004E0A
+.long 0x78192AFA, 0xFF004E0C
+.long 0xCC100005, 0x18032D05
+.long 0xCC100007, 0x18032D07
+.long 0xCC100009, 0x18032D09
+.long 0xCC10000B, 0x18032D0B
+.long 0xCC100006, 0x18032F06
+.long 0xCC100008, 0x18032F08
+.long 0xCC10000A, 0x18032F0A
+.long 0xCC10000C, 0x18032F0C
+.long 0x17380090
+.long 0xD54300A0, 0x05F808FF, 0x00000400
+.long 0xDB7C0000, 0x0000059C
+.long 0xDB7C1040, 0x0000099C
+.long 0xD8D80000, 0x050000A0
+.long 0xD8D80080, 0x060000A0
+.long 0xD8D80100, 0x070000A0
+.long 0xD8D80180, 0x080000A0
+.long 0xD8D80200, 0x090000A0
+.long 0xD8D80280, 0x0A0000A0
+.long 0xD8D80300, 0x0B0000A0
+.long 0xD8D80380, 0x0C0000A0
+.long 0xBF8C0000
+.long 0xD760003D, 0x0001017F
+.long 0xD760003E, 0x0001037F
+.long 0xD760003F, 0x0001057F
+.long 0xD7600040, 0x0001077F
+.long 0xD5430088, 0x0621FE04, 0x00000100
+.long 0xD5430094, 0x0651FE04, 0x00000100
+.long 0xD5430084, 0x0611FE04, 0x00000200
+.long 0x93090414
+.long 0x801A091A
+.long 0x821B801B
+.long 0x37880083
+.long 0x2D900082
+.long 0xD5420098, 0x071105C8
+.long 0xD5090098, 0x00010598
+.long 0x373800BF
+.long 0xD509009C, 0x0001059C
+.long 0xD54200A0, 0x067104C0
+.long 0x8389F418
+.long 0xBF068019
+.long 0x8509F409
+.long 0x80980918
+.long 0x82998019
+.long 0xD70F6A98, 0x00001398
+.long 0x8389F41A
+.long 0xBF06801B
+.long 0x8509F409
+.long 0x809A091A
+.long 0x829B801B
+.long 0xD70F6A9C, 0x0000139C
+.long 0xD70F6AA0, 0x000013A0
+.long 0xBEBC0380
+.long 0x35AE0082
+.long 0xD70F6AD7, 0x0003AEFF, 0x0000C400
+.long 0x7D8C008C
+.long 0xBF860004
+.long 0x7FAC0280
+.long 0x03AFAEC1
+.long 0xD8340000, 0x0000D6D7
+.long 0x8046810C
+.long 0x8746C246
+.long 0x93444610
+.long 0x9AC54610
+.long 0x80184418
+.long 0x82194519
+.long 0x8F108110
+.long 0x80C4080E
+.long 0x9344FF44, 0x00000100
+.long 0x809C441C
+.long 0x829D801D
+.long 0xBE8903FF, 0x00001500
+.long 0xBE8A03FF, 0x00001500
+.long 0xBE8B03FF, 0x00001500
+.long 0x808F810F
+.long 0x808F080F
+.long 0xBF851C85
+.long 0x80410E0F
+.long 0x80420E0F
+.long 0xBEB8041C
+.long 0xBEBA03C1
+.long 0xBEBB03FF, 0x31014000
+.long 0x80C48186
+.long 0x35880082
+.long 0x9345FF0E, 0x00000100
+.long 0x807CFF0B, 0x0000C438
+.long 0x80384538
+.long 0x82398039
+.long 0xD51B00C4, 0x0001FFC4, 0x000000FF
+.long 0xE0311000, 0x800EC4C4
+.long 0x808BFF0B, 0x00000100
+.long 0x850B0BFF, 0x00001500
+.long 0x808F0E0F
+.long 0x853B3B80
+.long 0x80C48144
+.long 0xBF84FFEC
+.long 0x8052810C
+.long 0x90528152
+.long 0x80D15288
+.long 0xBF850002
+.long 0x80D15251
+.long 0xBF84FFFE
+.long 0x80515251
+.long 0x80D28152
+.long 0xBEC81F00
+.long 0x8048FF48, 0x00002DE8
+.long 0x82498049
+.long 0xBEC61F00
+.long 0x8046FF46, 0x00002FD8
+.long 0x82478047
+.long 0xBECA1F00
+.long 0x804AFF4A, 0x00007164
+.long 0x824B804B
+.long 0xBEA203FF, 0x80000000
+.long 0xBEA603FF, 0x80000000
+.long 0xBEA303FF, 0x31014000
+.long 0xBEA703FF, 0x31014000
+.long 0x80D4810D
+.long 0x80D40454
+.long 0xBEAA03FF, 0x80000000
+.long 0x852BFF80, 0x31014000
+.long 0x80D48454
+.long 0xBEAE03FF, 0x80000000
+.long 0x852FFF80, 0x31014000
+.long 0x80D48454
+.long 0xBEB203FF, 0x80000000
+.long 0x8533FF80, 0x31014000
+.long 0x80D48454
+.long 0xBEB603FF, 0x80000000
+.long 0x8537FF80, 0x31014000
+.long 0x8054830D
+.long 0x8754C454
+.long 0x80D4810D
+.long 0xBF851C35
+.long 0xBF0D881F
+.long 0xBF85001C
+.long 0xD4CC006A, 0x0001FE1E, 0x00003C00
+.long 0xBF87000C
+.long 0xBED303FF, 0x00000280
+.long 0x80D48454
+.long 0x855353FF, 0x00003680
+.long 0x80D48454
+.long 0x855353FF, 0x00002880
+.long 0x80D48454
+.long 0x855353FF, 0x00001680
+.long 0xBF820017
+.long 0xBED303FF, 0x00000880
+.long 0x80D48454
+.long 0x855353FF, 0x00003A80
+.long 0x80D48454
+.long 0x855353FF, 0x00002C80
+.long 0x80D48454
+.long 0x855353FF, 0x00001C80
+.long 0xBF82000B
+.long 0xBED303FF, 0x00000E80
+.long 0x80D48454
+.long 0x855353FF, 0x00003E80
+.long 0x80D48454
+.long 0x855353FF, 0x00003080
+.long 0x80D48454
+.long 0x855353FF, 0x00002280
+.long 0xBF8C3F75
+.long 0x807CFF09, 0x0000C438
+.long 0xDAC40000, 0xC8000000
+.long 0x8089FF09, 0x00000100
+.long 0x850909FF, 0x00001500
+.long 0xBECC1F00
+.long 0x804CFF4C, 0x00000554
+.long 0x824D804D
+.long 0xBED00396
+.long 0xBF8C0000
+.long 0xBF8CC07F
+.long 0xBF8A0000
+.long 0xBF820B13
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820036
+.long 0xCC0E48AE, 0x06B80BAF
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48B2, 0x06C80BB3
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58AF, 0x06BC0BAF
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58B3, 0x06CC0BB3
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x795C02FA, 0xFF005AAE
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x796402FA, 0xFF005AB2
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x795E02FA, 0xFF005AAF
+.long 0x79BB2CE9, 0x000000A3
+.long 0x796602FA, 0xFF005AB3
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820016
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008A6A4
+.long 0xE0901000, 0x8008A7A8
+.long 0xE0941000, 0x8008A7AC
+.long 0xE0941000, 0x8008A6B0
+.long 0xE0901000, 0x8009AAA4
+.long 0xE0901000, 0x8009ABA8
+.long 0xE0941000, 0x8009ABAC
+.long 0xE0941000, 0x8009AAB0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D87000, 0x7E00008C
+.long 0xD9D87000, 0x82000090
+.long 0xD9D87400, 0x8600008C
+.long 0xD9D87400, 0x8A000090
+.long 0xD9D87800, 0x8E00008C
+.long 0xD9D87800, 0x92000090
+.long 0xD9D87C00, 0x9600008C
+.long 0xD9D87C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9340000, 0x0000AE84
+.long 0xD9340800, 0x0000B284
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820038
+.long 0xCC0E48B6, 0x06D80BB7
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48BA, 0x06E80BBB
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58B7, 0x06DC0BB7
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58BB, 0x06EC0BBB
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x796C02FA, 0xFF005AB6
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x797402FA, 0xFF005ABA
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x796E02FA, 0xFF005AB7
+.long 0x79BB2CE9, 0x000000A3
+.long 0x797602FA, 0xFF005ABB
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x803CFF3C, 0x00000100
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF821A08
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008AEA4
+.long 0xE0901000, 0x8008AFA8
+.long 0xE0941000, 0x8008AFAC
+.long 0xE0941000, 0x8008AEB0
+.long 0xE0901000, 0x8009B2A4
+.long 0xE0901000, 0x8009B3A8
+.long 0xE0941000, 0x8009B3AC
+.long 0xE0941000, 0x8009B2B0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D88000, 0x7E00008C
+.long 0xD9D88000, 0x82000090
+.long 0xD9D88400, 0x8600008C
+.long 0xD9D88400, 0x8A000090
+.long 0xD9D88800, 0x8E00008C
+.long 0xD9D88800, 0x92000090
+.long 0xD9D88C00, 0x9600008C
+.long 0xD9D88C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9341000, 0x0000B684
+.long 0xD9341800, 0x0000BA84
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820036
+.long 0xCC0E48BE, 0x06F80BBF
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48C2, 0x07080BC3
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58BF, 0x06FC0BBF
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58C3, 0x070C0BC3
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x797C02FA, 0xFF005ABE
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x798402FA, 0xFF005AC2
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x797E02FA, 0xFF005ABF
+.long 0x79BB2CE9, 0x000000A3
+.long 0x798602FA, 0xFF005AC3
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820016
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008B6A4
+.long 0xE0901000, 0x8008B7A8
+.long 0xE0941000, 0x8008B7AC
+.long 0xE0941000, 0x8008B6B0
+.long 0xE0901000, 0x8009BAA4
+.long 0xE0901000, 0x8009BBA8
+.long 0xE0941000, 0x8009BBAC
+.long 0xE0941000, 0x8009BAB0
+.long 0xBEFD03FF, 0xBF820027
+.long 0xBFA1000D
+.long 0xD8F8C400, 0x04000000
+.long 0xD9D89000, 0x7E00008C
+.long 0xD9D89000, 0x82000090
+.long 0xD9D89400, 0x8600008C
+.long 0xD9D89400, 0x8A000090
+.long 0xD9D89800, 0x8E00008C
+.long 0xD9D89800, 0x92000090
+.long 0xD9D89C00, 0x9600008C
+.long 0xD9D89C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9342000, 0x0000BE84
+.long 0xD9342800, 0x0000C284
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF821881
+.long 0xCC0E48C6, 0x07180BC7
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48CA, 0x07280BCB
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58C7, 0x071C0BC7
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58CB, 0x072C0BCB
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x798C02FA, 0xFF005AC6
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x799402FA, 0xFF005ACA
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x798E02FA, 0xFF005AC7
+.long 0x79BB2CE9, 0x000000A3
+.long 0x799602FA, 0xFF005ACB
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBEFC03FF, 0x0002C400
+.long 0xBF800000
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xD4C2006A, 0x000078FE
+.long 0xBF86FFFD
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820013
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008BEA4
+.long 0xE0901000, 0x8008BFA8
+.long 0xE0941000, 0x8008BFAC
+.long 0xE0941000, 0x8008BEB0
+.long 0xE0901000, 0x8009C2A4
+.long 0xE0901000, 0x8009C3A8
+.long 0xE0941000, 0x8009C3AC
+.long 0xE0941000, 0x8009C2B0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D8A000, 0x7E00008C
+.long 0xD9D8A000, 0x82000090
+.long 0xD9D8A400, 0x8600008C
+.long 0xD9D8A400, 0x8A000090
+.long 0xD9D8A800, 0x8E00008C
+.long 0xD9D8A800, 0x92000090
+.long 0xD9D8AC00, 0x9600008C
+.long 0xD9D8AC00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9343000, 0x0000C684
+.long 0xD9343800, 0x0000CA84
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820036
+.long 0xCC0E48CE, 0x07380BCF
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48D2, 0x07480BD3
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58CF, 0x073C0BCF
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58D3, 0x074C0BD3
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x799C02FA, 0xFF005ACE
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x79A402FA, 0xFF005AD2
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x799E02FA, 0xFF005ACF
+.long 0x79BB2CE9, 0x000000A3
+.long 0x79A602FA, 0xFF005AD3
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820018
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008C6A4
+.long 0xE0901000, 0x8008C7A8
+.long 0xE0941000, 0x8008C7AC
+.long 0xE0941000, 0x8008C6B0
+.long 0xE0901000, 0x8009CAA4
+.long 0xE0901000, 0x8009CBA8
+.long 0xE0941000, 0x8009CBAC
+.long 0xE0941000, 0x8009CAB0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D8B000, 0x7E00008C
+.long 0xD9D8B000, 0x82000090
+.long 0xD9D8B400, 0x8600008C
+.long 0xD9D8B400, 0x8A000090
+.long 0xD9D8B800, 0x8E00008C
+.long 0xD9D8B800, 0x92000090
+.long 0xD9D8BC00, 0x9600008C
+.long 0xD9D8BC00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9344000, 0x0000CE84
+.long 0xD9344800, 0x0000D284
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF82172B
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820036
+.long 0xCC0E48A6, 0x06980BA7
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48AA, 0x06A80BAB
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58A7, 0x069C0BA7
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58AB, 0x06AC0BAB
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x794C02FA, 0xFF005AA6
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x795402FA, 0xFF005AAA
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x794E02FA, 0xFF005AA7
+.long 0x79BB2CE9, 0x000000A3
+.long 0x795602FA, 0xFF005AAB
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820018
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008CEA4
+.long 0xE0901000, 0x8008CFA8
+.long 0xE0941000, 0x8008CFAC
+.long 0xE0941000, 0x8008CEB0
+.long 0xE0901000, 0x8009D2A4
+.long 0xE0901000, 0x8009D3A8
+.long 0xE0941000, 0x8009D3AC
+.long 0xE0941000, 0x8009D2B0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D80000, 0x7E00008C
+.long 0xD9D80000, 0x82000090
+.long 0xD9D80400, 0x8600008C
+.long 0xD9D80400, 0x8A000090
+.long 0xD9D80800, 0x8E00008C
+.long 0xD9D80800, 0x92000090
+.long 0xD9D80C00, 0x9600008C
+.long 0xD9D80C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9345000, 0x0000A684
+.long 0xD9345800, 0x0000AA84
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820036
+.long 0xCC0E48AE, 0x06B80BAF
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48B2, 0x06C80BB3
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58AF, 0x06BC0BAF
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58B3, 0x06CC0BB3
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x795C02FA, 0xFF005AAE
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x796402FA, 0xFF005AB2
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x795E02FA, 0xFF005AAF
+.long 0x79BB2CE9, 0x000000A3
+.long 0x796602FA, 0xFF005AB3
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820016
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008A6A4
+.long 0xE0901000, 0x8008A7A8
+.long 0xE0941000, 0x8008A7AC
+.long 0xE0941000, 0x8008A6B0
+.long 0xE0901000, 0x8009AAA4
+.long 0xE0901000, 0x8009ABA8
+.long 0xE0941000, 0x8009ABAC
+.long 0xE0941000, 0x8009AAB0
+.long 0xBEFD03FF, 0xBF821593
+.long 0xBFA1000D
+.long 0xD8F8C404, 0x04000000
+.long 0xD9D81000, 0x7E00008C
+.long 0xD9D81000, 0x82000090
+.long 0xD9D81400, 0x8600008C
+.long 0xD9D81400, 0x8A000090
+.long 0xD9D81800, 0x8E00008C
+.long 0xD9D81800, 0x92000090
+.long 0xD9D81C00, 0x9600008C
+.long 0xD9D81C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9346000, 0x0000AE84
+.long 0xD9346800, 0x0000B284
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF82003B
+.long 0xCC0E48B6, 0x06D80BB7
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48BA, 0x06E80BBB
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58B7, 0x06DC0BB7
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58BB, 0x06EC0BBB
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x796C02FA, 0xFF005AB6
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x797402FA, 0xFF005ABA
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x796E02FA, 0xFF005AB7
+.long 0x79BB2CE9, 0x000000A3
+.long 0x797602FA, 0xFF005ABB
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBEFC03FF, 0x0002C404
+.long 0xBF800000
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xD4C2006A, 0x000078FE
+.long 0xBF86FFFD
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820013
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008AEA4
+.long 0xE0901000, 0x8008AFA8
+.long 0xE0941000, 0x8008AFAC
+.long 0xE0941000, 0x8008AEB0
+.long 0xE0901000, 0x8009B2A4
+.long 0xE0901000, 0x8009B3A8
+.long 0xE0941000, 0x8009B3AC
+.long 0xE0941000, 0x8009B2B0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D82000, 0x7E00008C
+.long 0xD9D82000, 0x82000090
+.long 0xD9D82400, 0x8600008C
+.long 0xD9D82400, 0x8A000090
+.long 0xD9D82800, 0x8E00008C
+.long 0xD9D82800, 0x92000090
+.long 0xD9D82C00, 0x9600008C
+.long 0xD9D82C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9347000, 0x0000B684
+.long 0xD9347800, 0x0000BA84
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820036
+.long 0xCC0E48BE, 0x06F80BBF
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48C2, 0x07080BC3
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58BF, 0x06FC0BBF
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58C3, 0x070C0BC3
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x797C02FA, 0xFF005ABE
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x798402FA, 0xFF005AC2
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x797E02FA, 0xFF005ABF
+.long 0x79BB2CE9, 0x000000A3
+.long 0x798602FA, 0xFF005AC3
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF8213EA
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008B6A4
+.long 0xE0901000, 0x8008B7A8
+.long 0xE0941000, 0x8008B7AC
+.long 0xE0941000, 0x8008B6B0
+.long 0xE0901000, 0x8009BAA4
+.long 0xE0901000, 0x8009BBA8
+.long 0xE0941000, 0x8009BBAC
+.long 0xE0941000, 0x8009BAB0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D83000, 0x7E00008C
+.long 0xD9D83000, 0x82000090
+.long 0xD9D83400, 0x8600008C
+.long 0xD9D83400, 0x8A000090
+.long 0xD9D83800, 0x8E00008C
+.long 0xD9D83800, 0x92000090
+.long 0xD9D83C00, 0x9600008C
+.long 0xD9D83C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9348000, 0x0000BE84
+.long 0xD9348800, 0x0000C284
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820036
+.long 0xCC0E48C6, 0x07180BC7
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48CA, 0x07280BCB
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58C7, 0x071C0BC7
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58CB, 0x072C0BCB
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x798C02FA, 0xFF005AC6
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x799402FA, 0xFF005ACA
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x798E02FA, 0xFF005AC7
+.long 0x79BB2CE9, 0x000000A3
+.long 0x799602FA, 0xFF005ACB
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820018
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008BEA4
+.long 0xE0901000, 0x8008BFA8
+.long 0xE0941000, 0x8008BFAC
+.long 0xE0941000, 0x8008BEB0
+.long 0xE0901000, 0x8009C2A4
+.long 0xE0901000, 0x8009C3A8
+.long 0xE0941000, 0x8009C3AC
+.long 0xE0941000, 0x8009C2B0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D84000, 0x7E00008C
+.long 0xD9D84000, 0x82000090
+.long 0xD9D84400, 0x8600008C
+.long 0xD9D84400, 0x8A000090
+.long 0xD9D84800, 0x8E00008C
+.long 0xD9D84800, 0x92000090
+.long 0xD9D84C00, 0x9600008C
+.long 0xD9D84C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD9349000, 0x0000C684
+.long 0xD9349800, 0x0000CA84
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF8212CB
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF820036
+.long 0xCC0E48CE, 0x07380BCF
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48D2, 0x07480BD3
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58CF, 0x073C0BCF
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58D3, 0x074C0BD3
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x799C02FA, 0xFF005ACE
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x79A402FA, 0xFF005AD2
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x799E02FA, 0xFF005ACF
+.long 0x79BB2CE9, 0x000000A3
+.long 0x79A602FA, 0xFF005AD3
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBF800002
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF820016
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008C6A4
+.long 0xE0901000, 0x8008C7A8
+.long 0xE0941000, 0x8008C7AC
+.long 0xE0941000, 0x8008C6B0
+.long 0xE0901000, 0x8009CAA4
+.long 0xE0901000, 0x8009CBA8
+.long 0xE0941000, 0x8009CBAC
+.long 0xE0941000, 0x8009CAB0
+.long 0xBEFD03FF, 0xBF820027
+.long 0xBFA1000D
+.long 0xD8F8C408, 0x04000000
+.long 0xD9D85000, 0x7E00008C
+.long 0xD9D85000, 0x82000090
+.long 0xD9D85400, 0x8600008C
+.long 0xD9D85400, 0x8A000090
+.long 0xD9D85800, 0x8E00008C
+.long 0xD9D85800, 0x92000090
+.long 0xD9D85C00, 0x9600008C
+.long 0xD9D85C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD934A000, 0x0000CE84
+.long 0xD934A800, 0x0000D284
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF840005
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820069
+.long 0xBEFD03FF, 0x00F0F0F0
+.long 0xBF8C8370
+.long 0x78FAFCE9, 0x0000009E
+.long 0x7902FEE9, 0x2492499E
+.long 0xBF8F0001
+.long 0x790B04E9, 0x4924929E
+.long 0x791306E9, 0x6DB6DB9E
+.long 0x791AFCE9, 0x9249249E
+.long 0x7922FEE9, 0xB6DB6D9E
+.long 0x792B04E9, 0xDB6DB69E
+.long 0x793306E9, 0xFFFFFF9E
+.long 0x793AFCE9, 0x0000009F
+.long 0x7942FEE9, 0x2492499F
+.long 0x794B04E9, 0x4924929F
+.long 0x795306E9, 0x6DB6DB9F
+.long 0x795AFCE9, 0x9249249F
+.long 0x7962FEE9, 0xB6DB6D9F
+.long 0x796B04E9, 0xDB6DB69F
+.long 0x797306E9, 0xFFFFFF9F
+.long 0x797B0CE9, 0x0000009E
+.long 0x79830EE9, 0x2492499E
+.long 0x798B14E9, 0x4924929E
+.long 0x799316E9, 0x6DB6DB9E
+.long 0x799B0CE9, 0x9249249E
+.long 0x79A30EE9, 0xB6DB6D9E
+.long 0x79AB14E9, 0xDB6DB69E
+.long 0x79B316E9, 0xFFFFFF9E
+.long 0x79BB0CE9, 0x0000009F
+.long 0x79C30EE9, 0x2492499F
+.long 0x79CB14E9, 0x4924929F
+.long 0x79D316E9, 0x6DB6DB9F
+.long 0x79DB0CE9, 0x9249249F
+.long 0x79E30EE9, 0xB6DB6D9F
+.long 0x79EB14E9, 0xDB6DB69F
+.long 0x79F316E9, 0xFFFFFF9F
+.long 0x78FB1CE9, 0x000000A2
+.long 0x79031EE9, 0x249249A2
+.long 0x790B24E9, 0x492492A2
+.long 0x791326E9, 0x6DB6DBA2
+.long 0x791B1CE9, 0x924924A2
+.long 0x79231EE9, 0xB6DB6DA2
+.long 0x792B24E9, 0xDB6DB6A2
+.long 0x793326E9, 0xFFFFFFA2
+.long 0x793B1CE9, 0x000000A3
+.long 0x79431EE9, 0x249249A3
+.long 0x794B24E9, 0x492492A3
+.long 0x795326E9, 0x6DB6DBA3
+.long 0x795B1CE9, 0x924924A3
+.long 0x79631EE9, 0xB6DB6DA3
+.long 0x796B24E9, 0xDB6DB6A3
+.long 0x797326E9, 0xFFFFFFA3
+.long 0x797B2CE9, 0x000000A2
+.long 0x79832EE9, 0x249249A2
+.long 0xBEFD03FF, 0xBF82003B
+.long 0xCC0E48A6, 0x06980BA7
+.long 0x798B34E9, 0x492492A2
+.long 0xCC0E48AA, 0x06A80BAB
+.long 0x799336E9, 0x6DB6DBA2
+.long 0xCC0E58A7, 0x069C0BA7
+.long 0x799B2CE9, 0x924924A2
+.long 0xCC0E58AB, 0x06AC0BAB
+.long 0x79A32EE9, 0xB6DB6DA2
+.long 0x794C02FA, 0xFF005AA6
+.long 0x79AB34E9, 0xDB6DB6A2
+.long 0x795402FA, 0xFF005AAA
+.long 0x79B336E9, 0xFFFFFFA2
+.long 0x794E02FA, 0xFF005AA7
+.long 0x79BB2CE9, 0x000000A3
+.long 0x795602FA, 0xFF005AAB
+.long 0x79C32EE9, 0x249249A3
+.long 0x7F008705
+.long 0x79CB34E9, 0x492492A3
+.long 0x79D336E9, 0x6DB6DBA3
+.long 0x79DB2CE9, 0x924924A3
+.long 0x79E32EE9, 0xB6DB6DA3
+.long 0xBEFC03FF, 0x0002C408
+.long 0xBF800000
+.long 0x79EB34E9, 0xDB6DB6A3
+.long 0x79F336E9, 0xFFFFFFA3
+.long 0xD4C2006A, 0x000078FE
+.long 0xBF86FFFD
+.long 0xBF8CC07F
+.long 0xBF8F0000
+.long 0x80A01020
+.long 0x82A18021
+.long 0x80A41024
+.long 0x82A58025
+.long 0xBEA70343
+.long 0xBEFD03FF, 0xBF821145
+.long 0xBF800000
+.long 0xBFA10007
+.long 0xE0901000, 0x8008CEA4
+.long 0xE0901000, 0x8008CFA8
+.long 0xE0941000, 0x8008CFAC
+.long 0xE0941000, 0x8008CEB0
+.long 0xE0901000, 0x8009D2A4
+.long 0xE0901000, 0x8009D3A8
+.long 0xE0941000, 0x8009D3AC
+.long 0xE0941000, 0x8009D2B0
+.long 0xBEFD03FF, 0xBF820025
+.long 0xBFA1000C
+.long 0xD9D86000, 0x7E00008C
+.long 0xD9D86000, 0x82000090
+.long 0xD9D86400, 0x8600008C
+.long 0xD9D86400, 0x8A000090
+.long 0xD9D86800, 0x8E00008C
+.long 0xD9D86800, 0x92000090
+.long 0xD9D86C00, 0x9600008C
+.long 0xD9D86C00, 0x9A000090
+.long 0xD9D8C000, 0x9E000094
+.long 0xD9D8C080, 0xA2000094
+.long 0xD934B000, 0x0000A684
+.long 0xD934B800, 0x0000AA84
+.long 0xD834C000, 0x00008088
+.long 0xBEC30323
+.long 0x80D18151
+.long 0x85515152
+.long 0xBEFC0351
+.long 0x80CE824E
+.long 0xBF84F587
+.long 0xBECC2144
+.long 0xBF800000
+.long 0xBEFC0351
+.long 0xBEFD03FF, 0xBF820021
+.long 0xBF82F581
+.long 0xBF821107
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBEFD03FF, 0xBF82007F
+.long 0x877D0C81
+.long 0x824F800C
+.long 0x80C10E41
+.long 0x85232380
+.long 0x85272780
+.long 0x854F4FFF, 0x00001000
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF8F0002
+.long 0x97D88404
+.long 0xD70F5EFD, 0x000391C8
+.long 0x35999082
+.long 0x35FB9058
+.long 0xD70F5ACC, 0x000399CC
+.long 0xD70F5CCC, 0x000399CC
+.long 0x90628110
+.long 0x80205E18
+.long 0x82215F19
+.long 0x80246220
+.long 0x82258021
+.long 0x877D0C81
+.long 0x85432380
+.long 0x8F548404
+.long 0x8F568404
+.long 0xBED5105A
+.long 0xBED7105C
+.long 0x90DA545A
+.long 0x90DC565C
+.long 0xBED4105A
+.long 0xBED6105C
+.long 0xBEDA3B5A
+.long 0xBEDC3B5C
+.long 0x80D55455
+.long 0x80D75657
+.long 0xBEDA3B5A
+.long 0xBEDC3B5C
+.long 0x8F558255
+.long 0x8F578257
+.long 0xD76500D6, 0x0000AA5A
+.long 0xD76500D7, 0x0000AE5C
+.long 0xD76600D6, 0x0003AC5B
+.long 0xD76600D7, 0x0003AE5D
+.long 0x2DADAC82
+.long 0x2DAFAE82
+.long 0xD54200A4, 0x066025D6
+.long 0xD54200A4, 0x069027D7
+.long 0xD70F6AA8, 0x000023A4
+.long 0xD70F6AFD, 0x0003FBFD
+.long 0xD50100A4, 0x01A983A4
+.long 0xD70F6AAC, 0x000023A8
+.long 0xD70F6AFD, 0x0003FBFD
+.long 0xD50100A8, 0x01A983A8
+.long 0xD70F6AB0, 0x000023AC
+.long 0xD70F6AFD, 0x0003FBFD
+.long 0xD50100AC, 0x01A983AC
+.long 0xD70F6AFD, 0x0003FBFD
+.long 0xD50100B0, 0x01A983B0
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0x807CFF09, 0x0000C438
+.long 0xDAC40000, 0xC8000000
+.long 0x8089FF09, 0x00000100
+.long 0x850909FF, 0x00001500
+.long 0x35980082
+.long 0x9356FF0E, 0x00000100
+.long 0x807CFF0B, 0x0000C438
+.long 0x80385638
+.long 0x82398039
+.long 0xD51B00CC, 0x0001FFCC, 0x000000FF
+.long 0xE0311000, 0x800ECCCC
+.long 0x808BFF0B, 0x00000100
+.long 0x850B0BFF, 0x00001500
+.long 0x808F0E0F
+.long 0x853B3B80
+.long 0xBF8F0000
+.long 0xBE80204C
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBEFD03FF, 0xBF821069
+.long 0x80465346
+.long 0x82478047
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0x7EFA0280
+.long 0x7F020280
+.long 0x7F0A0280
+.long 0x7F120280
+.long 0x7F1A0280
+.long 0x7F220280
+.long 0x7F2A0280
+.long 0x7F320280
+.long 0x7F3A0280
+.long 0x7F420280
+.long 0x7F4A0280
+.long 0x7F520280
+.long 0x7F5A0280
+.long 0x7F620280
+.long 0x7F6A0280
+.long 0x7F720280
+.long 0x7F7A0280
+.long 0x7F820280
+.long 0x7F8A0280
+.long 0x7F920280
+.long 0x7F9A0280
+.long 0x7FA20280
+.long 0x7FAA0280
+.long 0x7FB20280
+.long 0x7FBA0280
+.long 0x7FC20280
+.long 0x7FCA0280
+.long 0x7FD20280
+.long 0x7FDA0280
+.long 0x7FE20280
+.long 0x7FEA0280
+.long 0x7FF20280
+.long 0xBF8F0002
+.long 0x35998881
+.long 0x35A18894
+.long 0xD70F62CC, 0x000399CC
+.long 0xD70F5ECC, 0x000399CC
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60CC, 0x000399CC
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500D4, 0x0001005A
+.long 0xD76500D6, 0x0001005C
+.long 0xD76500D7, 0x0000AC5E
+.long 0xD76500D8, 0x0000AE60
+.long 0xD76600D4, 0x0003A85B
+.long 0xD76600D6, 0x0003AC5D
+.long 0xD76600D7, 0x0003AE5F
+.long 0xD76600D8, 0x0003B061
+.long 0x2DA9A881
+.long 0x2DADAC81
+.long 0x2DAFAE81
+.long 0x2DB1B081
+.long 0xD54200B4, 0x06702DD4
+.long 0xD54200BC, 0x06802DD7
+.long 0xD54200B4, 0x06D02FD6
+.long 0xD54200BC, 0x06F02FD8
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AD0, 0x0003A1D0
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AD0, 0x0003A1D0
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AD0, 0x0003A1D0
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AD0, 0x0003A1D0
+.long 0xD50100C0, 0x01A983C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50D0, 0x0E740BA1
+.long 0x7F3A0280
+.long 0xCC0E50DB, 0x0E940BA9
+.long 0x7F4A0280
+.long 0xCC0E50DE, 0x0EB40BB1
+.long 0x7F5A0280
+.long 0xCC0E50D4, 0x0ED40BB9
+.long 0x7F6A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E50E6, 0x0F740BE1
+.long 0x7FBA0280
+.long 0xCC0E50DC, 0x0F940BE9
+.long 0x7FCA0280
+.long 0xCC0E50E7, 0x0FB40BF1
+.long 0x7FDA0280
+.long 0xCC0E50EA, 0x0FD40BF9
+.long 0x7FEA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58D0, 0x17400BA1
+.long 0x7F420280
+.long 0xCC0E58DB, 0x176C0BA9
+.long 0x7F520280
+.long 0xCC0E58DE, 0x17780BB1
+.long 0x7F620280
+.long 0xCC0E58D4, 0x17500BB9
+.long 0x7F720280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xCC0E58E6, 0x17980BE1
+.long 0x7FC20280
+.long 0xCC0E58DC, 0x17700BE9
+.long 0x7FD20280
+.long 0xCC0E58E7, 0x179C0BF1
+.long 0x7FE20280
+.long 0xCC0E58EA, 0x17A80BF9
+.long 0x7FF20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79A006FA, 0xFF00B1DB
+.long 0x79BC06FA, 0xFF00B1D4
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79CC06FA, 0xFF00B1DC
+.long 0x79CE06FA, 0xFF00B1EA
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79A005DB
+.long 0x79BC05D4
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0x79CC05DC
+.long 0x79CE05EA
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00D0, 0x1803A03F
+.long 0xCC0F00DE, 0x1803BC40
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC0F00E6, 0x1803CC3F
+.long 0xCC0F00E7, 0x1803CE40
+.long 0xCC1000CC, 0x1803AC1E
+.long 0xCC1000DA, 0x1803AE1E
+.long 0xCC1000DB, 0x1803A01E
+.long 0xCC1000D4, 0x1803BC1E
+.long 0xCC1000E2, 0x1803BE1E
+.long 0xCC1000E3, 0x1803B01E
+.long 0xCC1000DC, 0x1803CC1E
+.long 0xCC1000EA, 0x1803CE1E
+.long 0xCC1200D6, 0x180399D6
+.long 0xCC1200D7, 0x1803B5D7
+.long 0xCC1200D0, 0x1803B7D0
+.long 0xCC1200DE, 0x1803A9DE
+.long 0xCC1200DF, 0x1803C5DF
+.long 0xCC1200D8, 0x1803C7D8
+.long 0xCC1200E6, 0x1803B9E6
+.long 0xCC1200E7, 0x1803D5E7
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0xE0681000, 0x800CD0B4
+.long 0xE06C1000, 0x800CD0B8
+.long 0xE0681000, 0x800CE6BC
+.long 0xE06C1000, 0x800CE6C0
+.long 0xE0681000, 0x800DDEB4
+.long 0xE06C1000, 0x800DDEB8
+.long 0xE0681000, 0x800DE7BC
+.long 0xE06C1000, 0x800DE7C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50D0, 0x0E740BA1
+.long 0x7F3A0280
+.long 0xCC0E50DB, 0x0E940BA9
+.long 0x7F4A0280
+.long 0xCC0E50DE, 0x0EB40BB1
+.long 0x7F5A0280
+.long 0xCC0E50D4, 0x0ED40BB9
+.long 0x7F6A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E50E6, 0x0F740BE1
+.long 0x7FBA0280
+.long 0xCC0E50DC, 0x0F940BE9
+.long 0x7FCA0280
+.long 0xCC0E50E7, 0x0FB40BF1
+.long 0x7FDA0280
+.long 0xCC0E50EA, 0x0FD40BF9
+.long 0x7FEA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58D0, 0x17400BA1
+.long 0x7F420280
+.long 0xCC0E58DB, 0x176C0BA9
+.long 0x7F520280
+.long 0xCC0E58DE, 0x17780BB1
+.long 0x7F620280
+.long 0xCC0E58D4, 0x17500BB9
+.long 0x7F720280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xCC0E58E6, 0x17980BE1
+.long 0x7FC20280
+.long 0xCC0E58DC, 0x17700BE9
+.long 0x7FD20280
+.long 0xCC0E58E7, 0x179C0BF1
+.long 0x7FE20280
+.long 0xCC0E58EA, 0x17A80BF9
+.long 0x7FF20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79A006FA, 0xFF00B1DB
+.long 0x79BC06FA, 0xFF00B1D4
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79CC06FA, 0xFF00B1DC
+.long 0x79CE06FA, 0xFF00B1EA
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79A005DB
+.long 0x79BC05D4
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0x79CC05DC
+.long 0x79CE05EA
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00D0, 0x1803A03F
+.long 0xCC0F00DE, 0x1803BC40
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC0F00E6, 0x1803CC3F
+.long 0xCC0F00E7, 0x1803CE40
+.long 0xCC1000CC, 0x1803AC1E
+.long 0xCC1000DA, 0x1803AE1E
+.long 0xCC1000DB, 0x1803A01E
+.long 0xCC1000D4, 0x1803BC1E
+.long 0xCC1000E2, 0x1803BE1E
+.long 0xCC1000E3, 0x1803B01E
+.long 0xCC1000DC, 0x1803CC1E
+.long 0xCC1000EA, 0x1803CE1E
+.long 0xCC1100D6, 0x180399D6
+.long 0xCC1100D7, 0x1803B5D7
+.long 0xCC1100D0, 0x1803B7D0
+.long 0xCC1100DE, 0x1803A9DE
+.long 0xCC1100DF, 0x1803C5DF
+.long 0xCC1100D8, 0x1803C7D8
+.long 0xCC1100E6, 0x1803B9E6
+.long 0xCC1100E7, 0x1803D5E7
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0xE0681000, 0x800CD0B4
+.long 0xE06C1000, 0x800CD0B8
+.long 0xE0681000, 0x800CE6BC
+.long 0xE06C1000, 0x800CE6C0
+.long 0xE0681000, 0x800DDEB4
+.long 0xE06C1000, 0x800DDEB8
+.long 0xE0681000, 0x800DE7BC
+.long 0xE06C1000, 0x800DE7C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50D0, 0x0E740BA1
+.long 0x7F3A0280
+.long 0xCC0E50DB, 0x0E940BA9
+.long 0x7F4A0280
+.long 0xCC0E50DE, 0x0EB40BB1
+.long 0x7F5A0280
+.long 0xCC0E50D4, 0x0ED40BB9
+.long 0x7F6A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E50E6, 0x0F740BE1
+.long 0x7FBA0280
+.long 0xCC0E50DC, 0x0F940BE9
+.long 0x7FCA0280
+.long 0xCC0E50E7, 0x0FB40BF1
+.long 0x7FDA0280
+.long 0xCC0E50EA, 0x0FD40BF9
+.long 0x7FEA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58D0, 0x17400BA1
+.long 0x7F420280
+.long 0xCC0E58DB, 0x176C0BA9
+.long 0x7F520280
+.long 0xCC0E58DE, 0x17780BB1
+.long 0x7F620280
+.long 0xCC0E58D4, 0x17500BB9
+.long 0x7F720280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xCC0E58E6, 0x17980BE1
+.long 0x7FC20280
+.long 0xCC0E58DC, 0x17700BE9
+.long 0x7FD20280
+.long 0xCC0E58E7, 0x179C0BF1
+.long 0x7FE20280
+.long 0xCC0E58EA, 0x17A80BF9
+.long 0x7FF20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79A006FA, 0xFF00B1DB
+.long 0x79BC06FA, 0xFF00B1D4
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79CC06FA, 0xFF00B1DC
+.long 0x79CE06FA, 0xFF00B1EA
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79A005DB
+.long 0x79BC05D4
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0x79CC05DC
+.long 0x79CE05EA
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00D0, 0x1803A03F
+.long 0xCC0F00DE, 0x1803BC40
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC0F00E6, 0x1803CC3F
+.long 0xCC0F00E7, 0x1803CE40
+.long 0xCC1000D6, 0x1003ACFF, 0xBDC5BDC5
+.long 0xCC1000D7, 0x1003AEFF, 0xBDC5BDC5
+.long 0xCC1000D0, 0x1003A0FF, 0xBDC5BDC5
+.long 0xCC1000DE, 0x1003BCFF, 0xBDC5BDC5
+.long 0xCC1000DF, 0x1003BEFF, 0xBDC5BDC5
+.long 0xCC1000D8, 0x1003B0FF, 0xBDC5BDC5
+.long 0xCC1000E6, 0x1003CCFF, 0xBDC5BDC5
+.long 0xCC1000E7, 0x1003CEFF, 0xBDC5BDC5
+.long 0x7FACB0F9, 0x060414D6
+.long 0x7FAEB0F9, 0x060414D7
+.long 0x7FA0B0F9, 0x060414D0
+.long 0x7FBCB0F9, 0x060414DE
+.long 0x7FBEB0F9, 0x060414DF
+.long 0x7FB0B0F9, 0x060414D8
+.long 0x7FCCB0F9, 0x060414E6
+.long 0x7FCEB0F9, 0x060414E7
+.long 0x7FACB0F9, 0x060515D6
+.long 0x7FAEB0F9, 0x060515D7
+.long 0x7FA0B0F9, 0x060515D0
+.long 0x7FBCB0F9, 0x060515DE
+.long 0x7FBEB0F9, 0x060515DF
+.long 0x7FB0B0F9, 0x060515D8
+.long 0x7FCCB0F9, 0x060515E6
+.long 0x7FCEB0F9, 0x060515E7
+.long 0xCC0F00D6, 0x1003ACFF, 0x3C003C00
+.long 0xCC0F00D7, 0x1003AEFF, 0x3C003C00
+.long 0xCC0F00D0, 0x1003A0FF, 0x3C003C00
+.long 0xCC0F00DE, 0x1003BCFF, 0x3C003C00
+.long 0xCC0F00DF, 0x1003BEFF, 0x3C003C00
+.long 0xCC0F00D8, 0x1003B0FF, 0x3C003C00
+.long 0xCC0F00E6, 0x1003CCFF, 0x3C003C00
+.long 0xCC0F00E7, 0x1003CEFF, 0x3C003C00
+.long 0x7FACA8F9, 0x060414D6
+.long 0x7FAEA8F9, 0x060414D7
+.long 0x7FA0A8F9, 0x060414D0
+.long 0x7FBCA8F9, 0x060414DE
+.long 0x7FBEA8F9, 0x060414DF
+.long 0x7FB0A8F9, 0x060414D8
+.long 0x7FCCA8F9, 0x060414E6
+.long 0x7FCEA8F9, 0x060414E7
+.long 0x7FACA8F9, 0x060515D6
+.long 0x7FAEA8F9, 0x060515D7
+.long 0x7FA0A8F9, 0x060515D0
+.long 0x7FBCA8F9, 0x060515DE
+.long 0x7FBEA8F9, 0x060515DF
+.long 0x7FB0A8F9, 0x060515D8
+.long 0x7FCCA8F9, 0x060515E6
+.long 0x7FCEA8F9, 0x060515E7
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0xE0681000, 0x800CD0B4
+.long 0xE06C1000, 0x800CD0B8
+.long 0xE0681000, 0x800CE6BC
+.long 0xE06C1000, 0x800CE6C0
+.long 0xE0681000, 0x800DDEB4
+.long 0xE06C1000, 0x800DDEB8
+.long 0xE0681000, 0x800DE7BC
+.long 0xE06C1000, 0x800DE7C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50D0, 0x0E740BA1
+.long 0x7F3A0280
+.long 0xCC0E50DB, 0x0E940BA9
+.long 0x7F4A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E50E6, 0x0F740BE1
+.long 0x7FBA0280
+.long 0xCC0E50DC, 0x0F940BE9
+.long 0x7FCA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58D0, 0x17400BA1
+.long 0x7F420280
+.long 0xCC0E58DB, 0x176C0BA9
+.long 0x7F520280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xCC0E58E6, 0x17980BE1
+.long 0x7FC20280
+.long 0xCC0E58DC, 0x17700BE9
+.long 0x7FD20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79A006FA, 0xFF00B1DB
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79CC06FA, 0xFF00B1DC
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79A005DB
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0x79CC05DC
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00D0, 0x1803A03F
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC0F00E6, 0x1803CC3F
+.long 0xCC1000CC, 0x1803AC1E
+.long 0xCC1000DA, 0x1803AE1E
+.long 0xCC1000DB, 0x1803A01E
+.long 0xCC1000E2, 0x1803BE1E
+.long 0xCC1000E3, 0x1803B01E
+.long 0xCC1000DC, 0x1803CC1E
+.long 0xCC1200D6, 0x180399D6
+.long 0xCC1200D7, 0x1803B5D7
+.long 0xCC1200D0, 0x1803B7D0
+.long 0xCC1200DF, 0x1803C5DF
+.long 0xCC1200D8, 0x1803C7D8
+.long 0xCC1200E6, 0x1803B9E6
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0xE0681000, 0x800CD0B4
+.long 0xE06C1000, 0x800CD0B8
+.long 0xE0681000, 0x800CE6BC
+.long 0xE06C1000, 0x800CE6C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50D0, 0x0E740BA1
+.long 0x7F3A0280
+.long 0xCC0E50DB, 0x0E940BA9
+.long 0x7F4A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E50E6, 0x0F740BE1
+.long 0x7FBA0280
+.long 0xCC0E50DC, 0x0F940BE9
+.long 0x7FCA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58D0, 0x17400BA1
+.long 0x7F420280
+.long 0xCC0E58DB, 0x176C0BA9
+.long 0x7F520280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xCC0E58E6, 0x17980BE1
+.long 0x7FC20280
+.long 0xCC0E58DC, 0x17700BE9
+.long 0x7FD20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79A006FA, 0xFF00B1DB
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79CC06FA, 0xFF00B1DC
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79A005DB
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0x79CC05DC
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00D0, 0x1803A03F
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC0F00E6, 0x1803CC3F
+.long 0xCC1000CC, 0x1803AC1E
+.long 0xCC1000DA, 0x1803AE1E
+.long 0xCC1000DB, 0x1803A01E
+.long 0xCC1000E2, 0x1803BE1E
+.long 0xCC1000E3, 0x1803B01E
+.long 0xCC1000DC, 0x1803CC1E
+.long 0xCC1100D6, 0x180399D6
+.long 0xCC1100D7, 0x1803B5D7
+.long 0xCC1100D0, 0x1803B7D0
+.long 0xCC1100DF, 0x1803C5DF
+.long 0xCC1100D8, 0x1803C7D8
+.long 0xCC1100E6, 0x1803B9E6
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0xE0681000, 0x800CD0B4
+.long 0xE06C1000, 0x800CD0B8
+.long 0xE0681000, 0x800CE6BC
+.long 0xE06C1000, 0x800CE6C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50D0, 0x0E740BA1
+.long 0x7F3A0280
+.long 0xCC0E50DB, 0x0E940BA9
+.long 0x7F4A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E50E6, 0x0F740BE1
+.long 0x7FBA0280
+.long 0xCC0E50DC, 0x0F940BE9
+.long 0x7FCA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58D0, 0x17400BA1
+.long 0x7F420280
+.long 0xCC0E58DB, 0x176C0BA9
+.long 0x7F520280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xCC0E58E6, 0x17980BE1
+.long 0x7FC20280
+.long 0xCC0E58DC, 0x17700BE9
+.long 0x7FD20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79A006FA, 0xFF00B1DB
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79CC06FA, 0xFF00B1DC
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79A005DB
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0x79CC05DC
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00D0, 0x1803A03F
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC0F00E6, 0x1803CC3F
+.long 0xCC1000D6, 0x1003ACFF, 0xBDC5BDC5
+.long 0xCC1000D7, 0x1003AEFF, 0xBDC5BDC5
+.long 0xCC1000D0, 0x1003A0FF, 0xBDC5BDC5
+.long 0xCC1000DF, 0x1003BEFF, 0xBDC5BDC5
+.long 0xCC1000D8, 0x1003B0FF, 0xBDC5BDC5
+.long 0xCC1000E6, 0x1003CCFF, 0xBDC5BDC5
+.long 0x7FACB0F9, 0x060414D6
+.long 0x7FAEB0F9, 0x060414D7
+.long 0x7FA0B0F9, 0x060414D0
+.long 0x7FBEB0F9, 0x060414DF
+.long 0x7FB0B0F9, 0x060414D8
+.long 0x7FCCB0F9, 0x060414E6
+.long 0x7FACB0F9, 0x060515D6
+.long 0x7FAEB0F9, 0x060515D7
+.long 0x7FA0B0F9, 0x060515D0
+.long 0x7FBEB0F9, 0x060515DF
+.long 0x7FB0B0F9, 0x060515D8
+.long 0x7FCCB0F9, 0x060515E6
+.long 0xCC0F00D6, 0x1003ACFF, 0x3C003C00
+.long 0xCC0F00D7, 0x1003AEFF, 0x3C003C00
+.long 0xCC0F00D0, 0x1003A0FF, 0x3C003C00
+.long 0xCC0F00DF, 0x1003BEFF, 0x3C003C00
+.long 0xCC0F00D8, 0x1003B0FF, 0x3C003C00
+.long 0xCC0F00E6, 0x1003CCFF, 0x3C003C00
+.long 0x7FACA8F9, 0x060414D6
+.long 0x7FAEA8F9, 0x060414D7
+.long 0x7FA0A8F9, 0x060414D0
+.long 0x7FBEA8F9, 0x060414DF
+.long 0x7FB0A8F9, 0x060414D8
+.long 0x7FCCA8F9, 0x060414E6
+.long 0x7FACA8F9, 0x060515D6
+.long 0x7FAEA8F9, 0x060515D7
+.long 0x7FA0A8F9, 0x060515D0
+.long 0x7FBEA8F9, 0x060515DF
+.long 0x7FB0A8F9, 0x060515D8
+.long 0x7FCCA8F9, 0x060515E6
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0xE0681000, 0x800CD0B4
+.long 0xE06C1000, 0x800CD0B8
+.long 0xE0681000, 0x800CE6BC
+.long 0xE06C1000, 0x800CE6C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC1000CC, 0x1803AC1E
+.long 0xCC1000DA, 0x1803AE1E
+.long 0xCC1000E2, 0x1803BE1E
+.long 0xCC1000E3, 0x1803B01E
+.long 0xCC1200D6, 0x180399D6
+.long 0xCC1200D7, 0x1803B5D7
+.long 0xCC1200DF, 0x1803C5DF
+.long 0xCC1200D8, 0x1803C7D8
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC1000CC, 0x1803AC1E
+.long 0xCC1000DA, 0x1803AE1E
+.long 0xCC1000E2, 0x1803BE1E
+.long 0xCC1000E3, 0x1803B01E
+.long 0xCC1100D6, 0x180399D6
+.long 0xCC1100D7, 0x1803B5D7
+.long 0xCC1100DF, 0x1803C5DF
+.long 0xCC1100D8, 0x1803C7D8
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50D7, 0x0E340B91
+.long 0x7F1A0280
+.long 0xCC0E50DA, 0x0E540B99
+.long 0x7F2A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E50D8, 0x0F340BD1
+.long 0x7F9A0280
+.long 0xCC0E50E3, 0x0F540BD9
+.long 0x7FAA0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58D7, 0x175C0B91
+.long 0x7F220280
+.long 0xCC0E58DA, 0x17680B99
+.long 0x7F320280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xCC0E58D8, 0x17600BD1
+.long 0x7FA20280
+.long 0xCC0E58E3, 0x178C0BD9
+.long 0x7FB20280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79AE06FA, 0xFF00B1DA
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79B006FA, 0xFF00B1E3
+.long 0x79AC05CC
+.long 0x79AE05DA
+.long 0x79BE05E2
+.long 0x79B005E3
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00D7, 0x1803AE3E
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC0F00D8, 0x1803B03E
+.long 0xCC1000D6, 0x1003ACFF, 0xBDC5BDC5
+.long 0xCC1000D7, 0x1003AEFF, 0xBDC5BDC5
+.long 0xCC1000DF, 0x1003BEFF, 0xBDC5BDC5
+.long 0xCC1000D8, 0x1003B0FF, 0xBDC5BDC5
+.long 0x7FACB0F9, 0x060414D6
+.long 0x7FAEB0F9, 0x060414D7
+.long 0x7FBEB0F9, 0x060414DF
+.long 0x7FB0B0F9, 0x060414D8
+.long 0x7FACB0F9, 0x060515D6
+.long 0x7FAEB0F9, 0x060515D7
+.long 0x7FBEB0F9, 0x060515DF
+.long 0x7FB0B0F9, 0x060515D8
+.long 0xCC0F00D6, 0x1003ACFF, 0x3C003C00
+.long 0xCC0F00D7, 0x1003AEFF, 0x3C003C00
+.long 0xCC0F00DF, 0x1003BEFF, 0x3C003C00
+.long 0xCC0F00D8, 0x1003B0FF, 0x3C003C00
+.long 0x7FACA8F9, 0x060414D6
+.long 0x7FAEA8F9, 0x060414D7
+.long 0x7FBEA8F9, 0x060414DF
+.long 0x7FB0A8F9, 0x060414D8
+.long 0x7FACA8F9, 0x060515D6
+.long 0x7FAEA8F9, 0x060515D7
+.long 0x7FBEA8F9, 0x060515DF
+.long 0x7FB0A8F9, 0x060515D8
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0xE0681000, 0x800BD7B4
+.long 0xE06C1000, 0x800BD7B8
+.long 0xE0681000, 0x800BD8BC
+.long 0xE06C1000, 0x800BD8C0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79AC05CC
+.long 0x79BE05E2
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC1000CC, 0x1803AC1E
+.long 0xCC1000E2, 0x1803BE1E
+.long 0xCC1200D6, 0x180399D6
+.long 0xCC1200DF, 0x1803C5DF
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79AC05CC
+.long 0x79BE05E2
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC1000CC, 0x1803AC1E
+.long 0xCC1000E2, 0x1803BE1E
+.long 0xCC1100D6, 0x180399D6
+.long 0xCC1100DF, 0x1803C5DF
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0x80C20E42
+.long 0x85CC4C4A
+.long 0x877D0C81
+.long 0x8250800C
+.long 0xBF09504F
+.long 0x854E4F50
+.long 0x85C44846
+.long 0xBF06804F
+.long 0x85D44C48
+.long 0x80CF4E4F
+.long 0x80D04E50
+.long 0x80CE814E
+.long 0xBF8F0003
+.long 0xCC0E50D6, 0x0DF40B81
+.long 0x7EFA0280
+.long 0xCC0E50CC, 0x0E140B89
+.long 0x7F0A0280
+.long 0xCC0E50DF, 0x0EF40BC1
+.long 0x7F7A0280
+.long 0xCC0E50E2, 0x0F140BC9
+.long 0x7F8A0280
+.long 0xCC0E58D6, 0x17580B81
+.long 0x7F020280
+.long 0xCC0E58CC, 0x17300B89
+.long 0x7F120280
+.long 0xCC0E58DF, 0x177C0BC1
+.long 0x7F820280
+.long 0xCC0E58E2, 0x17880BC9
+.long 0x7F920280
+.long 0xBFA1000F
+.long 0xD8D4E010, 0xD60000D6
+.long 0xD8D4E010, 0xCC0000CC
+.long 0xD8D4E010, 0xD70000D7
+.long 0xD8D4E010, 0xDA0000DA
+.long 0xD8D4E010, 0xD00000D0
+.long 0xD8D4E010, 0xDB0000DB
+.long 0xD8D4E010, 0xDE0000DE
+.long 0xD8D4E010, 0xD40000D4
+.long 0xD8D4E010, 0xDF0000DF
+.long 0xD8D4E010, 0xE20000E2
+.long 0xD8D4E010, 0xD80000D8
+.long 0xD8D4E010, 0xE30000E3
+.long 0xD8D4E010, 0xE60000E6
+.long 0xD8D4E010, 0xDC0000DC
+.long 0xD8D4E010, 0xE70000E7
+.long 0xD8D4E010, 0xEA0000EA
+.long 0x35C18881
+.long 0x35C98894
+.long 0xD70F62E0, 0x0003C1E0
+.long 0xD70F5EE0, 0x0003C1E0
+.long 0x8028621A
+.long 0x8229631B
+.long 0xD70F60E0, 0x0003C1E0
+.long 0x97AC2814
+.long 0x822D2980
+.long 0x97B02C14
+.long 0x82312D80
+.long 0x97B43014
+.long 0x82353180
+.long 0xBF8F0002
+.long 0xBEDA3B5E
+.long 0xBEDC3B60
+.long 0xBEDE3B5F
+.long 0xBEE03B61
+.long 0xBED6105A
+.long 0xBED7105C
+.long 0xD76500E8, 0x0001005A
+.long 0xD76500EB, 0x0001005C
+.long 0xD76500EC, 0x0000AC5E
+.long 0xD76500EE, 0x0000AE60
+.long 0xD76600E8, 0x0003D05B
+.long 0xD76600EB, 0x0003D65D
+.long 0xD76600EC, 0x0003D85F
+.long 0xD76600EE, 0x0003DC61
+.long 0x2DD1D081
+.long 0x2DD7D681
+.long 0x2DD9D881
+.long 0x2DDDDC81
+.long 0xD54200B4, 0x06702DE8
+.long 0xD54200BC, 0x06802DEC
+.long 0xD54200B4, 0x06D02FEB
+.long 0xD54200BC, 0x06F02FEE
+.long 0xD70F6AB8, 0x00002BB4
+.long 0xD70F6AC0, 0x00002BBC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B4, 0x01A983B4
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100B8, 0x01A983B8
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100BC, 0x01A983BC
+.long 0xD70F6AE4, 0x0003C9E4
+.long 0xD50100C0, 0x01A983C0
+.long 0xBF8CC07F
+.long 0x79AC06FA, 0xFF00B1CC
+.long 0x79BE06FA, 0xFF00B1E2
+.long 0x79AC05CC
+.long 0x79BE05E2
+.long 0xCC0F00D6, 0x1803AC3D
+.long 0xCC0F00DF, 0x1803BE3D
+.long 0xCC1000D6, 0x1003ACFF, 0xBDC5BDC5
+.long 0xCC1000DF, 0x1003BEFF, 0xBDC5BDC5
+.long 0x7FACB0F9, 0x060414D6
+.long 0x7FBEB0F9, 0x060414DF
+.long 0x7FACB0F9, 0x060515D6
+.long 0x7FBEB0F9, 0x060515DF
+.long 0xCC0F00D6, 0x1003ACFF, 0x3C003C00
+.long 0xCC0F00DF, 0x1003BEFF, 0x3C003C00
+.long 0x7FACA8F9, 0x060414D6
+.long 0x7FBEA8F9, 0x060414DF
+.long 0x7FACA8F9, 0x060515D6
+.long 0x7FBEA8F9, 0x060515DF
+.long 0xE0681000, 0x800AD6B4
+.long 0xE06C1000, 0x800AD6B8
+.long 0xE0681000, 0x800ADFBC
+.long 0xE06C1000, 0x800ADFC0
+.long 0x807CFF0A, 0x0000C438
+.long 0xDAC40000, 0xC4000000
+.long 0x808AFF0A, 0x00000100
+.long 0x850A0AFF, 0x00001500
+.long 0xBF8F0000
+.long 0xBF800000
+.long 0xBE802054
+.long 0xBF82017C
+.long 0xBF820001
+.long 0xBF82D898
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
 .long 0x00000000
 .long 0x00000008
 .long 0x00000010
@@ -7731,117 +6509,117 @@ s_nop 0
 .long 0x00000070
 .long 0x00000078
 .long 0x00000004
-.long 0x0000000c
+.long 0x0000000C
 .long 0x00000014
-.long 0x0000001c
+.long 0x0000001C
 .long 0x00000024
-.long 0x0000002c
+.long 0x0000002C
 .long 0x00000034
-.long 0x0000003c
+.long 0x0000003C
 .long 0x00000044
-.long 0x0000004c
+.long 0x0000004C
 .long 0x00000054
-.long 0x0000005c
+.long 0x0000005C
 .long 0x00000064
-.long 0x0000006c
+.long 0x0000006C
 .long 0x00000074
-.long 0x0000007c
+.long 0x0000007C
 .long 0x00000080
 .long 0x00000088
 .long 0x00000090
 .long 0x00000098
-.long 0x000000a0
-.long 0x000000a8
-.long 0x000000b0
-.long 0x000000b8
-.long 0x000000c0
-.long 0x000000c8
-.long 0x000000d0
-.long 0x000000d8
-.long 0x000000e0
-.long 0x000000e8
-.long 0x000000f0
-.long 0x000000f8
+.long 0x000000A0
+.long 0x000000A8
+.long 0x000000B0
+.long 0x000000B8
+.long 0x000000C0
+.long 0x000000C8
+.long 0x000000D0
+.long 0x000000D8
+.long 0x000000E0
+.long 0x000000E8
+.long 0x000000F0
+.long 0x000000F8
 .long 0x00000084
-.long 0x0000008c
+.long 0x0000008C
 .long 0x00000094
-.long 0x0000009c
-.long 0x000000a4
-.long 0x000000ac
-.long 0x000000b4
-.long 0x000000bc
-.long 0x000000c4
-.long 0x000000cc
-.long 0x000000d4
-.long 0x000000dc
-.long 0x000000e4
-.long 0x000000ec
-.long 0x000000f4
-.long 0x000000fc
-.long 0x000000a0
+.long 0x0000009C
+.long 0x000000A4
+.long 0x000000AC
+.long 0x000000B4
+.long 0x000000BC
+.long 0x000000C4
+.long 0x000000CC
+.long 0x000000D4
+.long 0x000000DC
+.long 0x000000E4
+.long 0x000000EC
+.long 0x000000F4
+.long 0x000000FC
+.long 0x000000A0
 .long 0x00000080
-.long 0x000000b0
+.long 0x000000B0
 .long 0x00000090
-.long 0x000000a8
+.long 0x000000A8
 .long 0x00000088
-.long 0x000000b8
+.long 0x000000B8
 .long 0x00000098
-.long 0x000000e0
-.long 0x000000c0
-.long 0x000000f0
-.long 0x000000d0
-.long 0x000000e8
-.long 0x000000c8
-.long 0x000000f8
-.long 0x000000d8
-.long 0x000001a0
+.long 0x000000E0
+.long 0x000000C0
+.long 0x000000F0
+.long 0x000000D0
+.long 0x000000E8
+.long 0x000000C8
+.long 0x000000F8
+.long 0x000000D8
+.long 0x000001A0
 .long 0x00000180
-.long 0x000001b0
+.long 0x000001B0
 .long 0x00000190
-.long 0x000001a8
+.long 0x000001A8
 .long 0x00000188
-.long 0x000001b8
+.long 0x000001B8
 .long 0x00000198
-.long 0x000001e0
-.long 0x000001c0
-.long 0x000001f0
-.long 0x000001d0
-.long 0x000001e8
-.long 0x000001c8
-.long 0x000001f8
-.long 0x000001d8
-.long 0x000002a0
+.long 0x000001E0
+.long 0x000001C0
+.long 0x000001F0
+.long 0x000001D0
+.long 0x000001E8
+.long 0x000001C8
+.long 0x000001F8
+.long 0x000001D8
+.long 0x000002A0
 .long 0x00000280
-.long 0x000002b0
+.long 0x000002B0
 .long 0x00000290
-.long 0x000002a8
+.long 0x000002A8
 .long 0x00000288
-.long 0x000002b8
+.long 0x000002B8
 .long 0x00000298
-.long 0x000002e0
-.long 0x000002c0
-.long 0x000002f0
-.long 0x000002d0
-.long 0x000002e8
-.long 0x000002c8
-.long 0x000002f8
-.long 0x000002d8
-.long 0x000003a0
+.long 0x000002E0
+.long 0x000002C0
+.long 0x000002F0
+.long 0x000002D0
+.long 0x000002E8
+.long 0x000002C8
+.long 0x000002F8
+.long 0x000002D8
+.long 0x000003A0
 .long 0x00000380
-.long 0x000003b0
+.long 0x000003B0
 .long 0x00000390
-.long 0x000003a8
+.long 0x000003A8
 .long 0x00000388
-.long 0x000003b8
+.long 0x000003B8
 .long 0x00000398
-.long 0x000003e0
-.long 0x000003c0
-.long 0x000003f0
-.long 0x000003d0
-.long 0x000003e8
-.long 0x000003c8
-.long 0x000003f8
-.long 0x000003d8
+.long 0x000003E0
+.long 0x000003C0
+.long 0x000003F0
+.long 0x000003D0
+.long 0x000003E8
+.long 0x000003C8
+.long 0x000003F8
+.long 0x000003D8
 .long 0x00000000
 .long 0x00000020
 .long 0x00000010
@@ -7907,89 +6685,89 @@ s_nop 0
 .long 0x00000358
 .long 0x00000378
 .long 0x00000000
-.long 0x000000a0
-.long 0x000000e0
+.long 0x000000A0
+.long 0x000000E0
 .long 0x00000040
 .long 0x00000008
-.long 0x000000a8
-.long 0x000000e8
+.long 0x000000A8
+.long 0x000000E8
 .long 0x00000048
 .long 0x00000010
-.long 0x000000b0
-.long 0x000000f0
+.long 0x000000B0
+.long 0x000000F0
 .long 0x00000050
 .long 0x00000018
-.long 0x000000b8
-.long 0x000000f8
+.long 0x000000B8
+.long 0x000000F8
 .long 0x00000058
 .long 0x00000020
 .long 0x00000080
-.long 0x000000c0
+.long 0x000000C0
 .long 0x00000060
 .long 0x00000028
 .long 0x00000088
-.long 0x000000c8
+.long 0x000000C8
 .long 0x00000068
 .long 0x00000030
 .long 0x00000090
-.long 0x000000d0
+.long 0x000000D0
 .long 0x00000070
 .long 0x00000038
 .long 0x00000098
-.long 0x000000d8
+.long 0x000000D8
 .long 0x00000078
 .long 0x00000100
-.long 0x000001a0
-.long 0x000001e0
+.long 0x000001A0
+.long 0x000001E0
 .long 0x00000140
 .long 0x00000108
-.long 0x000001a8
-.long 0x000001e8
+.long 0x000001A8
+.long 0x000001E8
 .long 0x00000148
 .long 0x00000110
-.long 0x000001b0
-.long 0x000001f0
+.long 0x000001B0
+.long 0x000001F0
 .long 0x00000150
 .long 0x00000118
-.long 0x000001b8
-.long 0x000001f8
+.long 0x000001B8
+.long 0x000001F8
 .long 0x00000158
 .long 0x00000120
 .long 0x00000180
-.long 0x000001c0
+.long 0x000001C0
 .long 0x00000160
 .long 0x00000128
 .long 0x00000188
-.long 0x000001c8
+.long 0x000001C8
 .long 0x00000168
 .long 0x00000130
 .long 0x00000190
-.long 0x000001d0
+.long 0x000001D0
 .long 0x00000170
 .long 0x00000138
 .long 0x00000198
-.long 0x000001d8
+.long 0x000001D8
 .long 0x00000178
-v_or_b32_e32 v0, s0, v28
-v_lshlrev_b32_e32 v0, s0, v26
-s_cmpk_le_i32 s0, 0xb400
-v_or_b32_e32 v0, s0, v28
-v_xnor_b32_e32 v0, s0, v30
-v_or_b32_e32 v0, s0, v28
-s_mulk_i32 s0, 0xb800
-v_xnor_b32_e32 v0, s0, v30
+.long 0x38003800
+.long 0x34003400
+.long 0xB400B400
+.long 0x38003800
+.long 0x3C003C00
+.long 0x38003800
+.long 0xB800B800
+.long 0x3C003C00
 .long 0x00000000
-v_xnor_b32_e32 v0, s0, v30
-s_waitcnt_vmcnt s0, 0xbc00
+.long 0x3C003C00
+.long 0xBC00BC00
 .long 0x00000000
-v_xnor_b32_e32 v0, s0, v30
-v_xnor_b32_e32 v0, s0, v30
-v_xnor_b32_e32 v0, s0, v30
-s_waitcnt_vmcnt s0, 0xbc00
-s_waitcnt_vmcnt s0, 0xbc00
-v_xnor_b32_e32 v0, s0, v30
-s_waitcnt_vmcnt s0, 0xbc00
-s_waitcnt_vmcnt s0, 0xbc00
+.long 0x3C003C00
+.long 0x3C003C00
+.long 0x3C003C00
+.long 0xBC00BC00
+.long 0xBC00BC00
+.long 0x3C003C00
+.long 0xBC00BC00
+.long 0xBC00BC00
 .long 0x00000000
 .long 0x00000004
 .long 0x00000010
@@ -7999,13 +6777,13 @@ s_waitcnt_vmcnt s0, 0xbc00
 .long 0x00000020
 .long 0x00000024
 .long 0x00000008
-.long 0x0000000c
+.long 0x0000000C
 .long 0x00000018
-.long 0x0000001c
+.long 0x0000001C
 .long 0x00000038
-.long 0x0000003c
+.long 0x0000003C
 .long 0x00000028
-.long 0x0000002c
+.long 0x0000002C
 .long 0x00001040
 .long 0x00001044
 .long 0x00001050
@@ -8015,13 +6793,13 @@ s_waitcnt_vmcnt s0, 0xbc00
 .long 0x00001060
 .long 0x00001064
 .long 0x00001048
-.long 0x0000104c
+.long 0x0000104C
 .long 0x00001058
-.long 0x0000105c
+.long 0x0000105C
 .long 0x00001078
-.long 0x0000107c
+.long 0x0000107C
 .long 0x00001068
-.long 0x0000106c
+.long 0x0000106C
 .long 0x00000040
 .long 0x00000044
 .long 0x00000050
@@ -8031,155 +6809,155 @@ s_waitcnt_vmcnt s0, 0xbc00
 .long 0x00000060
 .long 0x00000064
 .long 0x00000048
-.long 0x0000004c
+.long 0x0000004C
 .long 0x00000058
-.long 0x0000005c
+.long 0x0000005C
 .long 0x00000078
-.long 0x0000007c
+.long 0x0000007C
 .long 0x00000068
-.long 0x0000006c
+.long 0x0000006C
 .long 0x00001080
 .long 0x00001084
 .long 0x00001090
 .long 0x00001094
-.long 0x000010b0
-.long 0x000010b4
-.long 0x000010a0
-.long 0x000010a4
+.long 0x000010B0
+.long 0x000010B4
+.long 0x000010A0
+.long 0x000010A4
 .long 0x00001088
-.long 0x0000108c
+.long 0x0000108C
 .long 0x00001098
-.long 0x0000109c
-.long 0x000010b8
-.long 0x000010bc
-.long 0x000010a8
-.long 0x000010ac
-s_endpgm
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_nop 0
-s_code_end
-s_code_end
-s_code_end
-s_code_end
-s_code_end
+.long 0x0000109C
+.long 0x000010B8
+.long 0x000010BC
+.long 0x000010A8
+.long 0x000010AC
+.long 0xBF810000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF800000
+.long 0xBF9F0000
+.long 0xBF9F0000
+.long 0xBF9F0000
+.long 0xBF9F0000
+.long 0xBF9F0000
