@@ -620,7 +620,7 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
 
     ConvSolution solution;
 
-    solution.workspce_sz = workspace_req;
+    solution.workspace_sz = workspace_req;
     solution.construction_params.push_back(kernel);
 
     solution.invoker_factory = [=](std::vector<Kernel> kernels) {
@@ -634,7 +634,7 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
             {
                 const auto& invoke_params = primitive_params.CastTo<conv::DataInvokeParams>();
                 workspace                 = invoke_params.workSpace;
-                workspaceSize             = invoke_params.workSpaceSize;
+                workspace_size            = invoke_params.workSpaceSize;
 
                 const auto& tensors = invoke_params.tensors;
                 in                  = tensors.in;
@@ -645,7 +645,7 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
             {
                 const auto& invoke_params = primitive_params.CastTo<conv::WrWInvokeParams>();
                 workspace                 = invoke_params.workSpace;
-                workspaceSize             = invoke_params.workSpaceSize;
+                workspace_size            = invoke_params.workSpaceSize;
 
                 const auto& tensors = invoke_params.tensors;
                 in                  = tensors.x;
@@ -653,9 +653,9 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
                 out                 = tensors.dw;
             }
 
-            if((workspace == nullptr && workspace_req > 0) || workspaceSize < workspace_req)
+            if((workspace == nullptr && workspace_req > 0) || workspace_size < workspace_req)
                 MIOPEN_THROW("Not enough workspace for Winograd Ultra (" +
-                             std::to_string(workspaceSize) + " provided, " +
+                             std::to_string(workspace_size) + " provided, " +
                              std::to_string(workspace_req) + " required)");
 
             CopyDataToBuffer(params.GetStream(), control_buf, workspace);
