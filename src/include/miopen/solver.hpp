@@ -1776,6 +1776,8 @@ struct ConvBinWinogradUltraRxSf2x3 : ConvSolver
 
     bool IsApplicable(const ConvolutionContext& params) const override;
     bool IsDynamic() const override { return true; }
+    size_t GetWorkspaceSize(const ConvolutionContext& params) const override;
+    bool MayNeedWorkspace() const override { return true; }
     ConvSolution GetSolution(const ConvolutionContext& params) const;
 };
 

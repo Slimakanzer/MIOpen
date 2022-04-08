@@ -39,7 +39,6 @@
 #include <boost/any.hpp>
 
 #include <tuple>
-#include <sstream>
 
 MIOPEN_DECLARE_ENV_VAR(MIOPEN_DEBUG_AMD_WINOGRAD_ULTRA_RXS_F2X3)
 
@@ -354,37 +353,6 @@ inline bool IsShaderContraintsMet(const int R,
 }
 #endif
 
-template <typename T>
-void* CopyDataToSymbol(const Handle& handle,
-                       const Kernel& kernel,
-                       const std::vector<T> data,
-                       const std::string& name)
-{
-#if MIOPEN_BACKEND_HIP
-    const auto module    = kernel.program.GetModule();
-    const auto data_size = data.size() * sizeof(T);
-
-    size_t dev_buf_sz;
-    hipDeviceptr_t dev_buf_ptr;
-    auto status = hipModuleGetGlobal(&dev_buf_ptr, &dev_buf_sz, module, name.c_str());
-    if(status != hipSuccess)
-        MIOPEN_THROW_HIP_STATUS(status, "Failed hip to get control_buf info");
-
-    if(dev_buf_sz < data_size)
-        MIOPEN_THROW("Buffer size is than required");
-
-    handle.Copy(static_cast<const void*>(data.data()), dev_buf_ptr, data_size);
-
-    return static_cast<void*>(dev_buf_ptr);
-#else
-    std::ignore = handle;
-    std::ignore = kernel;
-    std::ignore = data;
-    std::ignore = name;
-    return nullptr;
-#endif
-}
-
 } // namespace
 
 bool ConvBinWinogradUltraRxSf2x3::IsApplicable(const ConvolutionContext& params) const
@@ -454,6 +422,19 @@ bool ConvBinWinogradUltraRxSf2x3::IsApplicable(const ConvolutionContext& params)
     std::ignore = params;
     return false;
 #endif
+}
+
+size_t ConvBinWinogradUltraRxSf2x3::GetWorkspaceSize(const ConvolutionContext& params) const
+{
+    constexpr size_t control_buf_type_size = 4;
+
+    const auto desc = UnifiedDescriptionConv2d(params.conv_problem);
+    const int N     = desc.N;
+    const int out_H = desc.out_h;
+    const int out_W = desc.out_w;
+
+    return control_buf_type_size * group_size *
+           ((N * out_H * out_W / (o_tile_step_H * o_tile_step_W) + group_size - 1) / group_size);
 }
 
 ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& params) const
@@ -573,7 +554,7 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
     const int o_step_1_pitch = o_tile_step_H * o_H_pitch - tiles_n_row * o_tile_step_W * o_W_pitch;
     const int o_step_2_pitch = o_N_pitch - tiles_n_column * o_tile_step_H * o_H_pitch;
 
-    std::vector<uint32_t> gpu_control;
+    std::vector<uint32_t> control_buf;
     WU_control_make_3x3(N,
                         H,
                         W,
@@ -587,12 +568,12 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
                         o_N_pitch,
                         o_H_pitch,
                         o_W_pitch,
-                        gpu_control,
+                        control_buf,
                         n_groups,
                         intl_factor);
 
-    const unsigned n_works      = gpu_control.size() / 64;
-    const size_t control_buf_sz = gpu_control.size() * sizeof(decltype(gpu_control)::value_type);
+    const unsigned n_works      = control_buf.size() / 64;
+    const size_t control_buf_sz = control_buf.size() * sizeof(decltype(control_buf)::value_type);
 
     const size_t wg_size = 256;
 
@@ -610,37 +591,11 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
     std::string kernel_file    = "Conv_Winograd_Ultra_v1_1_3";
     std::string kernel_postfix = "_fp16_pk_stride1";
 
-    const char sep = '_';
-    std::stringstream ss;
-
-    // clang-format off
-    ss << kernel_name << kernel_postfix << sep 
-       << N     << 'x' << H << 'x' << W << sep 
-       << out_H << 'x' << out_W << sep
-       << pad_H << 'x' << pad_W << sep 
-       << n_groups  << sep 
-       << intl_factor;
-    // clang-format on
-
-    kernel.kernel_name = ss.str();
+    kernel.kernel_name = kernel_name + kernel_postfix;
     kernel.kernel_file = kernel_file + kernel_postfix + ".s";
 
     KernelBuildParameters options{
         {"ROCM_METADATA_VERSION", 5},
-        {"control_buf_sz", control_buf_sz},
-
-        // Control buffer is part of kernel and depends on the following parameters.
-        // The following unused compile options ensure the uniqueness of the control buffer
-        // and the correct program caching.
-        {"N", N},
-        {"H", H},
-        {"W", W},
-        {"out_H", out_H},
-        {"out_W", out_W},
-        {"pad_H", pad_H},
-        {"pad_W", pad_W},
-        {"n_groups", n_groups},
-        {"intl_factor", intl_factor},
         {kbp::Option{}, "mcumode"},
         {kbp::Option{}, "mwavefrontsize64"},
     };
@@ -648,11 +603,22 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
 
     ConvSolution solution;
 
+    const auto workspace_req = GetWorkspaceSize(params);
+    solution.workspce_sz     = workspace_req;
+
     solution.construction_params.push_back(kernel);
     solution.invoker_factory = [=](std::vector<Kernel> kernels) {
-        const auto& k              = kernels.front();
-        const auto& h              = params.GetStream();
-        const auto control_buf_ptr = CopyDataToSymbol(h, k, gpu_control, "control_buf");
+        const auto& k = kernels.front();
+        const auto& h = params.GetStream();
+
+        const auto& workspace    = params.workSpace;
+        const auto workspaceSize = params.workSpaceSize;
+        if((workspace == nullptr && workspace_req > 0) || workspaceSize < workspace_req)
+            MIOPEN_THROW("Not enough workspace for Winograd Ultra (" +
+                         std::to_string(workspaceSize) + " provided, " +
+                         std::to_string(workspace_req) + " required)");
+
+        h.Copy(static_cast<const void*>(control_buf.data()), workspace, control_buf_sz);
 
         return [=](const Handle& handle, const AnyInvokeParams& primitive_params) {
             const auto kern = handle.Run(kernels.front());
@@ -689,7 +655,7 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
                  o_step_2_pitch,
                  in,
                  out,
-                 control_buf_ptr,
+                 workspace,
                  wei,
                  reserved_ptr, // Unused bias_addr.
                  relu_alpha,
