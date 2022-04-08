@@ -199,11 +199,11 @@ METADATA_WRAPPER total_sgpr_count,.amdgcn.next_free_vgpr,workgroup_size_x, <\ker
 .endm
 
 .macro KERNEL_PROLOG kernel_name_postfix
-	PROLOG_KERNEL_DESCRIPTOR_WRAPPER %.amdgcn.gfx_generation_number, \kernel_name_postfix, N, H, W, out_H, out_W, pad_H, pad_W, n_groups, intl_factor
+	PROLOG_KERNEL_DESCRIPTOR_WRAPPER %.amdgcn.gfx_generation_number, \kernel_name_postfix, %N, %H, %W, %out_H, %out_W, %pad_H, %pad_W, %n_groups, %intl_factor
 .endm
 
 .macro KERNEL_EPILOG kernel_name_postfix
-	EPILOG_KERNEL_DESCRIPTOR_WRAPPER %.amdgcn.gfx_generation_number, \kernel_name_postfix, N, H, W, out_H, out_W, pad_H, pad_W, n_groups, intl_factor
+	EPILOG_KERNEL_DESCRIPTOR_WRAPPER %.amdgcn.gfx_generation_number, \kernel_name_postfix, %N, %H, %W, %out_H, %out_W, %pad_H, %pad_W, %n_groups, %intl_factor
 .endm
 
 .if (.amdgcn.gfx_generation_number != 10)
