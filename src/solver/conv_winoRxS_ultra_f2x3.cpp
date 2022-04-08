@@ -574,6 +574,9 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
 
     const unsigned n_works      = control_buf.size() / 64;
     const size_t control_buf_sz = control_buf.size() * sizeof(decltype(control_buf)::value_type);
+    const size_t workspace_req  = GetWorkspaceSize(params);
+
+    assert(workspace_req == control_buf_sz);
 
     const size_t wg_size = 256;
 
@@ -603,10 +606,9 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
 
     ConvSolution solution;
 
-    const auto workspace_req = GetWorkspaceSize(params);
-    solution.workspce_sz     = workspace_req;
-
+    solution.workspce_sz = workspace_req;
     solution.construction_params.push_back(kernel);
+
     solution.invoker_factory = [=](std::vector<Kernel> kernels) {
         const auto& k = kernels.front();
         const auto& h = params.GetStream();
