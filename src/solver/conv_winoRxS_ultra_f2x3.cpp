@@ -353,6 +353,20 @@ inline bool IsShaderContraintsMet(const int R,
 }
 #endif
 
+template <typename T>
+void CopyDataToBuffer(const Handle& handle, const std::vector<T> data, void* buf_ptr)
+{
+#if MIOPEN_BACKEND_HIP
+    const auto data_size = data.size() * sizeof(T);
+    handle.Copy(static_cast<const void*>(data.data()), buf_ptr, data_size);
+#else
+    std::ignore = handle;
+    std::ignore = data;
+    std::ignore = name;
+    return nullptr;
+#endif
+}
+
 } // namespace
 
 bool ConvBinWinogradUltraRxSf2x3::IsApplicable(const ConvolutionContext& params) const
@@ -610,38 +624,41 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
     solution.construction_params.push_back(kernel);
 
     solution.invoker_factory = [=](std::vector<Kernel> kernels) {
-        const auto& k = kernels.front();
-        const auto& h = params.GetStream();
-
-        const auto& workspace    = params.workSpace;
-        const auto workspaceSize = params.workSpaceSize;
-        if((workspace == nullptr && workspace_req > 0) || workspaceSize < workspace_req)
-            MIOPEN_THROW("Not enough workspace for Winograd Ultra (" +
-                         std::to_string(workspaceSize) + " provided, " +
-                         std::to_string(workspace_req) + " required)");
-
-        h.Copy(static_cast<const void*>(control_buf.data()), workspace, control_buf_sz);
-
         return [=](const Handle& handle, const AnyInvokeParams& primitive_params) {
             const auto kern = handle.Run(kernels.front());
             ConstData_t in, wei, out;
+            Data_t workspace;
+            size_t workspace_size;
 
             if(!params.direction.IsBackwardWrW())
             {
                 const auto& invoke_params = primitive_params.CastTo<conv::DataInvokeParams>();
-                const auto& tensors       = invoke_params.tensors;
-                in                        = tensors.in;
-                wei                       = tensors.w;
-                out                       = tensors.out;
+                workspace                 = invoke_params.workSpace;
+                workspaceSize             = invoke_params.workSpaceSize;
+
+                const auto& tensors = invoke_params.tensors;
+                in                  = tensors.in;
+                wei                 = tensors.w;
+                out                 = tensors.out;
             }
             else
             {
                 const auto& invoke_params = primitive_params.CastTo<conv::WrWInvokeParams>();
-                const auto& tensors       = invoke_params.tensors;
-                in                        = tensors.x;
-                wei                       = tensors.dy;
-                out                       = tensors.dw;
+                workspace                 = invoke_params.workSpace;
+                workspaceSize             = invoke_params.workSpaceSize;
+
+                const auto& tensors = invoke_params.tensors;
+                in                  = tensors.x;
+                wei                 = tensors.dy;
+                out                 = tensors.dw;
             }
+
+            if((workspace == nullptr && workspace_req > 0) || workspaceSize < workspace_req)
+                MIOPEN_THROW("Not enough workspace for Winograd Ultra (" +
+                             std::to_string(workspaceSize) + " provided, " +
+                             std::to_string(workspace_req) + " required)");
+
+            CopyDataToBuffer(params.GetStream(), control_buf, workspace);
 
             kern(C,
                  K,
