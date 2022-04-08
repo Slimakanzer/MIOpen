@@ -586,11 +586,10 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
                         n_groups,
                         intl_factor);
 
-    const unsigned n_works      = control_buf.size() / 64;
-    const size_t control_buf_sz = control_buf.size() * sizeof(decltype(control_buf)::value_type);
-    const size_t workspace_req  = GetWorkspaceSize(params);
+    const unsigned n_works     = control_buf.size() / 64;
+    const size_t workspace_req = GetWorkspaceSize(params);
 
-    assert(workspace_req == control_buf_sz);
+    assert(workspace_req == control_buf.size() * sizeof(decltype(control_buf)::value_type));
 
     const size_t wg_size = 256;
 
