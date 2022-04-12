@@ -39,6 +39,7 @@
 #include <boost/any.hpp>
 
 #include <tuple>
+#include <sstream>
 
 MIOPEN_DECLARE_ENV_VAR(MIOPEN_DEBUG_AMD_WINOGRAD_ULTRA_RXS_F2X3)
 
@@ -609,7 +610,19 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
     std::string kernel_file    = "Conv_Winograd_Ultra_v1_1_3";
     std::string kernel_postfix = "_fp16_pk_stride1";
 
-    kernel.kernel_name = kernel_name + kernel_postfix;
+    const char sep = '_';
+    std::stringstream ss;
+
+    // clang-format off
+    ss << kernel_name << kernel_postfix << sep 
+       << N     << 'x' << H << 'x' << W << sep 
+       << out_H << 'x' << out_W << sep
+       << pad_H << 'x' << pad_W << sep 
+       << n_groups  << sep 
+       << intl_factor;
+    // clang-format on
+
+    kernel.kernel_name = ss.str();
     kernel.kernel_file = kernel_file + kernel_postfix + ".s";
 
     KernelBuildParameters options{
@@ -619,15 +632,15 @@ ConvSolution ConvBinWinogradUltraRxSf2x3::GetSolution(const ConvolutionContext& 
         // Control buffer is part of kernel and depends on the following parameters.
         // The following unused compile options ensure the uniqueness of the control buffer
         // and the correct program caching.
-        {"hash_N", N},
-        {"hash_H", H},
-        {"hash_W", W},
-        {"hash_out_H", out_H},
-        {"hash_out_W", out_W},
-        {"hash_pad_H", pad_H},
-        {"hash_pad_W", pad_W},
-        {"hash_n_groups", n_groups},
-        {"hash_intl_factor", intl_factor},
+        {"N", N},
+        {"H", H},
+        {"W", W},
+        {"out_H", out_H},
+        {"out_W", out_W},
+        {"pad_H", pad_H},
+        {"pad_W", pad_W},
+        {"n_groups", n_groups},
+        {"intl_factor", intl_factor},
         {kbp::Option{}, "mcumode"},
         {kbp::Option{}, "mwavefrontsize64"},
     };
