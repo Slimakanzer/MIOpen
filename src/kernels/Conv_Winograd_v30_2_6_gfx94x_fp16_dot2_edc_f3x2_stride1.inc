@@ -26,7 +26,7 @@
 
 .macro _buffer_store_short vdata, vidx, srd, idx, mode
 .if FORCE_CACHE_BYPASS_ON_STORE
-    buffer_store_short \vdata, \vidx, \srd, \idx \mode sc0 sc1
+    buffer_store_short \vdata, \vidx, \srd, \idx \mode slc glc
 .else
     buffer_store_short \vdata, \vidx, \srd, \idx \mode
 .endif
@@ -100,7 +100,7 @@ v_subb_co_u32_e32 v117, vcc, 32, v118, vcc
 v_cvt_f32_ubyte0_e32 v118, v119
 v_fma_f32 v120, v120, v116, -1.0
 v_fma_f32 v120, v118, v116, v120
-v_fmaak_f32 v120, v120, v116, 0x9f000000
+v_madak_f32 v120, v120, v116, 0x9f000000
 v_mul_f32_e32 v120, 0x5f800000, v120
 v_mov_b32_e32 v118, 0
 v_cvt_flr_i32_f32_e64 v120, -v120
@@ -293,7 +293,7 @@ v_subb_co_u32_e32 v121, vcc, 32, v122, vcc
 v_cvt_f32_ubyte0_e32 v122, v123
 v_fma_f32 v124, v124, v109, -1.0
 v_fma_f32 v124, v122, v109, v124
-v_fmaak_f32 v124, v124, v109, 0x9f000000
+v_madak_f32 v124, v124, v109, 0x9f000000
 v_mul_f32_e32 v124, 0x5f800000, v124
 v_mov_b32_e32 v122, 0
 v_cvt_flr_i32_f32_e64 v124, -v124
@@ -320,7 +320,7 @@ v_subb_co_u32_e32 v121, vcc, 32, v122, vcc
 v_cvt_f32_ubyte0_e32 v122, v123
 v_fma_f32 v124, v124, v109, -1.0
 v_fma_f32 v124, v122, v109, v124
-v_fmaak_f32 v124, v124, v109, 0x9f000000
+v_madak_f32 v124, v124, v109, 0x9f000000
 v_mul_f32_e32 v124, 0x5f800000, v124
 v_mov_b32_e32 v122, 0
 v_cvt_flr_i32_f32_e64 v124, -v124
@@ -2060,7 +2060,7 @@ v_subb_co_u32_e32 v119, vcc, 32, v120, vcc
 v_cvt_f32_ubyte0_e32 v120, v121
 v_fma_f32 v122, v122, v116, -1.0
 v_fma_f32 v122, v120, v116, v122
-v_fmaak_f32 v122, v122, v116, 0x9f000000
+v_madak_f32 v122, v122, v116, 0x9f000000
 v_mul_f32_e32 v122, 0x5f800000, v122
 v_mov_b32_e32 v120, 0
 v_cvt_flr_i32_f32_e64 v122, -v122
@@ -2086,7 +2086,7 @@ v_subb_co_u32_e32 v119, vcc, 32, v120, vcc
 v_cvt_f32_ubyte0_e32 v120, v121
 v_fma_f32 v122, v122, v117, -1.0
 v_fma_f32 v122, v120, v117, v122
-v_fmaak_f32 v122, v122, v117, 0x9f000000
+v_madak_f32 v122, v122, v117, 0x9f000000
 v_mul_f32_e32 v122, 0x5f800000, v122
 v_mov_b32_e32 v120, 0
 v_cvt_flr_i32_f32_e64 v122, -v122
@@ -2121,7 +2121,7 @@ v_subb_co_u32_e32 v122, vcc, 32, v124, vcc
 v_cvt_f32_ubyte0_e32 v124, v125
 v_fma_f32 v123, v123, v119, -1.0
 v_fma_f32 v123, v124, v119, v123
-v_fmaak_f32 v123, v123, v119, 0x9f000000
+v_madak_f32 v123, v123, v119, 0x9f000000
 v_mul_f32_e32 v123, 0x5f800000, v123
 v_mov_b32_e32 v124, 0
 v_cvt_flr_i32_f32_e64 v123, -v123
@@ -2146,7 +2146,7 @@ v_subb_co_u32_e32 v122, vcc, 32, v124, vcc
 v_cvt_f32_ubyte0_e32 v124, v125
 v_fma_f32 v123, v123, v119, -1.0
 v_fma_f32 v123, v124, v119, v123
-v_fmaak_f32 v123, v123, v119, 0x9f000000
+v_madak_f32 v123, v123, v119, 0x9f000000
 v_mul_f32_e32 v123, 0x5f800000, v123
 v_mov_b32_e32 v124, 0
 v_cvt_flr_i32_f32_e64 v123, -v123
